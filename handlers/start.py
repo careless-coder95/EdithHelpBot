@@ -377,28 +377,23 @@ def register_handlers(app: Client):
     async def fsub_help_callback(client, callback_query):
         try:
             text = (
-                "╔══════════════════╗\n"
-                "   🔗 <b>FORCE-SUBSCRIBE</b>\n"
-                "╚══════════════════╝\n\n"
-                "Jo users required channels join\n"
-                "nahi karte, unka message delete\n"
-                "hota hai aur join links milte hain.\n\n"
-                "📢 <b>Commands:</b>\n\n"
-                "- <b>/addfsub</b> &lt;channel&gt;\n"
-                "  → Channel add karo\n\n"
-                "- <b>/removefsub</b> &lt;channel&gt;\n"
-                "  → Channel remove karo\n\n"
-                "- <b>/fsublist</b>\n"
-                "  → Sabke channels ki list\n\n"
-                "<b>Note:</b>\n"
-                "- Bot ko channel ka admin banana\n"
-                "  padega pehle.\n"
-                "- 30 second baad warn message\n"
-                "  auto-delete ho jaata hai.\n\n"
-                "<b>Example:</b>\n"
-                " /addfsub @MyChannel\n"
-                " /removefsub @MyChannel\n"
+                f"<b>╔══════════════════╗</b>\n"
+                f"<b>   🔗 ғᴏʀᴄᴇ-ꜱᴜʙꜱᴄʀɪʙᴇ</b>\n"
+                f"<b>╚══════════════════╝</b>\n\n"
+                f"<b>❖ ᴜsᴇʀs ᴡʜᴏ ᴅᴏ ɴᴏᴛ ᴊᴏɪɴ ʀᴇǫᴜɪʀᴇᴅ ᴄʜᴀɴɴᴇʟs ᴡɪʟʟ ʜᴀᴠᴇ</b>\n"
+                f"<b>❍ ᴛʜᴇɪʀ ᴍᴇssᴀɢᴇs ᴅᴇʟᴇᴛᴇᴅ ᴀɴᴅ ʀᴇᴄᴇɪᴠᴇ ᴊᴏɪɴ ʟɪɴᴋs.</b>\n\n"
+                f"<b>📢 ᴄᴏᴍᴍᴀɴᴅs:</b>\n\n"
+                f"❍ /addfsub <channel> <b>➻ ᴀᴅᴅ ᴀ ᴄʜᴀɴɴᴇʟ</b>\n\n"
+                f"❍ /removefsub <channel> <b>➻ ʀᴇᴍᴏᴠᴇ ᴀ ᴄʜᴀɴɴᴇʟ</b>\n\n"
+                f"❍ /fsublist <b>➻ ᴠɪᴇᴡ ᴀʟʟ ᴀᴅᴅᴇᴅ ᴄʜᴀɴɴᴇʟs</b>\n\n"
+                f"<b>❖ ɴᴏᴛᴇ:</b>\n"
+                f"<b>➻ ᴛʜᴇ ʙᴏᴛ ᴍᴜsᴛ ʙᴇ ᴀɴ ᴀᴅᴍɪɴ ɪɴ ᴛʜᴇ ᴄʜᴀɴɴᴇʟ.</b>\n"
+                f"<b>➻ ᴡᴀʀɴɪɴɢ ᴍᴇssᴀɢᴇs ᴀʀᴇ ᴀᴜᴛᴏ-ᴅᴇʟᴇᴛᴇᴅ ᴀғᴛᴇʀ 30 sᴇᴄᴏɴᴅs.</b>\n\n"
+                f"<b>❖ ᴇxᴀᴍᴘʟᴇ:</b>\n"
+                f"➻ /addfsub @MyChannel\n"
+                f"➻ /removefsub @MyChannel\n"
             )
+            
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
             await callback_query.message.edit_media(media=media, reply_markup=buttons)
