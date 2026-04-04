@@ -23,20 +23,20 @@ def register_notes_handler(app: Client):
     @app.on_message(filters.group & filters.command("setnote"))
     async def setnote_cmd(client, message: Message):
         if not await is_power(client, message.chat.id, message.from_user.id):
-            return await message.reply_text("❌ Sirf admin hi note set kar sakta hai.")
+            return await message.reply_text("❌ Only admin can set group Notes.")
 
         parts = message.text.split(maxsplit=2)
         if len(parts) < 3:
             return await message.reply_text(
                 "⚙️ Usage: `/setnote <name> <content>`\n\n"
-                "Example: `/setnote rules Yahan koi spam nahi karega!`"
+                "Example: `/setnote rules This will not spam anyone`"
             )
 
         name = parts[1].lower()
         content = parts[2]
 
         await db.set_note(message.chat.id, name, content)
-        await message.reply_text(f"✅ Note `{name}` save ho gaya!\n\nDekho: `#{name}`")
+        await message.reply_text(f"✅ Note `{name}` Saved। \n\nTo see you notes: `#{name}`")
 
 
     # ==========================================================
@@ -46,7 +46,7 @@ def register_notes_handler(app: Client):
     @app.on_message(filters.group & filters.command("delnote"))
     async def delnote_cmd(client, message: Message):
         if not await is_power(client, message.chat.id, message.from_user.id):
-            return await message.reply_text("❌ Sirf admin hi note delete kar sakta hai.")
+            return await message.reply_text("❌ Only admin can delete Their group Notes.")
 
         parts = message.text.split(maxsplit=1)
         if len(parts) < 2:
@@ -56,9 +56,9 @@ def register_notes_handler(app: Client):
         deleted = await db.delete_note(message.chat.id, name)
 
         if deleted:
-            await message.reply_text(f"🗑️ Note `{name}` delete ho gaya.")
+            await message.reply_text(f"🗑️ Note `{name}` deleted!")
         else:
-            await message.reply_text(f"⚠️ `{name}` naam ka koi note nahi mila.")
+            await message.reply_text(f"⚠️ `{name}` There is no note with this name. .")
 
 
     # ==========================================================
@@ -70,7 +70,7 @@ def register_notes_handler(app: Client):
         names = await db.get_all_notes(message.chat.id)
 
         if not names:
-            return await message.reply_text("📭 Is group mein abhi koi note nahi hai.")
+            return await message.reply_text("📭 There are no notes in this group. ")
 
         # Har note ke liye ek button banao jo bot ke private chat mein open ho
         bot_username = (await client.get_me()).username
@@ -102,11 +102,11 @@ def register_notes_handler(app: Client):
         deep_link = f"https://t.me/{bot_username}?start=note_{message.chat.id}_{name}"
 
         buttons = InlineKeyboardMarkup([
-            [InlineKeyboardButton(f"📖 #{name} Dekho", url=deep_link)]
+            [InlineKeyboardButton(f"📖 #{name} Look 👀", url=deep_link)]
         ])
 
         await message.reply_text(
-            f"📝 Note `#{name}` available hai!\nPrivate mein poora padhne ke liye neeche click karo:",
+            f"📝 Note `#{name}` Your notes are available!\n • Click on the button to read your notice",
             reply_markup=buttons
         )
 
@@ -135,7 +135,7 @@ def register_notes_handler(app: Client):
 
         content = await db.get_note(chat_id, name)
         if not content:
-            return await message.reply_text(f"⚠️ Note `#{name}` nahi mila ya delete ho gaya.")
+            return await message.reply_text(f"⚠️ Note `#{name}` not found or deleted ")
 
         await message.reply_text(
             f"╔════════════════════════╗\n"
