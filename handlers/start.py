@@ -291,7 +291,7 @@ def register_handlers(app: Client):
                 f"❍ #note_name <b>➻ ғᴏʀ sᴇᴇ ɴᴏᴛᴇs. (ᴛʜᴇ ɴᴏᴛᴇ ᴠɪᴀ ᴘʀɪᴠᴀᴛᴇ ʟɪɴᴋ)</b>\n\n"
                 f"<b>💡 ᴇxᴀᴍᴘʟᴇ:</b>\n"
                 f"➻ /setnote welcome Don't spam here!\n"
-                f"❍ #welcome ➻ <b>ᴛʜᴇɴ ʏᴏᴜ ɢᴇᴛ ᴀ ʟɪɴᴋ ᴏғ ᴛʜɪs ɴᴏᴛᴇ</b>\n"
+                f"➻ #welcome ➻ <b>ᴛʜᴇɴ ʏᴏᴜ ɢᴇᴛ ᴀ ʟɪɴᴋ ᴏғ ᴛʜɪs ɴᴏᴛᴇ</b>\n"
             )
             
             
@@ -311,26 +311,25 @@ def register_handlers(app: Client):
     async def rules_help_callback(client, callback_query):
         try:
             text = (
-                "╔══════════════════╗\n"
-                "   📜 <b>RULES</b>\n"
-                "╚══════════════════╝\n\n"
-                "🛠️ <b>Commands:</b>\n\n"
-                "- <b>/setrules</b> &lt;text&gt;\n"
-                "  → Group rules set karo\n\n"
-                "- <b>/rules</b>\n"
-                "  → Current rules dikhao\n\n"
-                "- <b>/clearrules</b>\n"
-                "  → Sabke rules hatao\n\n"
-                "🌟 <b>Note:</b>\n"
-                "Jaise bhi likhoge — spaces, newlines,\n"
-                "formatting — waisa hi save hoga.\n"
-                "Kuch bhi auto-change nahi hoga.\n\n"
-                "<b>Example:</b>\n"
-                " /setrules\n"
-                " 1. Spam mat karo\n"
-                " 2. Respect karo sabko\n"
-                " 3. Links share mat karo\n"
+                f"<b>╔══════════════════╗</b>\n"
+                f"<b>   📜 ʀᴜʟᴇs</b>\n"
+                f"<b>╚══════════════════╝</b>\n\n"
+                f"<b>🛠️ ᴄᴏᴍᴍᴀɴᴅs:</b>\n\n"
+                f"➻ /setrules <text>\n"
+                f"➻ <b>→ sᴇᴛ ɢʀᴏᴜᴘ ʀᴜʟᴇs</b>\n\n"
+                f"➻ /rules <b>➻ ᴠɪᴇᴡ ᴄᴜʀʀᴇɴᴛ ʀᴜʟᴇs</b>\n\n"
+                f"- /clearrules <b>➻ ʀᴇᴍᴏᴠᴇ ᴀʟʟ ʀᴜʟᴇs</b>\n\n"
+                f"<b>🌟 ɴᴏᴛᴇ:</b>\n"
+                f"<b>❍ ʏᴏᴜʀ ᴛᴇxᴛ ɪs sᴀᴠᴇᴅ ᴇxᴀᴄᴛʟʏ ᴀs ʏᴏᴜ ᴡʀɪᴛᴇ ɪᴛ.</b>\n"
+                f"<b>❍ sᴘᴀᴄᴇs, ɴᴇᴡʟɪɴᴇs, ᴀɴᴅ ғᴏʀᴍᴀᴛᴛɪɴɢ ᴀʀᴇ ᴘʀᴇsᴇʀᴠᴇᴅ.</b>\n"
+                f"<b>❍ ɴᴏ ᴀᴜᴛᴏᴍᴀᴛɪᴄ ᴄʜᴀɴɢᴇs ᴀʀᴇ ᴍᴀᴅᴇ.</b>\n\n"
+                f"<b>❖ ᴇxᴀᴍᴘʟᴇ:</b>\n"
+                f"➻ /setrules\n"
+                f"<b>1. ᴅᴏ ɴᴏᴛ sᴘᴀᴍ</b>\n"
+                f"<b>2. ʀᴇsᴘᴇᴄᴛ ᴇᴠᴇʀʏᴏɴᴇ</b>\n"
+                f"<b>3. ᴅᴏ ɴᴏᴛ sʜᴀʀᴇ ʟɪɴᴋs</b>\n"
             )
+            
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
             await callback_query.message.edit_media(media=media, reply_markup=buttons)
@@ -347,24 +346,21 @@ def register_handlers(app: Client):
     async def abuse_help_callback(client, callback_query):
         try:
             text = (
-                "╔══════════════════╗\n"
-                "   🤬 <b>Abuse Detection</b>\n"
-                "╚══════════════════╝\n\n"
-                "Gaaliyan dene walo ka message\n"
-                "automatically delete ho jaata hai.\n\n"
-                "🔧 <b>Commands:</b>\n\n"
-                "• <b>/noabuse on</b>  — Detection ON karo ✅\n"
-                "• <b>/noabuse off</b> — Detection OFF karo ❌\n\n"
-                "<b>Kaise kaam karta hai:</b>\n"
-                "- Koi bhi abusive word type kare,\n"
-                "  message turant delete hoga.\n"
-                "- User ko 5 second ki warning\n"
-                "  message milti hai.\n\n"
-                "<b>Note:</b>\n"
-                "- Admins par apply nahi hota.\n"
-                "- Bot ko Delete Messages permission\n"
-                "  chahiye.\n"
+                f"<b>╔══════════════════╗</b>\n"
+                f"<b>    ᴀʙᴜsᴇ ᴅᴇᴛᴇᴄᴛɪᴏɴ</b>\n"
+                f"<b>╚══════════════════╝</b>\n\n"
+                f"<b>❖ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇs ᴍᴇssᴀɢᴇs ᴄᴏɴᴛᴀɪɴɪɴɢ ᴀʙᴜsɪᴠᴇ ʟᴀɴɢᴜᴀɢᴇ.</b>\n\n"
+                f"<b>🔧 ᴄᴏᴍᴍᴀɴᴅs:</b>\n\n"
+                f"➻ /noabuse on  — <b>ᴇɴᴀʙʟᴇ ᴅᴇᴛᴇᴄᴛɪᴏɴ</b> ✅\n"
+                f"➻ /noabuse off — <b>ᴅɪsᴀʙʟᴇ ᴅᴇᴛᴇᴄᴛɪᴏɴ</b> ❌\n\n"
+                f"<b>❖ ʜᴏᴡ ɪᴛ ᴡᴏʀᴋs:</b>\n"
+                f"<b>➻ ɪғ ᴀ ᴜsᴇʀ sᴇɴᴅs ᴀɴʏ ᴀʙᴜsɪᴠᴇ ᴡᴏʀᴅ, ᴛʜᴇ ᴍᴇssᴀɢᴇ ɪs ɪɴsᴛᴀɴᴛʟʏ ᴅᴇʟᴇᴛᴇᴅ.</b>\n"
+                f"<b>➻ ᴛʜᴇ ᴜsᴇʀ ʀᴇᴄᴇɪᴠᴇs ᴀ 5-sᴇᴄᴏɴᴅ ᴡᴀʀɴɪɴɢ ᴍᴇssᴀɢᴇ.</b>\n\n"
+                f"<b>❖ ɴᴏᴛᴇ:</b>\n"
+                f"<b>➻ ᴀᴅᴍɪɴs ᴀʀᴇ ᴇxᴇᴍᴘᴛᴇᴅ ғʀᴏᴍ ᴛʜɪs ғɪʟᴛᴇʀ.</b>\n"
+                f"<b>➻ ᴛʜᴇ ʙᴏᴛ ᴍᴜsᴛ ʜᴀᴠᴇ 'ᴅᴇʟᴇᴛᴇ ᴍᴇssᴀɢᴇs' ᴘᴇʀᴍɪssɪᴏɴ.</b>\n"
             )
+            
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
             await callback_query.message.edit_media(media=media, reply_markup=buttons)
