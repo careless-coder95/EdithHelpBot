@@ -18,7 +18,7 @@ async def is_power(client, chat_id: int, user_id: int) -> bool:
 
 
 async def user_joined_channel(client, user_id: int, channel: str) -> bool:
-    """Check karo user channel ka member hai ya nahi"""
+    """Check whether the user is a member of the channel or not"""
     try:
         member = await client.get_chat_member(channel, user_id)
         return member.status not in [ChatMemberStatus.BANNED, ChatMemberStatus.LEFT]
@@ -36,7 +36,7 @@ def register_fsub_handler(app: Client):
     @app.on_message(filters.group & filters.command("addfsub"))
     async def addfsub_cmd(client, message: Message):
         if not await is_power(client, message.chat.id, message.from_user.id):
-            return await message.reply_text("❌ Sirf admin hi yeh command use kar sakta hai.")
+            return await message.reply_text("❌ Only group admin can use this command.")
 
         parts = message.text.split(maxsplit=1)
         if len(parts) < 2:
@@ -59,8 +59,8 @@ def register_fsub_handler(app: Client):
 
         await db.add_fsub_channel(message.chat.id, channel_id)
         await message.reply_text(
-            f"✅ **{chat.title}** force-subscribe list mein add ho gaya!\n\n"
-            f"Ab jo user is channel mein nahi hoga, uska message delete hoga."
+            f"✅ **{chat.title}** Added to the force subscribe list!\n\n"
+            f"Now the message of the user who is not in this channel will be deleted.."
         )
 
     # ==========================================================
@@ -70,7 +70,7 @@ def register_fsub_handler(app: Client):
     @app.on_message(filters.group & filters.command("removefsub"))
     async def removefsub_cmd(client, message: Message):
         if not await is_power(client, message.chat.id, message.from_user.id):
-            return await message.reply_text("❌ Sirf admin hi yeh command use kar sakta hai.")
+            return await message.reply_text("❌ Only group admjn can use this Command.")
 
         parts = message.text.split(maxsplit=1)
         if len(parts) < 2:
@@ -87,10 +87,9 @@ def register_fsub_handler(app: Client):
 
         removed = await db.remove_fsub_channel(message.chat.id, channel_id)
         if removed:
-            await message.reply_text(f"🗑️ `{title}` force-subscribe list se hata diya gaya.")
+            await message.reply_text(f"🗑️ `{title}` force-removed from subscribe list.")
         else:
-            await message.reply_text(f"⚠️ `{title}` list mein tha hi nahi.")
-
+            await message.reply_text(f"⚠️ `{title}` force-removed from subscribe list
     # ==========================================================
     # /fsublist — Sab channels dikhao
     # ==========================================================
