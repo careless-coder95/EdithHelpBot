@@ -21,7 +21,7 @@ def register_handlers(app: Client):
     async def send_start_menu(message, user):
         text = f"""
 ✨ ʜᴇʏ {ᴜsᴇʀ}! 👋  
-ɪ’ᴍ ɴᴏᴍᴧᴅ 🤖 — ʏᴏᴜʀ sᴍᴧʀᴛ ɢʀᴏᴜᴘ ɢᴜᴧʀᴅɪᴧɴ.
+ɪ’ᴍ EDITH 🤖 — ʏᴏᴜʀ sᴍᴧʀᴛ ɢʀᴏᴜᴘ ɢᴜᴧʀᴅɪᴧɴ.
 
 ʜɪɢʜʟɪɢʜᴛs:
 ────────────────────────
@@ -146,21 +146,25 @@ Choose a category below to explore commands:
     @app.on_callback_query(filters.regex("^greetings$"))
     async def greetings_callback(client, callback_query):
         text = """
+╔══════════════════╗
+  ⚙ 𝗪𝗘𝗟𝗖𝗢𝗠𝗘 𝗦𝗬𝗦𝗧𝗘𝗠
+╚══════════════════╝
 
-Commands to Manage Welcome Messages:
+🎚️ᴄᴏᴍᴍᴀɴᴅs ᴛᴏ ᴍᴀɴᴀɢᴇ ᴡᴇʟᴄᴏᴍᴇ ᴍᴇssᴀɢᴇs:
 
-- /setwelcome <text> : Set a custom welcome message
-- /welcome on        : Enable welcome messages
-- /welcome off       : Disable welcome messages
+¤ /setwelcome : sᴇᴛ ᴀ ᴄᴜsᴛᴏᴍ ᴡᴇʟᴄᴏᴍᴇ ᴍᴇssᴀɢᴇ ғᴏʀ ʏᴏᴜʀ ɢʀᴏᴜᴘ
+¤ /welcome on : ᴇɴᴀʙʟᴇ ᴛʜᴇ ᴡᴇʟᴄᴏᴍᴇ ᴍᴇssᴀɢᴇs
+¤ /welcome off : ᴅɪsᴀʙʟᴇ ᴛʜᴇ ᴡᴇʟᴄᴏᴍᴇ ᴍᴇssᴀɢᴇs
 
-Supported Placeholders:
-- {username}   : Telegram username
-- {first_name} : User's first name
-- {mention}    : Mention user in message
-- {title}      : Group title
+🎛️ sᴜᴘᴘᴏʀᴛᴇᴅ ᴘʟᴀᴄᴇʜᴏʟᴅᴇʀs:
 
-Example:
- /setwelcome Hello {first_name}! Welcome to {title}!
+¤ {ᴜsᴇʀɴᴀᴍᴇ} : ᴛᴇʟᴇɢʀᴀᴍ ᴜsᴇʀɴᴀᴍᴇ
+¤ {ғɪʀsᴛ_ɴᴀᴍᴇ} : ᴜsᴇʀ's ғɪʀsᴛ ɴᴀᴍᴇ
+¤ {ɪᴅ} : ᴜsᴇʀ ɪᴅ
+¤ {ᴍᴇɴᴛɪᴏɴ} : ᴍᴇɴᴛɪᴏɴ ᴜsᴇʀ ɪɴ ᴍᴇssᴀɢᴇ
+
+🧾 ᴇxᴀᴍᴘʟᴇ:
+¤ /sᴇᴛᴡᴇʟᴄᴏᴍᴇ ʜᴇʟʟᴏ {ғɪʀsᴛ_ɴᴀᴍᴇ}! ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ {ᴛɪᴛʟᴇ}!
 """
         buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
         media = InputMediaPhoto(media=START_IMAGE, caption=text)
