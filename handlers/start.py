@@ -21,10 +21,10 @@ def register_handlers(app: Client):
     async def send_start_menu(message, user):
         text = (
             f"<b><blockquote expandable>\n"
-            f"✨ <b>ʜᴇʏ {user}! 👋</b> ✨\n\n"
-            f"<b>ɪ’ᴍ EDITH 🤖 — ʏᴏᴜʀ sᴍᴧʀᴛ ɢʀᴏᴜᴘ ɢᴜᴧʀᴅɪᴧɴ.</b>\n\n"
+            f"✨ <b>ʜᴇʏ {user}! 👋</b> ✨\n"
+            f"<b>❍ ɪ’ᴍ EDITH 🤖 — ʏᴏᴜʀ sᴍᴧʀᴛ ɢʀᴏᴜᴘ ɢᴜᴧʀᴅɪᴧɴ.</b>\n"
             f"</blockquote></b>"
-            f"<b><blockquote expandable>\n"
+            f"<b><blockquote expandable>"
             f"❖ ʜɪɢʜʟɪɢʜᴛs ❖\n"
             f"➻ sᴍᴧʀᴛ ᴧɴᴛɪ-sᴘᴧᴍ & ʟɪɴᴋ sʜɪᴇʟᴅ ⚡\n"
             f"➻ ᴧᴅᴧᴘᴛɪᴠᴇ ʟᴏᴄᴋ sʏsᴛᴇᴍ 🔒\n"
