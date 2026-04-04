@@ -89,7 +89,7 @@ def register_fsub_handler(app: Client):
         if removed:
             await message.reply_text(f"🗑️ `{title}` force-removed from subscribe list.")
         else:
-            await message.reply_text(f"⚠️ `{title}` force-removed from subscribe list
+            await message.reply_text(f"⚠️ `{title}` It was not in the list.")
     # ==========================================================
     # /fsublist — Sab channels dikhao
     # ==========================================================
@@ -99,7 +99,7 @@ def register_fsub_handler(app: Client):
         channels = await db.get_fsub_channels(message.chat.id)
 
         if not channels:
-            return await message.reply_text("📭 Koi force-subscribe channel add nahi hai.\n`/addfsub @channel` se add karo.")
+            return await message.reply_text("📭 There is no force-subscribe channel add.\nAdd it with `/addfsub @channel`.")
 
         text = "╔══════════════════╗\n   🔗 Force-Subscribe List\n╚══════════════════╝\n\n"
         for i, ch_id in enumerate(channels, 1):
@@ -157,8 +157,8 @@ def register_fsub_handler(app: Client):
                 buttons.append([InlineKeyboardButton(f"📢 Join {title}", url=link)])
 
         text = (
-            f"⛔ {message.from_user.mention}, pehle neeche diye channels join karo!\n\n"
-            f"Join karne ke baad dobara message karo. ✅"
+            f"⛔ {message.from_user.mention}, First join the channels given below!\n\n"
+            f"Message me again after joining.. ✅"
         )
 
         try:
