@@ -35,15 +35,12 @@ def register_handlers(app: Client):
         
         buttons = InlineKeyboardMarkup([
             [InlineKeyboardButton("⚒️ Add to Group ⚒️", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
+            [InlineKeyboardButton("📚 Help Commands 📚", callback_data="help")],
             [
                 InlineKeyboardButton("⌂ Support ⌂", url=SUPPORT_GROUP),
                 InlineKeyboardButton("⌂ Update ⌂", url=UPDATE_CHANNEL),
             ],
-            [
-                InlineKeyboardButton("※ ŎŴɳēŔ ※", url=f"tg://user?id={OWNER_ID}"),
-                InlineKeyboardButton("Repo", url="https://github.com/LearningBotsOfficial/Nomade"),
-            ],
-            [InlineKeyboardButton("📚 Help Commands 📚", callback_data="help")]
+           [InlineKeyboardButton("※ ŎŴɳēŔ ※", url=f"tg://user?id={OWNER_ID}")]
         ])
 
         if message.text:
@@ -95,11 +92,9 @@ def register_handlers(app: Client):
     # ==========================================================
     async def send_help_menu(message):
         text = (
-            "╔══════════════════╗\n"
-            "     <b>Help Menu</b>\n"
-            "╚══════════════════╝\n\n"
-            "Choose a category below to explore commands:\n"
-            "─────────────────────────────\n"
+            f"<b>❍ ᴄʜᴏᴏsᴇ ᴛʜᴇ ᴄᴀᴛᴇɢᴏʀʏ ғᴏʀ ᴡʜɪᴄʜ ʏᴏᴜ ᴡᴀɴɴᴀ ɢᴇᴛ ʜᴇʟᴘ.</b>\n"
+            f"<b>❍ ғᴏʀ ᴀɴʏ ǫᴜᴇʀɪᴇs, ᴀsᴋ ɪɴ <a href='https://t.me/CarelessxWorld'>sᴜᴘᴘᴏʀᴛ ᴄʜᴀᴛ</a>.</b>\n\n"
+            f"<b>❍ ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs ᴄᴀɴ ʙᴇ ᴜsᴇᴅ ᴡɪᴛʜ: /</b>"
         )
         buttons = InlineKeyboardMarkup([
             [
