@@ -24,7 +24,7 @@ async def user_joined_channel(client, user_id: int, channel: str) -> bool:
         return member.status not in [ChatMemberStatus.BANNED, ChatMemberStatus.LEFT]
     except Exception as e:
         logger.error(f"FSub check error ({channel}): {e}")
-        return True  # Error pe rokna nahi
+        return False  # Error pe rokna nahi
 
 
 def register_fsub_handler(app: Client):
