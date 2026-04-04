@@ -20,19 +20,19 @@ def register_handlers(app: Client):
     # ==========================================================
     async def send_start_menu(message, user):
         text = (
-            f"\n"
-            f"   ✨ <b>Hello {user}!</b> ✨\n\n"
-            f"👋 I am <b>Nomad 🤖</b>\n\n"
-            f"<b>Highlights:</b>\n"
-            f"─────────────────────────────\n"
-            f"- Smart Anti-Spam &amp; Link Shield\n"
-            f"- Adaptive Lock System (URLs, Media, Text &amp; more)\n"
-            f"- BioLink Protection System\n"
-            f"- Notes &amp; Rules Management\n"
-            f"- Modular &amp; Scalable Protection\n"
-            f"- Sleek UI with Inline Controls\n\n"
-            f"» <b>More New Features coming soon ...</b>\n"
+            f"✨ <b>ʜᴇʏ {user}! 👋</b> ✨\n\n"
+            f"<b>❍ ɪ’ᴍ EDITH 🤖 — ʏᴏᴜʀ sᴍᴧʀᴛ ɢʀᴏᴜᴘ ɢᴜᴧʀᴅɪᴧɴ.</b>\n\n"
+            f"<b>❖ ʜɪɢʜʟɪɢʜᴛs ❖</b>\n"
+            f"<b>◈ ━━━ ✦ ━━━ ❖ ━━━ ✦ ━━━ ◈</b>\n"
+            f"<b>➻ sᴍᴧʀᴛ ᴧɴᴛɪ-sᴘᴧᴍ & ʟɪɴᴋ sʜɪᴇʟᴅ ⚡</b>\n"
+            f"<b>➻ ᴧᴅᴧᴘᴛɪᴠᴇ ʟᴏᴄᴋ sʏsᴛᴇᴍ 🔒</b>\n"
+            f"<b>➻ ʙɪᴏʟɪɴᴋ ᴘʀᴏᴛᴇᴄᴛɪᴏɴ 🛡️</b>\n"
+            f"<b>➻ ɴᴏᴛᴇs & ʀᴜʟᴇs ᴍᴧɴᴧɢᴇᴍᴇɴᴛ 📌</b>\n\n"
+            f"<b>✦ ғᴧsᴛ ✦ sᴇᴄᴜʀᴇ ✦ ʀᴇʟɪᴧʙʟᴇ ✦</b>"
         )
+
+
+        
         buttons = InlineKeyboardMarkup([
             [InlineKeyboardButton("⚒️ Add to Group ⚒️", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
             [
@@ -150,21 +150,23 @@ def register_handlers(app: Client):
     @app.on_callback_query(filters.regex("^greetings$"))
     async def greetings_callback(client, callback_query):
         text = (
-            "╔══════════════════╗\n"
-            "    ⚙ <b>Welcome System</b>\n"
-            "╚══════════════════╝\n\n"
-            "<b>Commands to Manage Welcome Messages:</b>\n\n"
-            "- <b>/setwelcome</b> &lt;text&gt; : Set a custom welcome message\n"
-            "- <b>/welcome on</b>        : Enable welcome messages\n"
-            "- <b>/welcome off</b>       : Disable welcome messages\n\n"
-            "<b>Supported Placeholders:</b>\n"
-            "- <code>{username}</code>   : Telegram username\n"
-            "- <code>{first_name}</code> : User's first name\n"
-            "- <code>{mention}</code>    : Mention user in message\n"
-            "- <code>{title}</code>      : Group title\n\n"
-            "<b>Example:</b>\n"
-            " /setwelcome Hello {first_name}! Welcome to {title}!\n"
+            f"<b>╔══════════════════╗</b>\n"
+            f"<b>   ⚙ ᴡᴇʟᴄᴏᴍᴇ sʏsᴛᴇᴍ</b>\n"
+            f"<b>╚══════════════════╝</b>\n\n"
+            f"<b>❖ ᴄᴏᴍᴍᴀɴᴅs ᴛᴏ ᴍᴀɴᴀɢᴇ ᴡᴇʟᴄᴏᴍᴇ ᴍᴇssᴀɢᴇs:</b>\n\n"
+            f"➻ /setwelcome &lt;text&gt; : <b>sᴇᴛ ᴀ ᴄᴜsᴛᴏᴍ ᴡᴇʟᴄᴏᴍᴇ ᴍᴇssᴀɢᴇ</b>\n"
+            f"➻ /welcome on        : <b>ᴇɴᴀʙʟᴇ ᴡᴇʟᴄᴏᴍᴇ ᴍᴇssᴀɢᴇs</b>\n"
+            f"➻ /welcome off       : <b>ᴅɪsᴀʙʟᴇ ᴡᴇʟᴄᴏᴍᴇ ᴍᴇssᴀɢᴇs</b>\n\n"
+            f"<b>❖ sᴜᴘᴘᴏʀᴛᴇᴅ ᴘʟᴀᴄᴇʜᴏʟᴅᴇʀs ❖</b>\n"
+            f"<b>➻ <code>{'{'}username{'}'}</code>   : ᴛᴇʟᴇɢʀᴀᴍ ᴜsᴇʀɴᴀᴍᴇ</b>\n"
+            f"<b>➻ <code>{'{'}first_name{'}'}</code> : ᴜsᴇʀ's ғɪʀsᴛ ɴᴀᴍᴇ</b>\n"
+            f"<b>➻ <code>{'{'}mention{'}'}</code>    : ᴍᴇɴᴛɪᴏɴ ᴜsᴇʀ ɪɴ ᴍᴇssᴀɢᴇ</b>\n"
+            f"<b>➻ <code>{'{'}title{'}'}</code>      : ɢʀᴏᴜᴘ ᴛɪᴛʟᴇ</b>\n\n"
+            f"<b>❖ ᴇxᴀᴍᴘʟᴇ ❖</b>\n"
+            f"❍ /setwelcome Hello {'{'}first_name{'}'}! Welcome to {'{'}title{'}'}!\n"
         )
+
+        
         buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
         media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
         await callback_query.message.edit_media(media=media, reply_markup=buttons)
@@ -177,26 +179,28 @@ def register_handlers(app: Client):
     @app.on_callback_query(filters.regex("^locks$"))
     async def locks_callback(client, callback_query):
         text = (
-            "╔══════════════════╗\n"
-            "     ⚙ <b>Locks System</b>\n"
-            "╚══════════════════╝\n\n"
-            "<b>Commands to Manage Locks:</b>\n\n"
-            "- <b>/lock</b> &lt;type&gt;    : Enable a lock\n"
-            "- <b>/unlock</b> &lt;type&gt;  : Disable a lock\n"
-            "- <b>/locks</b>          : Show active locks\n\n"
-            "<b>Available Lock Types:</b>\n"
-            "- <code>url</code>      : Block links/URLs\n"
-            "- <code>sticker</code>  : Block stickers\n"
-            "- <code>media</code>    : Block photos/videos/docs\n"
-            "- <code>username</code> : Block @mention messages\n"
-            "- <code>forward</code>  : Block forwarded messages\n"
-            "- <code>text</code>     : Block ALL text messages\n"
-            "- <code>edit</code>     : Delete edited messages\n\n"
-            "<b>Example:</b>\n"
-            " /lock text   → Koi bhi text msg nahi kar payega\n"
-            " /lock edit   → Koi edit kare to message delete hoga\n"
-            " /unlock url  → Links phir allow honge\n"
+            f"<b>╔══════════════════╗</b>\n"
+            f"<b>    ⚙ ʟᴏᴄᴋs sʏsᴛᴇᴍ</b>\n"
+            f"<b>╚══════════════════╝</b>\n\n"
+            f"<b>❖ ᴄᴏᴍᴍᴀɴᴅs ᴛᴏ ᴍᴀɴᴀɢᴇ ʟᴏᴄᴋs ❖</b>\n\n"
+            f"➻ /lock <type> : <b>ᴇɴᴀʙʟᴇ ᴀ ʟᴏᴄᴋ</b>\n"
+            f"➻ /unlock <type> : <b>ᴅɪsᴀʙʟᴇ ᴀ ʟᴏᴄᴋ</b>\n"
+            f"➻ /locks : <b>sʜᴏᴡ ᴀᴄᴛɪᴠᴇ ʟᴏᴄᴋs</b>\n\n"
+            f"<b>❖ ᴀᴠᴀɪʟᴀʙʟᴇ ʟᴏᴄᴋ ᴛʏᴘᴇs ❖</b>\n"
+            f"<b>➻ <code>url</code>      : ʙʟᴏᴄᴋ ʟɪɴᴋs/ᴜʀʟs</b>\n"
+            f"<b>➻ <code>sticker</code>  : ʙʟᴏᴄᴋ sᴛɪᴄᴋᴇʀs</b>\n"
+            f"<b>➻ <code>media</code>    : ʙʟᴏᴄᴋ ᴘʜᴏᴛᴏs/ᴠɪᴅᴇᴏs/ᴅᴏᴄs</b>\n"
+            f"<b>➻ <code>username</code> : ʙʟᴏᴄᴋ @ᴍᴇɴᴛɪᴏɴ ᴍᴇssᴀɢᴇs</b>\n"
+            f"<b>➻ <code>forward</code>  : ʙʟᴏᴄᴋ ғᴏʀᴡᴀʀᴅᴇᴅ ᴍᴇssᴀɢᴇs</b>\n"
+            f"<b>➻ <code>text</code>     : ʙʟᴏᴄᴋ ᴀʟʟ ᴛᴇxᴛ ᴍᴇssᴀɢᴇs</b>\n"
+            f"<b>➻ <code>edit</code>     : ᴅᴇʟᴇᴛᴇ ᴇᴅɪᴛᴇᴅ ᴍᴇssᴀɢᴇs</b>\n\n"
+            f"<b>❖ ᴇxᴀᴍᴘʟᴇ ❖</b>\n"
+            f"❍ /lock text ➻ <b>ᴋᴏɪ ʙʜɪ ᴛᴇxᴛ ᴍsɢ ɴᴀʜɪ ᴋᴀʀ ᴘᴀʏᴇɢᴀ</b>\n"
+            f"❍ /lock edit ➻ <b>ᴋᴏɪ ᴇᴅɪᴛ ᴋᴀʀᴇ ᴛᴏ ᴍᴇssᴀɢᴇ ᴅᴇʟᴇᴛᴇ ʜᴏɢᴀ</b>\n"
+            f"❍ /unlock url ➻ <b>ʟɪɴᴋs ᴘʜɪʀ ᴀʟʟᴏᴡ ʜᴏɴɢᴇ</b>\n"
         )
+
+        
         buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
         media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
         await callback_query.message.edit_media(media=media, reply_markup=buttons)
@@ -210,23 +214,24 @@ def register_handlers(app: Client):
     async def moderation_callback(client, callback_query):
         try:
             text = (
-                "╔══════════════════╗\n"
-                "      ⚙️ <b>Moderation</b>\n"
-                "╚══════════════════╝\n\n"
-                "<b>Manage your group easily:</b>\n\n"
-                "¤ <b>/kick</b> &lt;user&gt;       — Remove a user\n"
-                "¤ <b>/ban</b> &lt;user&gt;        — Ban permanently\n"
-                "¤ <b>/unban</b> &lt;user&gt;      — Lift ban\n"
-                "¤ <b>/mute</b> &lt;user&gt;       — Disable messages\n"
-                "¤ <b>/unmute</b> &lt;user&gt;     — Allow messages again\n"
-                "¤ <b>/warn</b> &lt;user&gt;       — Add warning (3 = mute)\n"
-                "¤ <b>/warns</b> &lt;user&gt;      — View warnings\n"
-                "¤ <b>/resetwarns</b> &lt;user&gt; — Clear all warnings\n"
-                "¤ <b>/promote</b> &lt;user&gt;    — Make admin\n"
-                "¤ <b>/demote</b> &lt;user&gt;     — Remove from admin\n\n"
-                "💡 <b>Usage:</b>\n"
-                "Reply to a user or type /ban @username\n"
+                f"<b>╔══════════════════╗</b>\n"
+                f"<b>    ⚙️ ᴍᴏᴅᴇʀᴀᴛɪᴏɴ</b>\n"
+                f"<b>╚══════════════════╝</b>\n\n"
+                f"<b>❖ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴇᴀsɪʟʏ ❖</b>\n\n"
+                f"➻ /kick <user>  — <b>ʀᴇᴍᴏᴠᴇ ᴀ ᴜsᴇʀ</b>\n"
+                f"➻ /ban <user>   — <b>ʙᴀɴ ᴘᴇʀᴍᴀɴᴇɴᴛʟʏ</b>\n"
+                f"➻ /unban <user>  — <b>ʟɪғᴛ ʙᴀɴ</b>\n"
+                f"➻ /mute <user>  — <b>ᴅɪsᴀʙʟᴇ ᴍᴇssᴀɢᴇs</b>\n"
+                f"➻ /unmute <user>  — <b>ᴀʟʟᴏᴡ ᴍᴇssᴀɢᴇs ᴀɢᴀɪɴ</b>\n"
+                f"➻ /warn <user>  — <b>ᴀᴅᴅ ᴡᴀʀɴɪɴɢ (3 = ᴍᴜᴛᴇ)</b>\n"
+                f"➻ /warns <user>  — <b>ᴠɪᴇᴡ ᴡᴀʀɴɪɴɢs</b>\n"
+                f"➻ /resetwarns <user> — <b>ᴄʟᴇᴀʀ ᴀʟʟ ᴡᴀʀɴɪɴɢs</b>\n"
+                f"➻ /promote <user>  — <b>ᴍᴀᴋᴇ ᴀᴅᴍɪɴ</b>\n"
+                f"➻ /demote <user>  — <b>ʀᴇᴍᴏᴠᴇ ғʀᴏᴍ ᴀᴅᴍɪɴ</b>\n\n"
+                f"<b>❖💡 ᴜsᴀɢᴇ ❖</b>\n"
+                f"❍ <b>ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴜsᴇʀ ᴏʀ ᴛʏᴘᴇ /ban @username</b>\n"
             )
+            
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
             await callback_query.message.edit_media(media=media, reply_markup=buttons)
@@ -243,24 +248,22 @@ def register_handlers(app: Client):
     async def biolink_callback(client, callback_query):
         try:
             text = (
-                "╔══════════════════╗\n"
-                "    🔗 <b>BioLink Protection</b>\n"
-                "╚══════════════════╝\n\n"
-                "Un users ko rokta hai jinke bio me\n"
-                "koi bhi link hota hai.\n\n"
-                "<b>Commands:</b>\n\n"
-                "¤ <b>/biolink on</b>  — Protection ON karo\n"
-                "¤ <b>/biolink off</b> — Protection OFF karo\n\n"
-                "<b>Kaise kaam karta hai:</b>\n"
-                "- Jab user message karta hai, bot\n"
-                "  uski bio check karta hai.\n"
-                "- Bio me link mila → message delete.\n"
-                "- User ko samjhaya jaata hai.\n\n"
-                "<b>Note:</b>\n"
-                "- Admins par apply nahi hota.\n"
-                "- Bot ko Delete Messages permission\n"
-                "  chahiye.\n"
-            )
+                f"<b>╔══════════════════╗</b>\n"
+                f"<b>    🔗 ʙɪᴏʟɪɴᴋ ᴘʀᴏᴛᴇᴄᴛɪᴏɴ</b>\n"
+                f"<b>╚══════════════════╝</b>\n\n"
+                f"<b>❖ ᴘʀᴇᴠᴇɴᴛs ᴜsᴇʀs ᴡɪᴛʜ ʟɪɴᴋs ɪɴ ᴛʜᴇɪʀ ʙɪᴏ ғʀᴏᴍ sᴇɴᴅɪɴɢ ᴍᴇssᴀɢᴇs.</b>\n\n"
+                f"<b>❍ ᴄᴏᴍᴍᴀɴᴅs ❍</b>\n\n"
+                f"➻ /biolink on  — <b>ᴇɴᴀʙʟᴇ ᴘʀᴏᴛᴇᴄᴛɪᴏɴ</b>\n"
+                f"➻ /biolink off — <b>ᴅɪsᴀʙʟᴇ ᴘʀᴏᴛᴇᴄᴛɪᴏɴ</b>\n\n"
+                f"<b>❖ ʜᴏᴡ ɪᴛ ᴡᴏʀᴋs ❖</b>\n"
+                f"<b>➻ ᴡʜᴇɴ ᴀ ᴜsᴇʀ sᴇɴᴅs ᴀ ᴍᴇssᴀɢᴇ, ᴛʜᴇ ʙᴏᴛ ᴄʜᴇᴄᴋs ᴛʜᴇɪʀ ʙɪᴏ.</b>\n"
+                f"<b>➻ ɪғ ᴀ ʟɪɴᴋ ɪs ғᴏᴜɴᴅ → ᴛʜᴇ ᴍᴇssᴀɢᴇ ɪs ᴅᴇʟᴇᴛᴇᴅ.</b>\n"
+                f"<b>➻ ᴛʜᴇ ᴜsᴇʀ ɪs ɴᴏᴛɪғɪᴇᴅ ᴀᴄᴄᴏʀᴅɪɴɢʟʏ.</b>\n\n"
+                f"<b>❖ ɴᴏᴛᴇ ❖</b>\n"
+                f"<b>➻ ᴀᴅᴍɪɴs ᴀʀᴇ ᴇxᴇᴍᴘᴛᴇᴅ ғʀᴏᴍ ᴛʜɪs ʀᴜʟᴇ.</b>\n"
+                f"<b>➻ ᴛʜᴇ ʙᴏᴛ ᴍᴜsᴛ ʜᴀᴠᴇ 'ᴅᴇʟᴇᴛᴇ ᴍᴇssᴀɢᴇs' ᴘᴇʀᴍɪssɪᴏɴ.</b>\n"
+           )
+            
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
             await callback_query.message.edit_media(media=media, reply_markup=buttons)
@@ -277,25 +280,21 @@ def register_handlers(app: Client):
     async def notes_help_callback(client, callback_query):
         try:
             text = (
-                "╔════════════════════════╗\n"
-                "   📝 <b>NOTES</b>\n"
-                "╚════════════════════════╝\n\n"
-                "👮 <b>Admin Commands:</b>\n"
-                "• <b>/setnote</b> &lt;n&gt; &lt;content&gt;\n"
-                "  → Note save karo\n\n"
-                "• <b>/delnote</b> &lt;n&gt;\n"
-                "  → Note delete karo\n\n"
-                "👥 <b>User Commands:</b>\n"
-                "• <b>/notes</b>\n"
-                "  → Sabke notes ki list dekho\n"
-                "  (Har note ka private link milega)\n\n"
-                "• <b>#note_name</b>\n"
-                "  → Group me type karo, bot\n"
-                "    private link bhejega\n\n"
-                "💡 <b>Example:</b>\n"
-                " /setnote welcome Yahan spam mat karo!\n"
-                " #welcome  → Note ka link milega\n"
+                f"<b>╔════════════════════════╗</b>\n"
+                f"<b>   📝 ɴᴏᴛᴇs</b>\n"
+                f"<b>╚════════════════════════╝</b>\n\n"
+                f"<b>👮 ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅs:</b>\n"
+                f"❍ /setnote <name> <content> ➻ <b> sᴀᴠᴇ ᴀ ɴᴏᴛᴇ</b>\n"
+                f"❍ /delnote <name> ➻ <b> ᴅᴇʟᴇᴛᴇ ᴀ ɴᴏᴛᴇ</b>\n\n"
+                f"<b>👥 ᴜsᴇʀ ᴄᴏᴍᴍᴀɴᴅs</b>\n"
+                f"❍ /notes ➻ <b>ᴠɪᴇᴡ ᴀʟʟ sᴀᴠᴇᴅ ɴᴏᴛᴇs. (ᴇᴀᴄʜ ɴᴏᴛᴇ ɪɴᴄʟᴜᴅᴇs ᴀ ᴘʀɪᴠᴀᴛᴇ ʟɪɴᴋ)</b>\n\n"
+                f"❍ #note_name <b>➻ ғᴏʀ sᴇᴇ ɴᴏᴛᴇs. (ᴛʜᴇ ɴᴏᴛᴇ ᴠɪᴀ ᴘʀɪᴠᴀᴛᴇ ʟɪɴᴋ)</b>\n\n"
+                f"<b>💡 ᴇxᴀᴍᴘʟᴇ:</b>\n"
+                f"➻ /setnote welcome Don't spam here!\n"
+                f"❍ #welcome ➻ <b>ᴛʜᴇɴ ʏᴏᴜ ɢᴇᴛ ᴀ ʟɪɴᴋ ᴏғ ᴛʜɪs ɴᴏᴛᴇ</b>\n"
             )
+            
+            
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
             await callback_query.message.edit_media(media=media, reply_markup=buttons)
