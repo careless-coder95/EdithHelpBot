@@ -64,78 +64,55 @@ async def upload_to_telegraph(title: str, content: str) -> str | None:
 # ==========================================================
 # Help Texts
 # ==========================================================
-
 LONGMSG_HELP_TEXT = """
-╔══════════════════╗
-   📄 LONG MESSAGE
-╚══════════════════╝
+<b>╔══════════════════╗</b>
+<b>   📄 ʟᴏɴɢ ᴍᴇssᴀɢᴇ</b>
+<b>╚══════════════════╝</b>
 
-Long messages Telegraph par upload
-hokar link ke roop mein bheje jaate hain.
+<b>❖ ʟᴏɴɢ ᴍᴇssᴀɢᴇs ᴜᴘʟᴏᴀᴅ ᴛᴏ ᴛᴇʟᴇɢʀᴀᴘʜ ᴀɴᴅ sᴇɴᴅ ᴀs ʟɪɴᴋs.</b>
 
-🔧 Commands:
-
-• /echo <text>
-  → Text wapas bhejo. Lamba ho to
-    Telegraph link milega.
-
-• /setlongmode off
-  → Long messages par koi action nahi.
-
-• /setlongmode manual
-  → Delete + user ko warn karo.
-
-• /setlongmode automatic ✅ Default
-  → Delete + Telegraph link bhejo.
-
-• /setlonglimit <200–4000>
-  → Character limit set karo.
-    Default: 800
-
-👮 Mode/Limit sirf admin set kar sakta hai.
+❍ /echo <text> <b>➻ ʀᴇᴘʟʏ ᴡɪᴛʜ ᴛʜᴇ sᴀᴍᴇ ᴛᴇxᴛ. ɪғ ʟᴏɴɢ, ɢᴇᴛ ᴀ ᴛᴇʟᴇɢʀᴀᴘʜ ʟɪɴᴋ.</b>
+❍ /setlongmode off <b>➻ ɴᴏ ᴀᴄᴛɪᴏɴ ᴏɴ ʟᴏɴɢ ᴍᴇssᴀɢᴇs.</b>
+❍ /setlongmode manual <b>➻ ᴅᴇʟᴇᴛᴇ + ᴡᴀʀɴ ᴜsᴇʀ.</b>
+❍ /setlongmode automatic ✅ ᴅᴇғᴀᴜʟᴛ <b>➻ ᴅᴇʟᴇᴛᴇ + ᴛᴇʟᴇɢʀᴀᴘʜ ʟɪɴᴋ ᴄʀᴇᴀᴛᴇ.</b>
+❍ /setlonglimit <50–2000> <b>➻ sᴇᴛ ᴄʜᴀʀᴀᴄᴛᴇʀ ʟɪᴍɪᴛ. ᴅᴇғᴀᴜʟᴛ: 800.</b>
+<b>👮 ᴍᴏᴅᴇ/ʟɪᴍɪᴛ ᴏɴʟʏ ᴀᴅᴍɪɴs ᴄᴀɴ sᴇᴛ.</b>
 """
 
+
 PHONE_HELP_TEXT = """
-╔══════════════════╗
-   📞 PHONE PROTECTION
-╚══════════════════╝
+<b>╔══════════════════╗</b>
+<b>   📞 ᴘʜᴏɴᴇ ᴘʀᴏᴛᴇᴄᴛɪᴏɴ</b>
+<b>╚══════════════════╝</b>
 
-Phone numbers wale messages
-automatically delete ho jaate hain.
+<b>❖ ᴘʜᴏɴᴇ ɴᴜᴍʙᴇʀ ᴍᴇssᴀɢᴇs ᴀʀᴇ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ.</b>
+❍ /nophone on  ➻ <b>ʙʟᴏᴄᴋ ✅</b>  
+❍ /nophone off ➻ <b>ᴀʟʟᴏᴡ ❌</b>
 
-🔧 Commands:
+<b>❖ ᴅᴇᴛᴇᴄᴛɪᴏɴ ᴇxᴀᴍᴘʟᴇs:</b>
+➻ +91 9876543210  
+➻ +1-234-567-8900  
+➻ 919876543210
 
-• /nophone on  — Block karo ✅
-• /nophone off — Allow karo ❌
-
-Detection:
-• +91 9876543210
-• +1-234-567-8900
-• 919876543210
-
-ℹ️ Phone wala message delete hoga.
-👮 Sirf admin configure kar sakta hai.
+<b>ℹ️ Phone messages will be deleted automatically.</b>  
+<b>👮 Only admins can configure this.</b>
 """
 
 HASHTAG_HELP_TEXT = """
-╔══════════════════╗
-   # HASHTAG FILTER
-╚══════════════════╝
+<b>╔══════════════════╗</b>
+<b>   # ʜᴀsʜᴛᴀɢ ꜰɪʟᴛᴇʀ</b>
+<b>╚══════════════════╝</b>
 
-Hashtag wale messages automatically
-delete ho jaate hain.
+<b>❖ Hashtag messages ᴀʀᴇ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ.</b>
+❍ /nohashtags on  ➻ <b>ʙʟᴏᴄᴋ ✅</b>  
+❍ /nohashtags off ➻ <b>ᴀʟʟᴏᴡ ❌</b>
 
-🔧 Commands:
+<b>❖ ᴅᴇᴛᴇᴄᴛɪᴏɴ ᴇxᴀᴍᴘʟᴇs:</b>
+➻ #join, #promotion, #trending  
+➻ Any word starting with #
 
-• /nohashtags on  — Block karo ✅
-• /nohashtags off — Allow karo ❌
-
-Detection:
-• #join, #promotion, #trending
-• Koi bhi # se shuru hone wala word
-
-ℹ️ Hashtag wala message delete hoga.
-👮 Sirf admin configure kar sakta hai.
+<b>ℹ️ Hashtag messages will be deleted automatically.</b>  
+<b>👮 Only admins can configure this.</b>
 """
 
 
@@ -159,9 +136,9 @@ def register_tools_handler(app: Client):
         else:
             link = await upload_to_telegraph("Echo", text)
             if link:
-                await message.reply_text(f"📄 Message bahut lamba tha — Telegraph par upload ho gaya:\n{link}")
+                await message.reply_text(f"📄 The message was very long – uploaded to the Telegraph:\n{link}")
             else:
-                await message.reply_text("❌ Telegraph upload fail hua. Baad mein try karo.")
+                await message.reply_text("❌ Telegraph upload failed. Try later.")
 
 
     # ==========================================================
@@ -171,7 +148,7 @@ def register_tools_handler(app: Client):
     @app.on_message(filters.group & filters.command("setlongmode"))
     async def setlongmode_cmd(client, message: Message):
         if not await is_power(client, message.chat.id, message.from_user.id):
-            return await message.reply_text("❌ Sirf admin yeh command use kar sakta hai.")
+            return await message.reply_text("❌ Only admin can use this command.")
 
         parts = message.text.split(maxsplit=1)
         if len(parts) < 2 or parts[1].lower() not in ["off", "manual", "automatic"]:
@@ -184,9 +161,9 @@ def register_tools_handler(app: Client):
         await db.set_longmode(message.chat.id, mode)
 
         info = {
-            "off": "⚠️ Long message par koi action nahi hoga.",
-            "manual": "🗑️ Long message delete hoga + user ko warn kiya jaayega.",
-            "automatic": "📄 Long message delete hoga + Telegraph link bheja jaayega.",
+            "off": "⚠️ There will be no action on long messages.",
+            "manual": "🗑️ Long message will be deleted + user will be warned.",
+            "automatic": "📄 Long message will be deleted + Telegraph link will be sent.",
         }
         await message.reply_text(f"✅ Long message mode: `{mode}`\n\n{info[mode]}")
 
@@ -198,7 +175,7 @@ def register_tools_handler(app: Client):
     @app.on_message(filters.group & filters.command("setlonglimit"))
     async def setlonglimit_cmd(client, message: Message):
         if not await is_power(client, message.chat.id, message.from_user.id):
-            return await message.reply_text("❌ Sirf admin yeh command use kar sakta hai.")
+            return await message.reply_text("❌ Only admin can use this command.")
 
         parts = message.text.split(maxsplit=1)
         if len(parts) < 2 or not parts[1].strip().isdigit():
@@ -208,11 +185,11 @@ def register_tools_handler(app: Client):
             )
 
         num = int(parts[1].strip())
-        if not (200 <= num <= 4000):
-            return await message.reply_text("⚠️ Limit 200 se 4000 ke beech honi chahiye.")
+        if not (50 <= num <= 4000):
+            return await message.reply_text("⚠️ The limit should be between 50 to 2000")
 
         await db.set_longlimit(message.chat.id, num)
-        await message.reply_text(f"✅ Long message limit set ho gayi: `{num}` characters")
+        await message.reply_text(f"✅ Long message limit set: `{num}` characters")
 
 
     # ==========================================================
@@ -241,8 +218,8 @@ def register_tools_handler(app: Client):
         if mode == "manual":
             await client.send_message(
                 message.chat.id,
-                f"⚠️ {message.from_user.mention}, aapka message bahut lamba tha ({len(message.text)} chars).\n"
-                f"Kripya {limit} characters se chhota message bhejein."
+                f"⚠️ {message.from_user.mention}, Your message was very long ({len(message.text)} chars).\n"
+                f"Please send messages smaller than {limit} characters."
             )
         elif mode == "automatic":
             link = await upload_to_telegraph(
@@ -252,7 +229,7 @@ def register_tools_handler(app: Client):
             if link:
                 await client.send_message(
                     message.chat.id,
-                    f"📄 {message.from_user.mention} ka lamba message Telegraph par upload ho gaya:\n{link}"
+                    f"📄 {message.from_user.mention}'s length message got uploaded on Telegraph:\n{link}"
                 )
 
 
@@ -263,7 +240,7 @@ def register_tools_handler(app: Client):
     @app.on_message(filters.group & filters.command("nophone"))
     async def nophone_cmd(client, message: Message):
         if not await is_power(client, message.chat.id, message.from_user.id):
-            return await message.reply_text("❌ Sirf admin yeh command use kar sakta hai.")
+            return await message.reply_text("❌ Only Admin can use this command.")
 
         parts = message.text.split(maxsplit=1)
         if len(parts) < 2 or parts[1].lower() not in ["on", "off"]:
@@ -276,7 +253,7 @@ def register_tools_handler(app: Client):
         status = parts[1].lower() == "on"
         await db.set_nophone_status(message.chat.id, status)
         await message.reply_text(
-            "✅ **Phone Protection ON!**\n\nPhone number wale messages delete honge. 📵"
+            "✅ **Phone Protection ON!**\n\nPhone number like messages will be deleted. 📵"
             if status else
             "⚠️ **Phone Protection OFF!**"
         )
@@ -309,7 +286,7 @@ def register_tools_handler(app: Client):
     @app.on_message(filters.group & filters.command("nohashtags"))
     async def nohashtags_cmd(client, message: Message):
         if not await is_power(client, message.chat.id, message.from_user.id):
-            return await message.reply_text("❌ Sirf admin yeh command use kar sakta hai.")
+            return await message.reply_text("❌ Only Admins can use thos command bebe.")
 
         parts = message.text.split(maxsplit=1)
         if len(parts) < 2 or parts[1].lower() not in ["on", "off"]:
@@ -322,7 +299,7 @@ def register_tools_handler(app: Client):
         status = parts[1].lower() == "on"
         await db.set_nohashtag_status(message.chat.id, status)
         await message.reply_text(
-            "✅ **Hashtag Filter ON!**\n\nHashtag wale messages delete honge. 🚫#"
+            "✅ **Hashtag Filter ON!**\n\nNow Messages with hashtags will be deleted. 🚫#"
             if status else
             "⚠️ **Hashtag Filter OFF!**"
         )
