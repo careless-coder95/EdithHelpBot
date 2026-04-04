@@ -77,9 +77,9 @@ def register_handlers(app: Client):
                 )
 
             return await message.reply_text(
-                f"╔════════════════════════╗\n"
+                f"╔═════════════════════╗\n"
                 f"   📝 <b>Note: #{name}</b>\n"
-                f"╚════════════════════════╝\n\n"
+                f"╚═════════════════════╝\n\n"
                 f"{content}",
                 parse_mode=enums.ParseMode.HTML
             )
