@@ -23,20 +23,19 @@ def register_rules_handler(app: Client):
     @app.on_message(filters.group & filters.command("setrules"))
     async def setrules_cmd(client, message: Message):
         if not await is_power(client, message.chat.id, message.from_user.id):
-            return await message.reply_text("❌ Sirf admin hi rules set kar sakta hai.")
+            return await message.reply_text("❌ Only admin can set group rule. ")
 
         # /setrules ke baad ka poora text lao — newlines aur spaces sab preserve honge
         parts = message.text.split(maxsplit=1)
         if len(parts) < 2 or not parts[1].strip():
             return await message.reply_text(
                 "⚙️ Usage:\n`/setrules <text>`\n\n"
-                "Tip: Jaise bhi likhoge, waise hi save hoga. "
-                "Newlines, spaces sab preserve honge. ✅"
+                "Tip: The file will be saved as it is written. \n Newlines, spaces, etc. will be preserved. "
             )
 
         rules_text = parts[1]  # Exact text as-is — no strip, no modify
         await db.set_rules(message.chat.id, rules_text)
-        await message.reply_text("✅ Rules save ho gaye! `/rules` se dekho.")
+        await message.reply_text("✅ Rules is saved. `/rules` For see the Rule")
 
 
     # ==========================================================
@@ -49,14 +48,14 @@ def register_rules_handler(app: Client):
 
         if not rules_text:
             return await message.reply_text(
-                "📭 Is group ke liye abhi koi rules set nahi hain.\n"
-                "Admin `/setrules` use kar ke set kar sakte hain."
+                "📭  No rules have been set for this group.\n"
+                "Admins can set this using `/setrules`."
             )
 
         # Exact formatting preserve karke dikhao
         header = (
             "╔══════════════════╗\n"
-            "   📜 RULES\n"
+            "    📜 RULES\n"
             "╚══════════════════╝\n\n"
         )
         await message.reply_text(header + rules_text)
@@ -73,7 +72,7 @@ def register_rules_handler(app: Client):
 
         existing = await db.get_rules(message.chat.id)
         if not existing:
-            return await message.reply_text("⚠️ Koi rules set hi nahi hain.")
+            return await message.reply_text("⚠️ No rules have been set ")
 
         await db.clear_rules(message.chat.id)
-        await message.reply_text("🗑️ Rules clear ho gaye.")
+        await message.reply_text("🗑️ rule deleted ")
