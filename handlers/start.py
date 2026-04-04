@@ -116,7 +116,15 @@ def register_handlers(app: Client):
                 InlineKeyboardButton("• 𝐀ʙᴜsᴇ •", callback_data="abuse_help"),
                 InlineKeyboardButton("• 𝐅-𝐒ᴜʙ •", callback_data="fsub_help"),
             ],
-            [InlineKeyboardButton("⌯ 𝐁ᴀᴄᴋ ⌯", callback_data="back_to_start")]
+            [
+                InlineKeyboardButton("📢 Echo", callback_data="echo_help"),
+                InlineKeyboardButton("📞 Phone", callback_data="phone_help"),
+            ],
+            [
+                InlineKeyboardButton("📄 Long Limit", callback_data="longmsg_help"),
+                InlineKeyboardButton("# Hashtag", callback_data="hashtag_help"),
+            ],
+                [InlineKeyboardButton("⌯ 𝐁ᴀᴄᴋ ⌯", callback_data="back_to_start")]
         ])
 
         media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
