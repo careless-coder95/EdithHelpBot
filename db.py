@@ -172,3 +172,32 @@ async def remove_fsub_channel(chat_id: int, channel_id: str) -> bool:
 async def get_fsub_channels(chat_id: int) -> list:
     data = await db.fsub.find_one({"chat_id": chat_id})
     return data.get("channels", []) if data else []
+
+
+
+
+# Long Message
+async def set_longmode(chat_id, mode):
+    await db.longmsg.update_one({"chat_id": chat_id}, {"$set": {"mode": mode}}, upsert=True)
+async def get_longmode(chat_id):
+    data = await db.longmsg.find_one({"chat_id": chat_id})
+    return data.get("mode", "automatic") if data else "automatic"
+async def set_longlimit(chat_id, limit):
+    await db.longmsg.update_one({"chat_id": chat_id}, {"$set": {"limit": limit}}, upsert=True)
+async def get_longlimit(chat_id):
+    data = await db.longmsg.find_one({"chat_id": chat_id})
+    return data.get("limit", 800) if data else 800
+
+# Phone
+async def set_nophone_status(chat_id, status):
+    await db.nophone.update_one({"chat_id": chat_id}, {"$set": {"enabled": status}}, upsert=True)
+async def get_nophone_status(chat_id):
+    data = await db.nophone.find_one({"chat_id": chat_id})
+    return bool(data.get("enabled", False)) if data else False
+
+# Hashtag
+async def set_nohashtag_status(chat_id, status):
+    await db.nohashtag.update_one({"chat_id": chat_id}, {"$set": {"enabled": status}}, upsert=True)
+async def get_nohashtag_status(chat_id):
+    data = await db.nohashtag.find_one({"chat_id": chat_id})
+    return bool(data.get("enabled", False)) if data else False
