@@ -20,21 +20,17 @@ def register_handlers(app: Client):
     # ==========================================================
     async def send_start_menu(message, user):
         text = f"""
+✨ ʜᴇʏ {ᴜsᴇʀ}! 👋  
+ɪ’ᴍ ɴᴏᴍᴧᴅ 🤖 — ʏᴏᴜʀ sᴍᴧʀᴛ ɢʀᴏᴜᴘ ɢᴜᴧʀᴅɪᴧɴ.
 
-   ✨ Hello {user}! ✨
+ʜɪɢʜʟɪɢʜᴛs:
+────────────────────────
+• sᴍᴧʀᴛ ᴧɴᴛɪ-sᴘᴧᴍ & ʟɪɴᴋ sʜɪᴇʟᴅ ⚡  
+• ᴧᴅᴧᴘᴛɪᴠᴇ ʟᴏᴄᴋ sʏsᴛᴇᴍ 🔒  
+• ʙɪᴏʟɪɴᴋ ᴘʀᴏᴛᴇᴄᴛɪᴏɴ 🛡️  
+• ɴᴏᴛᴇs & ʀᴜʟᴇs ᴍᴧɴᴧɢᴇᴍᴇɴᴛ 📌  
 
-👋 I am Nomad 🤖 
-
-Highlights:
-─────────────────────────────
-- Smart Anti-Spam & Link Shield
-- Adaptive Lock System (URLs, Media, Text & more)
-- BioLink Protection System
-- Notes & Rules Management
-- Modular & Scalable Protection
-- Sleek UI with Inline Controls
-
-» More New Features coming soon ...
+⚡ ғᴧsᴛ • sᴇᴄᴜʀᴇ • ʀᴇʟɪᴧʙʟᴇ
 """
         buttons = InlineKeyboardMarkup([
             [InlineKeyboardButton("⚒️ Add to Group ⚒️", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
@@ -150,9 +146,6 @@ Choose a category below to explore commands:
     @app.on_callback_query(filters.regex("^greetings$"))
     async def greetings_callback(client, callback_query):
         text = """
-╔══════════════════╗
-    ⚙ Welcome System
-╚══════════════════╝
 
 Commands to Manage Welcome Messages:
 
