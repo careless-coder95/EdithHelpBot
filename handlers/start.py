@@ -414,7 +414,7 @@ def register_handlers(app: Client):
     async def echo_help_callback(client, callback_query):
          from handlers.tools import LONGMSG_HELP_TEXT
          buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
-         media = InputMediaPhoto(media=START_IMAGE, caption=LONGMSG_HELP_TEXT)
+         media = InputMediaPhoto(media=START_IMAGE, caption=LONGMSG_HELP_TEXT, parse_mode=enums.ParseMode.HTML)
          await callback_query.message.edit_media(media=media, reply_markup=buttons)
          await callback_query.answer()
 
@@ -423,7 +423,7 @@ def register_handlers(app: Client):
     async def phone_help_callback(client, callback_query):
          from handlers.tools import PHONE_HELP_TEXT
          buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
-         media = InputMediaPhoto(media=START_IMAGE, caption=PHONE_HELP_TEXT)
+         media = InputMediaPhoto(media=START_IMAGE, caption=PHONE_HELP_TEXT, parse_mode=enums.ParseMode.HTML)
          await callback_query.message.edit_media(media=media, reply_markup=buttons)
          await callback_query.answer()
 
@@ -432,7 +432,7 @@ def register_handlers(app: Client):
     async def longmsg_help_callback(client, callback_query):
         from handlers.tools import LONGMSG_HELP_TEXT
         buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
-        media = InputMediaPhoto(media=START_IMAGE, caption=LONGMSG_HELP_TEXT)
+        media = InputMediaPhoto(media=START_IMAGE, caption=LONGMSG_HELP_TEXT, parse_mode=enums.ParseMode.HTML)
         await callback_query.message.edit_media(media=media, reply_markup=buttons)
         await callback_query.answer()
 
@@ -441,7 +441,7 @@ def register_handlers(app: Client):
     async def hashtag_help_callback(client, callback_query):
         from handlers.tools import HASHTAG_HELP_TEXT
         buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
-        media = InputMediaPhoto(media=START_IMAGE, caption=HASHTAG_HELP_TEXT)
+        media = InputMediaPhoto(media=START_IMAGE, caption=HASHTAG_HELP_TEXT, parse_mode=enums.ParseMode.HTML)
         await callback_query.message.edit_media(media=media, reply_markup=buttons)
         await callback_query.answer()
 
