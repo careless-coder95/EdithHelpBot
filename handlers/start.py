@@ -21,12 +21,12 @@ def register_handlers(app: Client):
     async def send_start_menu(message, user):
         text = (
             f"<b><blockquote expandable>\n"
-            f"✨ <b>ʜᴇʏ {user}! 👋</b> ✨\n"
-            f"<b>❍ ɪ’ᴍ EDITH 🤖 — ʏᴏᴜʀ sᴍᴧʀᴛ ɢʀᴏᴜᴘ ɢᴜᴧʀᴅɪᴧɴ.</b>\n"
+            f"✨ <b>ʜᴇʏ {user} 🤍</b> ✨\n"
+            f"<b>❍ ɪ’ᴍ ᴇᴅɪᴛʜ 🤖 — ʏᴏᴜʀ sᴍᴧʀᴛ ɢʀᴏᴜᴘ ɢᴜᴧʀᴅɪᴧɴ.</b>\n"
             f"</blockquote></b>"
             f"<b><blockquote expandable>"
-            f"❖ ʜɪɢʜʟɪɢʜᴛs ❖\n"
-            f"➻ sᴍᴧʀᴛ ᴧɴᴛɪ-sᴘᴧᴍ & ʟɪɴᴋ sʜɪᴇʟᴅ ⚡\n"
+            f"❖ 𝐇𝐈𝐆𝐇𝐋𝐈𝐆𝐇𝐓𝐒 ❖\n"
+            f"➻ sᴍᴧʀᴛ ᴧɴᴛɪ-sᴘᴧᴍ & ʟɪɴᴋ sʜɪᴇʟᴅ\n"
             f"➻ ᴧᴅᴧᴘᴛɪᴠᴇ ʟᴏᴄᴋ sʏsᴛᴇᴍ 🔒\n"
             f"➻ ʙɪᴏʟɪɴᴋ ᴘʀᴏᴛᴇᴄᴛɪᴏɴ 🛡️\n"
             f"➻ ɴᴏᴛᴇs & ʀᴜʟᴇs ᴍᴧɴᴧɢᴇᴍᴇɴᴛ 📌\n"
@@ -43,7 +43,7 @@ def register_handlers(app: Client):
                 InlineKeyboardButton(" ⌯ 𝐒ᴜᴘᴘᴏʀᴛ ⌯", url=SUPPORT_GROUP),
                 InlineKeyboardButton("⌯ 𝐔ᴘᴅᴀᴛᴇ ⌯", url=UPDATE_CHANNEL),
             ],
-           [InlineKeyboardButton("⌯ 𝐌ʏ 𝐌ᴧsᴛᴇʀ ⌯", url=f"tg://user?id={OWNER_ID}")]
+           [InlineKeyboardButton("⌯ 𝐌ʏ 𝐌ᴧsᴛᴇʀ ⌯", url=f"https://t.me/CarelessxOwner")]
         ])
 
         if message.text:
