@@ -283,8 +283,8 @@ def register_group_commands(app: Client):
                     await message.delete()
                     await client.send_message(
                         message.chat.id,
-                        f"⛔ {message.from_user.mention}, bio me link hone ki wajah se aapka message delete kar diya gaya.\n\n"
-                        f"Pehle apni bio se link hatao, phir message karo.",
+                        f"⛔ {message.from_user.mention}, Your message was deleted because of the link in the bio..\n\n"
+                        f"✅ First remove the link from your bio, then message.",
                     )
                 except Exception as e:
                     logger.error(f"BioLink enforce error: {e}")
@@ -336,12 +336,12 @@ def register_group_commands(app: Client):
         if status:
             await message.reply_text(
                 "✅ **BioLink Protection ON!**\n\n"
-                "Ab jin users ke bio me koi link hoga, unka message automatically delete ho jaayega. 🔗🚫"
+                "Now, the messages of those users who have a link in their bio will be automatically deleted.. 🔗🚫"
             )
         else:
             await message.reply_text(
                 "⚠️ **BioLink Protection OFF!**\n\n"
-                "Ab bio me link wale users bhi message kar sakte hain."
+                "👀 Now users with link in bio can also message."
             )
 
 
