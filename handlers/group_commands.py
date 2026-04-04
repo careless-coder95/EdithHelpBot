@@ -229,6 +229,38 @@ def register_group_commands(app: Client):
 
 
     # ==========================================================
+    # lockall
+    # ==========================================================
+
+    @app.on_message(filters.group & filters.command("lockall"))
+    async def lockall_command(client, message):
+        if not await is_power(client, message.chat.id, message.from_user.id):
+            return await message.reply_text("❌ Only admin can use this command.")
+
+        for lock_type in VALID_LOCKS:
+            await db.set_lock(message.chat.id, lock_type, True)
+
+        locked_list = "\n".join(f"🔒 `{l}`" for l in VALID_LOCKS)
+        await message.reply_text(f"🔐 **Everything Locked !**\n\n{locked_list}")
+
+
+    # ==========================================================
+    # unlockall
+    # ==========================================================
+
+    @app.on_message(filters.group & filters.command("unlockall"))
+    async def unlockall_command(client, message):
+        if not await is_power(client, message.chat.id, message.from_user.id):
+            return await message.reply_text("❌ Only admin can use this command.")
+
+        for lock_type in VALID_LOCKS:
+            await db.set_lock(message.chat.id, lock_type, False)
+
+        await message.reply_text("🔓 **Everyone's locks are OFF! **\n\nNow everything is allowed in the group.")
+
+    
+
+    # ==========================================================
     # Enforce locks — messages (text, url, sticker, media, username, forward, text)
     # ==========================================================
 
