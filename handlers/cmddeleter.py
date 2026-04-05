@@ -38,7 +38,7 @@ CMDDELETER_HELP_TEXT = """
 <b>❖ ʜᴏᴡ ɪᴛ ᴡᴏʀᴋs:</b>
 <b>➻ ɪғ ᴀ ᴜsᴇʀ sᴇɴᴅs /command, !command, ᴏʀ .command,</b>  
 <b>➻ ᴛʜᴇ ᴍᴇssᴀɢᴇ ɪs ɪɴsᴛᴀɴᴛʟʏ ᴅᴇʟᴇᴛᴇᴅ.</b>  
-<b>➻ ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅs ᴀʀᴇ ɴᴏᴛ ᴀғғᴇᴄᴛᴇᴅ.</b>
+<b>➻ ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅs ᴡɪʟʟ ᴀʟsᴏ ʙᴇ ᴅᴇʟᴇᴛᴇᴅ.</b>
 
 <b>👮 Only admins can configure this.</b>
 """
@@ -81,11 +81,9 @@ def register_cmddeleter_handler(app: Client):
 
     @app.on_message(filters.group & ~filters.service, group=7)
     async def enforce_cmddeleter(client, message: Message):
-        try:
-            member = await client.get_chat_member(message.chat.id, message.from_user.id)
-            if member.status in [ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.OWNER]:
-                return
-        
+        if not await db.get_cmddeleter_status(message.chat.id):
+            return
+
         text = message.text or message.caption or ""
         if text and CMD_PATTERN.match(text):
             try:
