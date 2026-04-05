@@ -111,12 +111,10 @@ def register_handlers(app: Client):
             [
                 InlineKeyboardButton("• 𝐍ᴏᴛᴇs •", callback_data="notes_help"),
                 InlineKeyboardButton("• 𝐑ᴜʟᴇs •", callback_data="rules_help"),
-            ],
-            [
                 InlineKeyboardButton("• 𝐀ʙᴜsᴇ •", callback_data="abuse_help"),
-                InlineKeyboardButton("• 𝐅-𝐒ᴜʙ •", callback_data="fsub_help"),
             ],
             [
+                InlineKeyboardButton("• 𝐅-𝐒ᴜʙ •", callback_data="fsub_help"),
                 InlineKeyboardButton("• 𝐄ᴄʜᴏ •", callback_data="echo_help"),
                 InlineKeyboardButton("• 𝐏ʜᴏɴᴇ •", callback_data="phone_help"),
             ],
