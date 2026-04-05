@@ -124,6 +124,10 @@ def register_handlers(app: Client):
                 InlineKeyboardButton("• 𝐋ᴏɴɢ 𝐋ɪᴍɪᴛ •", callback_data="longmsg_help"),
                 InlineKeyboardButton("• #𝐇ᴀ𝐬ʜᴛᴀɢ •", callback_data="hashtag_help"),
             ],
+            [
+                InlineKeyboardButton("• 𝐔ᴛɪʟɪᴛʏ •", callback_data="utility_help"),
+                InlineKeyboardButton("• 𝐂ᴍᴅ 𝐃ᴇʟᴇᴛᴇʀ •", callback_data="cmd_help"),
+            ],
                 [InlineKeyboardButton("⌯ 𝐁ᴀᴄᴋ ⌯", callback_data="back_to_start")]
         ])
 
@@ -413,7 +417,7 @@ def register_handlers(app: Client):
     @app.on_callback_query(filters.regex("^echo_help$"))
     async def echo_help_callback(client, callback_query):
          from handlers.tools import LONGMSG_HELP_TEXT
-         buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
+         buttons = InlineKeyboardMarkup([[InlineKeyboardButton("⌯ 𝐁ᴀᴄᴋ ⌯", callback_data="help")]])
          media = InputMediaPhoto(media=START_IMAGE, caption=LONGMSG_HELP_TEXT, parse_mode=enums.ParseMode.HTML)
          await callback_query.message.edit_media(media=media, reply_markup=buttons)
          await callback_query.answer()
@@ -422,7 +426,7 @@ def register_handlers(app: Client):
     @app.on_callback_query(filters.regex("^phone_help$"))
     async def phone_help_callback(client, callback_query):
          from handlers.tools import PHONE_HELP_TEXT
-         buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
+         buttons = InlineKeyboardMarkup([[InlineKeyboardButton("⌯ 𝐁ᴀᴄᴋ ⌯", callback_data="help")]])
          media = InputMediaPhoto(media=START_IMAGE, caption=PHONE_HELP_TEXT, parse_mode=enums.ParseMode.HTML)
          await callback_query.message.edit_media(media=media, reply_markup=buttons)
          await callback_query.answer()
@@ -431,7 +435,7 @@ def register_handlers(app: Client):
     @app.on_callback_query(filters.regex("^longmsg_help$"))
     async def longmsg_help_callback(client, callback_query):
         from handlers.tools import LONGMSG_HELP_TEXT
-        buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
+        buttons = InlineKeyboardMarkup([[InlineKeyboardButton("⌯ 𝐁ᴀᴄᴋ ⌯", callback_data="help")]])
         media = InputMediaPhoto(media=START_IMAGE, caption=LONGMSG_HELP_TEXT, parse_mode=enums.ParseMode.HTML)
         await callback_query.message.edit_media(media=media, reply_markup=buttons)
         await callback_query.answer()
@@ -440,8 +444,26 @@ def register_handlers(app: Client):
     @app.on_callback_query(filters.regex("^hashtag_help$"))
     async def hashtag_help_callback(client, callback_query):
         from handlers.tools import HASHTAG_HELP_TEXT
-        buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
+        buttons = InlineKeyboardMarkup([[InlineKeyboardButton("⌯ 𝐁ᴀᴄᴋ ⌯", callback_data="help")]])
         media = InputMediaPhoto(media=START_IMAGE, caption=HASHTAG_HELP_TEXT, parse_mode=enums.ParseMode.HTML)
+        await callback_query.message.edit_media(media=media, reply_markup=buttons)
+        await callback_query.answer()
+
+    # utility help :
+    @app.on_callback_query(filters.regex("^utility_help$"))
+    async def utility_help_callback(client, callback_query):
+        from handlers.utility import UTILITY_HELP_TEXT
+        buttons = InlineKeyboardMarkup([[InlineKeyboardButton("⌯ 𝐁ᴀᴄᴋ ⌯", callback_data="help")]])
+        media = InputMediaPhoto(media=START_IMAGE, caption=UTILITY_HELP_TEXT, parse_mode=enums.ParseMode.HTML)
+        await callback_query.message.edit_media(media=media, reply_markup=buttons)
+        await callback_query.answer()
+
+    #command deleter :
+    @app.on_callback_query(filters.regex("^cmd_help$"))
+    async def cmd_help_callback(client, callback_query):
+        from handlers.cmddeleter import CMDDELETER_HELP_TEXT
+        buttons = InlineKeyboardMarkup([[InlineKeyboardButton("⌯ 𝐁ᴀᴄᴋ ⌯", callback_data="help")]])
+        media = InputMediaPhoto(media=START_IMAGE, caption=CMDDELETER_HELP_TEXT, parse_mode=enums.ParseMode.HTML)
         await callback_query.message.edit_media(media=media, reply_markup=buttons)
         await callback_query.answer()
 
