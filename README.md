@@ -2,7 +2,7 @@
 
 <img src="https://files.catbox.moe/j2yhce.jpg" width="200" style="border-radius: 50%"/>
 
-# 🤖 NomadeHelpBot
+# 🤖 EdithHelpBot
 
 **A Powerful Telegram Group Manager Bot**
 
