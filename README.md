@@ -9,6 +9,7 @@
 [![Author](https://img.shields.io/badge/Author-Mr.%20Stark-blue?style=for-the-badge&logo=telegram)](https://t.me/CarelessxOwner)
 [![Support](https://img.shields.io/badge/Support-Group-green?style=for-the-badge&logo=telegram)](https://t.me/ll_CarelessxCoder_ll)
 [![Updates](https://img.shields.io/badge/Updates-Channel-red?style=for-the-badge&logo=telegram)](https://t.me/ll_CarelessxCoder_ll)
+[![Demo Bot](https://img.shields.io/badge/Demo-Bot-purple?style=for-the-badge&logo=telegram)](https://t.me/EdithHelpsBot)
 [![Python](https://img.shields.io/badge/Python-3.10+-yellow?style=for-the-badge&logo=python)](https://python.org)
 [![Pyrogram](https://img.shields.io/badge/Pyrogram-2.0.106-blue?style=for-the-badge)](https://pyrogram.org)
 
