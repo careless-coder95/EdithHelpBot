@@ -132,6 +132,10 @@ def register_handlers(app: Client):
                 InlineKeyboardButton("• 𝐂ᴍᴅ 𝐃ᴇʟᴇᴛᴇʀ •", callback_data="cmd_help"),
                 
             ],
+            [
+                InlineKeyboardButton("👮 𝐏ʀᴏᴍᴏᴛɪᴏɴ𝐬", callback_data="promote_help"),
+            ],
+            
                 [InlineKeyboardButton("⌯ 𝐁ᴀᴄᴋ ⌯", callback_data="back_to_start")]
         ])
 
@@ -499,6 +503,16 @@ def register_handlers(app: Client):
         await callback_query.answer()
 
 
+    # Promote 
+    @app.on_callback_query(filters.regex("^promote_help$"))
+    async def promote_help_callback(client, callback_query):
+        from handlers.promote import PROMOTE_HELP_TEXT
+        buttons = InlineKeyboardMarkup([[InlineKeyboardButton("⌯ 𝐁ᴀᴄᴋ ⌯", callback_data="help")]])
+        media = InputMediaPhoto(media=START_IMAGE, caption=PROMOTE_HELP_TEXT, parse_mode=enums.ParseMode.HTML)
+        await callback_query.message.edit_media(media=media, reply_markup=buttons)
+        await callback_query.answer()
+
+    
     # ==========================================================
     # Broadcast Command
     # ==========================================================
