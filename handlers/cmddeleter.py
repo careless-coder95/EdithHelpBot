@@ -27,26 +27,20 @@ CMD_PATTERN = re.compile(r"^[/!.]")
 # ==========================================================
 
 CMDDELETER_HELP_TEXT = """
-╔══════════════════╗
-   🗑️ CMD DELETER
-╚══════════════════╝
+<b>╔══════════════════╗</b>
+<b>    🗑️ ᴄᴍᴅ ᴅᴇʟᴇᴛᴇʀ</b>
+<b>╚══════════════════╝</b>
 
-Commands jo / ! . se shuru hoti hain
-wo automatically delete ho jaati hain.
+<b>❖ 𝐂ᴏᴍᴍᴀɴᴅs sᴛᴀʀᴛɪɴɢ ᴡɪᴛʜ / ! ᴏʀ . ᴀʀᴇ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ..</b>
+❍ /cmd on  ➻ <b>ᴀᴜᴛᴏ ᴅᴇʟᴇᴛᴇ ᴇɴᴀʙʟᴇᴅ ✅</b>  
+❍ /cmd off ➻ <b>ᴀᴜᴛᴏ ᴅᴇʟᴇᴛᴇ ᴅɪsᴀʙʟᴇᴅ ❌</b>
 
-🔧 Commands:
+<b>❖ ʜᴏᴡ ɪᴛ ᴡᴏʀᴋs:</b>
+<b>➻ ɪғ ᴀ ᴜsᴇʀ sᴇɴᴅs /command, !command, ᴏʀ .command,</b>  
+<b>➻ ᴛʜᴇ ᴍᴇssᴀɢᴇ ɪs ɪɴsᴛᴀɴᴛʟʏ ᴅᴇʟᴇᴛᴇᴅ.</b>  
+<b>➻ ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅs ᴀʀᴇ ɴᴏᴛ ᴀғғᴇᴄᴛᴇᴅ.</b>
 
-• /cmd on  — Auto delete ON ✅
-• /cmd off — Auto delete OFF ❌
-
-Kaise kaam karta hai:
-- Koi bhi /command, !command
-  ya .command type kare —
-  message turant delete ho jaata hai.
-- Admins ki commands delete
-  nahi hoti.
-
-👮 Sirf admin configure kar sakta hai.
+<b>👮 Only admins can configure this.</b>
 """
 
 
@@ -59,7 +53,7 @@ def register_cmddeleter_handler(app: Client):
     @app.on_message(filters.group & filters.command("cmd"))
     async def cmd_toggle(client, message: Message):
         if not await is_power(client, message.chat.id, message.from_user.id):
-            return await message.reply_text("❌ Sirf admin yeh command use kar sakta hai.")
+            return await message.reply_text("❌ Only Admin Can use this command. .")
 
         parts = message.text.split(maxsplit=1)
         if len(parts) < 2 or parts[1].lower() not in ["on", "off"]:
@@ -75,7 +69,7 @@ def register_cmddeleter_handler(app: Client):
         if status:
             await message.reply_text(
                 "✅ **Command Deleter ON!**\n\n"
-                "Ab / ! . se shuru hone wali commands automatically delete hongi."
+                "Now /! . Commands starting from this will be automatically deleted.."
             )
         else:
             await message.reply_text("⚠️ **Command Deleter OFF!**")
