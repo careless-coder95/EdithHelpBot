@@ -120,17 +120,17 @@ def register_handlers(app: Client):
                 InlineKeyboardButton("• 𝐏ʜᴏɴᴇ •", callback_data="phone_help"),
             ],
             [
-                InlineKeyboardButton("• 𝐋ᴏɴɢ 𝐋ɪᴍɪᴛ •", callback_data="longmsg_help"),
-                InlineKeyboardButton("• #𝐇ᴀ𝐬ʜᴛᴀɢ •", callback_data="hashtag_help"),
-            ],
-            [
-                
-                InlineKeyboardButton("• 𝐂ᴍᴅ 𝐃ᴇʟᴇᴛᴇʀ •", callback_data="cmd_help"),
-                InlineKeyboardButton("• 𝐌ᴇᴅɪᴀ 𝐂ʟᴇᴀɴᴇʀ •", callback_data="mediadelete_help"),
-            ],
-            [
-                InlineKeyboardButton("• 𝐃ᴇʟ 𝐀ᴄᴄ •", callback_data="zombie_help"),
                 InlineKeyboardButton("• 𝐓ᴀɢ𝐀ʟʟ •", callback_data="tagall_help"),
+                InlineKeyboardButton("• #𝐇ᴀ𝐬ʜᴛᴀɢ •", callback_data="hashtag_help"),
+                InlineKeyboardButton("• 𝐃ᴇʟ 𝐀ᴄᴄ •", callback_data="zombie_help"),
+            ],
+            [
+                InlineKeyboardButton("• 𝐋ᴏɴɢ 𝐋ɪᴍɪᴛ •", callback_data="longmsg_help"),
+            ],
+            [
+                InlineKeyboardButton("• 𝐌ᴇᴅɪᴀ 𝐂ʟᴇᴀɴᴇʀ •", callback_data="mediadelete_help"),
+                InlineKeyboardButton("• 𝐂ᴍᴅ 𝐃ᴇʟᴇᴛᴇʀ •", callback_data="cmd_help"),
+                
             ],
                 [InlineKeyboardButton("⌯ 𝐁ᴀᴄᴋ ⌯", callback_data="back_to_start")]
         ])
