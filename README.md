@@ -159,6 +159,17 @@ Deletes any message starting with `/` `!` `.`
 
 </details>
 
+<details>
+<summary><b>🗑️ Media Cleaner</b></summary>
+
+| Command | Description |
+|---|---|
+| `/mediadelete on` | Auto delete Media at default (5m) time. |
+| `/mediadelete off` | Disable Auto Media delete  |
+| `/setmediadelay <time>` | Set You Custom Time To Delete Media |
+
+</details>
+
 ---
 
 ## 📁 File Structure
@@ -185,9 +196,9 @@ NomadeHelpBot/
     ├── fsub.py           ← Force subscribe
     ├── tools.py          ← Echo, LongMsg, Phone, Hashtag
     ├── utility.py        ← ChatInfo, Pin, Purge, Report
-    └── cmddeleter.py     ← Command auto-delete
+    ├── cmddeleter.py     ← Command auto-delete
+    └── mediadelete.py    ← Auto media Cleaner 
 ```
-
 ---
 
 ## ⚙️ Setup
