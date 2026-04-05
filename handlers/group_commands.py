@@ -517,6 +517,107 @@ def register_group_commands(app: Client):
             await message.reply_text(f"❌ Failed to unmute: {e}")
 
 
+
+    # ==========================================================
+# tmute
+# ==========================================================
+
+    @app.on_message(filters.group & filters.command("tmute"))
+async def tmute_user(client, message):
+    if not await is_power(client, message.chat.id, message.from_user.id):
+        return await message.reply_text("❌ Only admins can use this command.")
+
+    parts = message.text.split(maxsplit=2)
+    if len(parts) < 3 and not message.reply_to_message:
+        return await message.reply_text("⚙️ Usage: `/tmute @user 10m` or reply with `/tmute 10m`")
+
+    if message.reply_to_message:
+        user = message.reply_to_message.from_user
+        time_arg = parts[1] if len(parts) > 1 else None
+    else:
+        user = await extract_target_user(client, message)
+        time_arg = parts[2] if len(parts) > 2 else None
+
+    if not user or not time_arg:
+        return await message.reply_text("⚙️ Usage: `/tmute @user 10m` or reply with `/tmute 10m`")
+
+    match = re.fullmatch(r"(\d+)(m|h)", time_arg.strip().lower())
+    if not match:
+        return await message.reply_text("⚠️ Invalid time! Use: `10m` `1h` `12h` `24h`")
+
+    value, unit = int(match.group(1)), match.group(2)
+    seconds = value * 60 if unit == "m" else value * 3600
+    if seconds < 60 or seconds > 86400:
+        return await message.reply_text("⚠️ Time must be between 1m and 24h.")
+
+    target = await client.get_chat_member(message.chat.id, user.id)
+    if target.status in [ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.OWNER]:
+        return await message.reply_text("⚠️ Cannot mute an admin.")
+
+    from datetime import datetime, timedelta
+    until = datetime.utcnow() + timedelta(seconds=seconds)
+
+    try:
+        await client.restrict_chat_member(
+            message.chat.id,
+            user.id,
+            permissions=ChatPermissions(can_send_messages=False),
+            until_date=until
+        )
+        await message.reply_text(f"🔇 {user.mention} muted for `{time_arg}`.")
+    except Exception as e:
+        await message.reply_text(f"❌ Failed: {e}")
+
+
+# ==========================================================
+# tban
+# ==========================================================
+
+@app.on_message(filters.group & filters.command("tban"))
+async def tban_user(client, message):
+    if not await is_power(client, message.chat.id, message.from_user.id):
+        return await message.reply_text("❌ Only admins can use this command.")
+
+    parts = message.text.split(maxsplit=2)
+    if len(parts) < 3 and not message.reply_to_message:
+        return await message.reply_text("⚙️ Usage: `/tban @user 10m` or reply with `/tban 10m`")
+
+    if message.reply_to_message:
+        user = message.reply_to_message.from_user
+        time_arg = parts[1] if len(parts) > 1 else None
+    else:
+        user = await extract_target_user(client, message)
+        time_arg = parts[2] if len(parts) > 2 else None
+
+    if not user or not time_arg:
+        return await message.reply_text("⚙️ Usage: `/tban @user 10m` or reply with `/tban 10m`")
+
+    match = re.fullmatch(r"(\d+)(m|h)", time_arg.strip().lower())
+    if not match:
+        return await message.reply_text("⚠️ Invalid time! Use: `10m` `1h` `12h` `24h`")
+
+    value, unit = int(match.group(1)), match.group(2)
+    seconds = value * 60 if unit == "m" else value * 3600
+    if seconds < 60 or seconds > 86400:
+        return await message.reply_text("⚠️ Time must be between 1m and 24h.")
+
+    target = await client.get_chat_member(message.chat.id, user.id)
+    if target.status in [ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.OWNER]:
+        return await message.reply_text("⚠️ Cannot ban an admin.")
+
+    from datetime import datetime, timedelta
+    until = datetime.utcnow() + timedelta(seconds=seconds)
+
+    try:
+        await client.ban_chat_member(
+            message.chat.id,
+            user.id,
+            until_date=until
+        )
+        await message.reply_text(f"🚨 {user.mention} banned for `{time_arg}`.")
+    except Exception as e:
+        await message.reply_text(f"❌ Failed: {e}")
+
     # ==========================================================
     # Warn
     # ==========================================================
