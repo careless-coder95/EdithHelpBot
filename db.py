@@ -176,7 +176,10 @@ async def get_fsub_channels(chat_id: int) -> list:
 
 
 
-# Long Message
+# ==========================================================
+# 📃 LONG MESSAGE 
+# ==========================================================
+
 async def set_longmode(chat_id, mode):
     await db.longmsg.update_one({"chat_id": chat_id}, {"$set": {"mode": mode}}, upsert=True)
 async def get_longmode(chat_id):
@@ -188,25 +191,51 @@ async def get_longlimit(chat_id):
     data = await db.longmsg.find_one({"chat_id": chat_id})
     return data.get("limit", 800) if data else 800
 
-# Phone
+# ==========================================================
+# phone 📱 
+# ==========================================================
+
 async def set_nophone_status(chat_id, status):
     await db.nophone.update_one({"chat_id": chat_id}, {"$set": {"enabled": status}}, upsert=True)
 async def get_nophone_status(chat_id):
     data = await db.nophone.find_one({"chat_id": chat_id})
     return bool(data.get("enabled", False)) if data else False
 
-# Hashtag
+# ==========================================================
+# Hashtag 🔤 
+# ==========================================================
+
 async def set_nohashtag_status(chat_id, status):
     await db.nohashtag.update_one({"chat_id": chat_id}, {"$set": {"enabled": status}}, upsert=True)
 async def get_nohashtag_status(chat_id):
     data = await db.nohashtag.find_one({"chat_id": chat_id})
     return bool(data.get("enabled", False)) if data else False
 
+# ==========================================================
+# 🛂 command 
+# ==========================================================
 
-# Cmd Deleter
 async def set_cmddeleter_status(chat_id: int, status: bool):
     await db.cmddeleter.update_one({"chat_id": chat_id}, {"$set": {"enabled": status}}, upsert=True)
 
 async def get_cmddeleter_status(chat_id: int) -> bool:
     data = await db.cmddeleter.find_one({"chat_id": chat_id})
     return bool(data.get("enabled", False)) if data else False
+
+# ==========================================================
+# 🖼️ media deleter 
+# ==========================================================
+async def set_mediadelete_status(chat_id: int, status: bool):
+    await db.mediadelete.update_one({"chat_id": chat_id}, {"$set": {"enabled": status}}, upsert=True)
+
+async def get_mediadelete_status(chat_id: int) -> bool:
+    data = await db.mediadelete.find_one({"chat_id": chat_id})
+    return bool(data.get("enabled", False)) if data else False
+
+async def set_mediadelay(chat_id: int, seconds: int):
+    await db.mediadelete.update_one({"chat_id": chat_id}, {"$set": {"delay": seconds}}, upsert=True)
+
+async def get_mediadelay(chat_id: int) -> int:
+    data = await db.mediadelete.find_one({"chat_id": chat_id})
+    return data.get("delay", 300) if data else 300
+
