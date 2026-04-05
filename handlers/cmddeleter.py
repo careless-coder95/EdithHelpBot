@@ -89,7 +89,7 @@ def register_cmddeleter_handler(app: Client):
             return
 
             if not await db.get_cmddeleter_status(message.chat.id):
-            return
+                return
 
         text = message.text or message.caption or ""
         if text and CMD_PATTERN.match(text):
