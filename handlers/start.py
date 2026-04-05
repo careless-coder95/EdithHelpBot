@@ -102,11 +102,12 @@ def register_handlers(app: Client):
         buttons = InlineKeyboardMarkup([
             [
                 InlineKeyboardButton("• 𝐆ʀᴇᴇᴛɪɴɢs •", callback_data="greetings"),
-                InlineKeyboardButton("• 𝐋ᴏᴄᴋs •", callback_data="locks"),
+                InlineKeyboardButton("• 𝐌ᴏᴅᴇʀᴀᴛɪᴏɴ •", callback_data="moderation"),
             ],
             [
-                InlineKeyboardButton("• 𝐌ᴏᴅᴇʀᴀᴛɪᴏɴ •", callback_data="moderation"),
+                InlineKeyboardButton("• 𝐋ᴏᴄᴋs •", callback_data="locks"),
                 InlineKeyboardButton("• 𝐁ɪᴏ 𝐋ɪɴᴋ •", callback_data="biolink"),
+                InlineKeyboardButton("• 𝐔ᴛɪʟɪᴛʏ •", callback_data="utility_help"),
             ],
             [
                 InlineKeyboardButton("• 𝐍ᴏᴛᴇs •", callback_data="notes_help"),
@@ -123,11 +124,13 @@ def register_handlers(app: Client):
                 InlineKeyboardButton("• #𝐇ᴀ𝐬ʜᴛᴀɢ •", callback_data="hashtag_help"),
             ],
             [
-                InlineKeyboardButton("• 𝐔ᴛɪʟɪᴛʏ •", callback_data="utility_help"),
+                
                 InlineKeyboardButton("• 𝐂ᴍᴅ 𝐃ᴇʟᴇᴛᴇʀ •", callback_data="cmd_help"),
+                InlineKeyboardButton("• 𝐌ᴇᴅɪᴀ 𝐂ʟᴇᴀɴᴇʀ •", callback_data="mediadelete_help"),
             ],
             [
-                InlineKeyboardButton("• 𝐌ᴇᴅɪᴀ 𝐂ʟᴇᴀɴᴇʀ •", callback_data="mediadelete_help"),
+                InlineKeyboardButton("• 𝐃ᴇʟ 𝐀ᴄᴄ •", callback_data="zombie_help"),
+                InlineKeyboardButton("• 𝐓ᴀɢ𝐀ʟʟ •", callback_data="tagall_help"),
             ],
                 [InlineKeyboardButton("⌯ 𝐁ᴀᴄᴋ ⌯", callback_data="back_to_start")]
         ])
@@ -476,6 +479,24 @@ def register_handlers(app: Client):
         media = InputMediaPhoto(media=START_IMAGE, caption=MEDIADELETE_HELP_TEXT, parse_mode=enums.ParseMode.HTML)
         await callback_query.message.edit_media(media=media, reply_markup=buttons)
         await callback_query.answer()
+
+# Deleted Account Remover
+    @app.on_callback_query(filters.regex("^zombie_help$"))
+    async def zombie_help_callback(client, callback_query):
+        from handlers.zombie import ZOMBIE_HELP_TEXT 
+        buttons = InlineKeyboardMarkup([[InlineKeyboardButton("⌯ 𝐁ᴀᴄᴋ ⌯", callback_data="help")]])
+        media = InputMediaPhoto(media=START_IMAGE, caption=ZOMBIE_HELP_TEXT, parse_mode=enums.ParseMode.HTML)
+        await callback_query.message.edit_media(media=media, reply_markup=buttons)
+        await callback_query.answer()
+
+    # Tag All 
+    @app.on_callback_query(filters.regex("^tagall_help$"))
+    async def tagall_help_callback(client, callback_query):
+        from handlers.tagall import TAGALL_HELP_TEXT
+        buttons = InlineKeyboardMarkup([[InlineKeyboardButton("⌯ 𝐁ᴀᴄᴋ ⌯", callback_data="help")]])
+        media = InputMediaPhoto(media=START_IMAGE, caption=TAGALL_HELP_TEXT, parse_mode=enums.ParseMode.HTML)
+       await callback_query.message.edit_media(media=media, reply_markup=buttons)
+       await callback_query.answer()
 
 
     # ==========================================================
