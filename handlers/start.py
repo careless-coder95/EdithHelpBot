@@ -495,8 +495,8 @@ def register_handlers(app: Client):
         from handlers.tagall import TAGALL_HELP_TEXT
         buttons = InlineKeyboardMarkup([[InlineKeyboardButton("⌯ 𝐁ᴀᴄᴋ ⌯", callback_data="help")]])
         media = InputMediaPhoto(media=START_IMAGE, caption=TAGALL_HELP_TEXT, parse_mode=enums.ParseMode.HTML)
-       await callback_query.message.edit_media(media=media, reply_markup=buttons)
-       await callback_query.answer()
+        await callback_query.message.edit_media(media=media, reply_markup=buttons)
+        await callback_query.answer()
 
 
     # ==========================================================
