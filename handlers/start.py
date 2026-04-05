@@ -128,6 +128,9 @@ def register_handlers(app: Client):
                 InlineKeyboardButton("• 𝐔ᴛɪʟɪᴛʏ •", callback_data="utility_help"),
                 InlineKeyboardButton("• 𝐂ᴍᴅ 𝐃ᴇʟᴇᴛᴇʀ •", callback_data="cmd_help"),
             ],
+            [
+                InlineKeyboardButton("• 𝐌ᴇᴅɪᴀ 𝐂ʟᴇᴀɴᴇʀ •", callback_data="mediadelete_help"),
+            ],
                 [InlineKeyboardButton("⌯ 𝐁ᴀᴄᴋ ⌯", callback_data="back_to_start")]
         ])
 
@@ -464,6 +467,15 @@ def register_handlers(app: Client):
         from handlers.cmddeleter import CMDDELETER_HELP_TEXT
         buttons = InlineKeyboardMarkup([[InlineKeyboardButton("⌯ 𝐁ᴀᴄᴋ ⌯", callback_data="help")]])
         media = InputMediaPhoto(media=START_IMAGE, caption=CMDDELETER_HELP_TEXT, parse_mode=enums.ParseMode.HTML)
+        await callback_query.message.edit_media(media=media, reply_markup=buttons)
+        await callback_query.answer()
+
+    # Media Deleter:
+    @app.on_callback_query(filters.regex("^mediadelete_help$"))
+    async def mediadelete_help_callback(client, callback_query):
+        from handlers.mediadelete import MEDIADELETE_HELP_TEXT
+        buttons = InlineKeyboardMarkup([[InlineKeyboardButton("⌯ 𝐁ᴀᴄᴋ ⌯", callback_data="help")]])
+        media = InputMediaPhoto(media=START_IMAGE, caption=MEDIADELETE_HELP_TEXT, parse_mode=enums.ParseMode.HTML)
         await callback_query.message.edit_media(media=media, reply_markup=buttons)
         await callback_query.answer()
 
