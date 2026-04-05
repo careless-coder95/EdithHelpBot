@@ -21,38 +21,28 @@ async def is_power(client, chat_id: int, user_id: int) -> bool:
 # ==========================================================
 
 UTILITY_HELP_TEXT = """
-╔══════════════════╗
-   ⚙️ UTILITY
-╚══════════════════╝
+<b>╔══════════════════╗</b>
+<b>   ⚙️ ᴜᴛɪʟɪᴛʏ</b>
+<b>╚══════════════════╝</b>
 
-📋 Commands:
+<b>📋 ᴄᴏᴍᴍᴀɴᴅs ❖</b>
 
-• /chatinfo
-  → Group ki details aur member count
+❍ /chatinfo <b>➥ ᴠɪᴇᴡ ɢʀᴏᴜᴘ ᴅᴇᴛᴀɪʟs ᴀɴᴅ ᴍᴇᴍʙᴇʀ ᴄᴏᴜɴᴛ</b>
+❍ /id <b>➥ ᴄʜᴇᴄᴋ ʏᴏᴜʀ ɪᴅ. ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴜsᴇʀ</b>  
+  <b>➥ ᴛᴏ ɢᴇᴛ ᴛʜᴇɪʀ ɪᴅ.</b>
+❍ /pin <b>➥ ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ —</b>  
+  <b>➥ ɪᴛ ᴡɪʟʟ ʙᴇ ᴘɪɴɴᴇᴅ.</b>
+❍ /unpin <b>➥ ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ —</b>  
+  <b>➥ ɪᴛ ᴡɪʟʟ ʙᴇ ᴜɴᴘɪɴɴᴇᴅ.</b>
+❍ /purge <b>➥ ʀᴇᴘʟʏ ғʀᴏᴍ ᴡʜᴇʀᴇ ᴛᴏ sᴛᴀʀᴛ —</b>  
+  <b>➥ ᴀʟʟ ᴍᴇssᴀɢᴇs ᴡɪʟʟ ʙᴇ ᴅᴇʟᴇᴛᴇᴅ ᴜɴᴛɪʟ ɴᴏᴡ.</b>
+❍ /del <b>➥ ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ —</b>  
+  <b>➥ ᴏɴʟʏ ᴛʜᴀᴛ ᴍᴇssᴀɢᴇ ᴡɪʟʟ ʙᴇ ᴅᴇʟᴇᴛᴇᴅ.</b>
+❍ /report <b>➥ ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ —</b>  
+  <b>➥ ᴀᴅᴍɪɴs ᴡɪʟʟ ʙᴇ ɴᴏᴛɪғɪᴇᴅ.</b>
 
-• /id
-  → Apna ID dekho. Reply karo
-    kisi par to uska ID milega.
-
-• /pin
-  → Reply karo kisi message par —
-    wo message pin ho jaayega.
-
-• /purge
-  → Reply karo jis message se delete
-    shuru karna hai — sab delete honge
-    wahan se ab tak.
-
-• /del
-  → Reply karo kisi message par —
-    sirf wo message delete hoga.
-
-• /report
-  → Reply karo kisi message par —
-    admins ko report jaayegi.
-
-👮 pin, purge, del — sirf admin.
-👥 report — sab use kar sakte hain.
+<b>👮 /pin, /purge, /del — ᴀᴅᴍɪɴ ᴏɴʟʏ.</b>  
+<b>👥 /report — ᴀᴠᴀɪʟᴀʙʟᴇ ғᴏʀ ᴀʟʟ ᴜsᴇʀs.</b>
 """
 
 
@@ -100,7 +90,7 @@ def register_utility_handler(app: Client):
                     f"🆔 User ID: `{user.id}`"
                 )
             else:
-                await message.reply_text("⚠️ User detect nahi hua.")
+                await message.reply_text("⚠️ User not detected.")
         else:
             user = message.from_user
             text = f"🆔 **Aapka ID:** `{user.id}`"
@@ -116,10 +106,10 @@ def register_utility_handler(app: Client):
     @app.on_message(filters.group & filters.command("pin"))
     async def pin_cmd(client, message: Message):
         if not await is_power(client, message.chat.id, message.from_user.id):
-            return await message.reply_text("❌ Sirf admin pin kar sakta hai.")
+            return await message.reply_text("❌ Only admin can pin.")
 
         if not message.reply_to_message:
-            return await message.reply_text("⚠️ Jis message ko pin karna hai usse reply karo.")
+            return await message.reply_text("⚠️ Reply to the message you want to pin.")
 
         try:
             await client.pin_chat_message(
@@ -127,11 +117,33 @@ def register_utility_handler(app: Client):
                 message.reply_to_message.id,
                 disable_notification=False
             )
-            await message.reply_text("📌 Message pin ho gaya!")
+            await message.reply_text("📌 Message pinned!")
         except Exception as e:
-            await message.reply_text(f"❌ Pin nahi hua: {e}")
+            await message.reply_text(f"❌ Not pinned: {e}")
 
 
+    # ==========================================================
+    # /unpin
+    # ==========================================================
+
+    @app.on_message(filters.group & filters.command("unpin"))
+    async def unpin_cmd(client, message: Message):
+        if not await is_power(client, message.chat.id, message.from_user.id):
+            return await message.reply_text("❌ Only admin can unpin.")
+
+        try:
+            if message.reply_to_message:
+                await client.unpin_chat_message(
+                    message.chat.id,
+                    message.reply_to_message.id
+                )
+                await message.reply_text("📌 This message got unpinned!")
+            else:
+                await client.unpin_all_chat_messages(message.chat.id)
+                await message.reply_text("📌 All pinned messages have been unpinned!")
+        except Exception as e:
+            await message.reply_text(f"❌ not unpinned: {e}")
+            
     # ==========================================================
     # /purge
     # ==========================================================
@@ -139,10 +151,10 @@ def register_utility_handler(app: Client):
     @app.on_message(filters.group & filters.command("purge"))
     async def purge_cmd(client, message: Message):
         if not await is_power(client, message.chat.id, message.from_user.id):
-            return await message.reply_text("❌ Sirf admin purge kar sakta hai.")
+            return await message.reply_text("❌ Only the admin can purge.")
 
         if not message.reply_to_message:
-            return await message.reply_text("⚠️ Jis message se delete shuru karna hai usse reply karo.")
+            return await message.reply_text("⚠️ Reply to the message you want to start deleting from..")
 
         from_msg_id = message.reply_to_message.id
         to_msg_id = message.id
@@ -161,7 +173,7 @@ def register_utility_handler(app: Client):
 
         confirm = await client.send_message(
             message.chat.id,
-            f"🗑️ **{deleted}** messages delete ho gaye."
+            f"🗑️ **{deleted}** messages got deleted."
         )
         import asyncio
         await asyncio.sleep(3)
@@ -175,16 +187,16 @@ def register_utility_handler(app: Client):
     @app.on_message(filters.group & filters.command("del"))
     async def del_cmd(client, message: Message):
         if not await is_power(client, message.chat.id, message.from_user.id):
-            return await message.reply_text("❌ Sirf admin delete kar sakta hai.")
+            return await message.reply_text("❌ Only admin can delete it.")
 
         if not message.reply_to_message:
-            return await message.reply_text("⚠️ Jis message ko delete karna hai usse reply karo.")
+            return await message.reply_text("⚠️ Reply to the message you want to delete..")
 
         try:
             await message.reply_to_message.delete()
             await message.delete()
         except Exception as e:
-            await message.reply_text(f"❌ Delete nahi hua: {e}")
+            await message.reply_text(f"❌ not deleted: {e}")
 
 
     # ==========================================================
@@ -194,16 +206,16 @@ def register_utility_handler(app: Client):
     @app.on_message(filters.group & filters.command("report"))
     async def report_cmd(client, message: Message):
         if not message.reply_to_message:
-            return await message.reply_text("⚠️ Jis message ko report karna hai usse reply karo.")
+            return await message.reply_text("⚠️ Reply to the message you want to report..")
 
         reported_user = message.reply_to_message.from_user
         reporter = message.from_user
 
         if not reported_user:
-            return await message.reply_text("⚠️ User detect nahi hua.")
+            return await message.reply_text("⚠️ User not detected.")
 
         if reported_user.id == reporter.id:
-            return await message.reply_text("⚠️ Aap khud ko report nahi kar sakte.")
+            return await message.reply_text("⚠️ You cannot report yourself.")
 
         # Sabke admins ko fetch karo
         try:
