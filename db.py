@@ -201,3 +201,12 @@ async def set_nohashtag_status(chat_id, status):
 async def get_nohashtag_status(chat_id):
     data = await db.nohashtag.find_one({"chat_id": chat_id})
     return bool(data.get("enabled", False)) if data else False
+
+
+# Cmd Deleter
+async def set_cmddeleter_status(chat_id: int, status: bool):
+    await db.cmddeleter.update_one({"chat_id": chat_id}, {"$set": {"enabled": status}}, upsert=True)
+
+async def get_cmddeleter_status(chat_id: int) -> bool:
+    data = await db.cmddeleter.find_one({"chat_id": chat_id})
+    return bool(data.get("enabled", False)) if data else False
