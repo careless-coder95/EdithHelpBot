@@ -249,8 +249,8 @@ sudo apt install python3 python3-pip git -y
 
 ### Step 2 — Bot Clone karo
 ```bash
-git clone https://github.com/YourRepo/NomadeHelpBot.git
-cd NomadeHelpBot
+git clone https://github.com/careless-coder95/EdithHelpBot
+cd EdithHelpBot
 ```
 
 ### Step 3 — Dependencies install karo
@@ -268,11 +268,11 @@ nano .env
 ```bash
 # screen se run karo taaki close karne par band na ho
 sudo apt install screen -y
-screen -S nomade
+screen -S Edith
 python3 main.py
 
 # Screen se bahar aane ke liye: Ctrl+A → D
-# Wapas aane ke liye: screen -r nomade
+# Wapas aane ke liye: screen -r Edith
 ```
 
 ### Auto-restart setup (systemd)
@@ -281,12 +281,12 @@ sudo nano /etc/systemd/system/nomade.service
 ```
 ```ini
 [Unit]
-Description=NomadeHelpBot
+Description=EdithHelpBot
 After=network.target
 
 [Service]
 User=root
-WorkingDirectory=/root/NomadeHelpBot
+WorkingDirectory=/root/EdithHelpBot
 ExecStart=/usr/bin/python3 main.py
 Restart=always
 
@@ -294,9 +294,9 @@ Restart=always
 WantedBy=multi-user.target
 ```
 ```bash
-sudo systemctl enable nomade
-sudo systemctl start nomade
-sudo systemctl status nomade
+sudo systemctl enable Edith
+sudo systemctl start Edith
+sudo systemctl status Edith
 ```
 
 </details>
@@ -311,7 +311,7 @@ sudo systemctl status nomade
 ### Step 2 — Login & App Create
 ```bash
 heroku login
-heroku create your-nomade-bot
+heroku create EdithHelpBot 
 ```
 
 ### Step 3 — Config Variables Set karo
@@ -332,8 +332,8 @@ heroku config:set START_IMAGE=https://files.catbox.moe/j2yhce.jpg
 ```bash
 git init
 git add .
-git commit -m "Deploy NomadeHelpBot"
-heroku git:remote -a your-nomade-bot
+git commit -m "Deploy EdithHelpBot"
+heroku git:remote -a EdithHelpBot
 git push heroku main
 ```
 
@@ -407,6 +407,6 @@ START_IMAGE     = https://files.catbox.moe/j2yhce.jpg
 
 <div align="center">
 
-Made with ❤️ by **Mr. Stark**
+# Made with ❤️ by **Mr. Stark**
 
 </div>
