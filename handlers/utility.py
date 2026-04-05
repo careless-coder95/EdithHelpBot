@@ -64,9 +64,9 @@ def register_utility_handler(app: Client):
         chat_type = str(chat.type).replace("ChatType.", "").capitalize()
 
         text = (
-            f"╔══════════════════╗\n"
+            f"╔══════════════╗\n"
             f"   ℹ️ Chat Info\n"
-            f"╚══════════════════╝\n\n"
+            f"╚══════════════╝\n\n"
             f"📛 **Name:** {chat.title}\n"
             f"🆔 **ID:** `{chat.id}`\n"
             f"🔗 **Username:** {username}\n"
