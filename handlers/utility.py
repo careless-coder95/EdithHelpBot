@@ -93,7 +93,7 @@ def register_utility_handler(app: Client):
                 await message.reply_text("⚠️ User not detected.")
         else:
             user = message.from_user
-            text = f"🆔 **Aapka ID:** `{user.id}`"
+            text = f"🆔 **Your ID:** `{user.id}`"
             if message.chat.type != ChatType.PRIVATE:
                 text += f"\n💬 **Chat ID:** `{message.chat.id}`"
             await message.reply_text(text)
