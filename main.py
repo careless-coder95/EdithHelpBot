@@ -1,10 +1,6 @@
 # ============================================================
 #Group Manager Bot
-# Author: LearningBotsOfficial (https://github.com/LearningBotsOfficial) 
-# Support: https://t.me/LearningBotsCommunity
-# Channel: https://t.me/learning_bots
-# YouTube: https://youtube.com/@learning_bots
-# License: Open-source (keep credits, no resale)
+#AUTHOR : MISTER STARK 
 # ============================================================
 
 from pyrogram import Client
