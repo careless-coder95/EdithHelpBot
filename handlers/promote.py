@@ -39,41 +39,42 @@ async def extract_target_user(client, message):
 # ==========================================================
 # Help Text
 # ==========================================================
-
 PROMOTE_HELP_TEXT = """
-╔══════════════════╗
-   👮 PROMOTE SYSTEM
-╚══════════════════╝
+<b>╔══════════════════╗</b>
+<b>   👮 ᴘʀᴏᴍᴏᴛᴇ sʏsᴛᴇᴍ</b>
+<b>╚══════════════════╝</b>
 
-Three levels of promotion available:
+<b>❖ Three levels of promotion available:</b>
 
-• /promote <user>
-  → Standard admin
-  - Delete messages
-  - Invite via link
-  - Pin messages
-  - Edit messages
-  - Manage live streams
-  - Manage voice chats
+❍ /promote <user>  
+<blockquote expandable><b>
+➻ sᴛᴀɴᴅᴀʀᴅ ᴀᴅᴍɪɴ  
+➥ ᴅᴇʟᴇᴛᴇ ᴍᴇssᴀɢᴇs  
+➥ ɪɴᴠɪᴛᴇ ᴠɪᴀ ʟɪɴᴋ  
+➥ ᴘɪɴ ᴍᴇssᴀɢᴇs  
+➥ ᴇᴅɪᴛ ᴍᴇssᴀɢᴇs  
+➥ ᴍᴀɴᴀɢᴇ ʟɪᴠᴇ sᴛʀᴇᴀᴍs  
+➥ ᴍᴀɴᴀɢᴇ ᴠᴏɪᴄᴇ ᴄʜᴀᴛs  
+</b></blockquote>
+❍ /mod <user> 
+<blockquote expandable><b>
+➻ ᴍᴏᴅᴇʀᴀᴛᴏʀ  
+➥ ᴅᴇʟᴇᴛᴇ ᴍᴇssᴀɢᴇs  
+➥ ᴍᴀɴᴀɢᴇ ᴍᴇssᴀɢᴇs  
+➥ ᴍᴀɴᴀɢᴇ ᴠᴏɪᴄᴇ ᴄʜᴀᴛs  
+➥ ᴍᴀɴᴀɢᴇ ʟɪᴠᴇ sᴛʀᴇᴀᴍs  
+</b></blockquote>
+❍ /fullpromote <user>  
+<blockquote expandable><b>
+➻ ғᴜʟʟ ᴀᴅᴍɪɴ (ᴀʟʟ ᴘᴏᴡᴇʀs)  
+➥ ᴀʟʟ ᴘᴇʀᴍɪssɪᴏɴs ᴇxᴄᴇᴘᴛ ᴀɴᴏɴʏᴍᴏᴜs  
+</b></blockquote>
 
-• /mod <user>
-  → Moderator
-  - Delete messages
-  - Manage messages
-  - Manage voice chats
-  - Manage live streams
+❍ /demote &lt;user&gt;  
+<b>➥ ʀᴇᴍᴏᴠᴇ ᴀᴅᴍɪɴ ʀɪɢʜᴛs</b>
 
-• /fullpromote <user>
-  → Full admin (all powers)
-  - All permissions except anonymous
-
-• /demote <user>
-  → Remove all admin rights
-
-👮 Only admins with Add Admin
-   permission can use these commands.
+<b>👮 Only admins can use these commands.</b>
 """
-
 
 def register_promote_handler(app: Client):
 
