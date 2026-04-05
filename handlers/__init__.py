@@ -12,6 +12,8 @@ from .fsub import register_fsub_handler
 from .tools import register_tools_handler
 from .utility import register_utility_handler
 from .cmddeleter import register_cmddeleter_handler
+from .mediadelete import register_mediadelete_handler
+
 # andar:
 
 
@@ -25,4 +27,5 @@ def register_all_handlers(app):
     register_tools_handler(app)
     register_utility_handler(app)
     register_cmddeleter_handler(app)
+    register_mediadelete_handler(app)
     print("✅ All handlers registered!")
