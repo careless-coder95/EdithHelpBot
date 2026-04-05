@@ -79,7 +79,7 @@ def register_cmddeleter_handler(app: Client):
     # Enforce — commands detect karke delete karo
     # ==========================================================
 
-    @app.on_message(filters.group & filters.text & ~filters.service, group=7)
+    @app.on_message(filters.group & ~filters.service, group=7)
     async def enforce_cmddeleter(client, message: Message):
         try:
             member = await client.get_chat_member(message.chat.id, message.from_user.id)
@@ -88,10 +88,11 @@ def register_cmddeleter_handler(app: Client):
         except:
             return
 
-        if not await db.get_cmddeleter_status(message.chat.id):
+            if not await db.get_cmddeleter_status(message.chat.id):
             return
 
-        if message.text and CMD_PATTERN.match(message.text):
+        text = message.text or message.caption or ""
+        if text and CMD_PATTERN.match(text):
             try:
                 await message.delete()
             except Exception as e:
