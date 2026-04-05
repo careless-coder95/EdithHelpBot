@@ -182,8 +182,6 @@ NomadeHelpBot/
 ├── db.py
 ├── security.py
 ├── requirements.txt
-├── Procfile
-├── Dockerfile
 ├── .env                  ← API keys yahan
 │
 └── handlers/
