@@ -102,17 +102,15 @@ def register_promote_handler(app: Client):
                 chat_id=message.chat.id,
                 user_id=user.id,
                 privileges=ChatPrivileges(
-                    can_manage_chat=True,
-                    can_delete_messages=True,
-                    can_manage_video_chats=True,
-                    can_restrict_members=False,
-                    can_promote_members=False,
                     can_change_info=False,
+                    can_delete_messages=True,
                     can_invite_users=True,
                     can_pin_messages=True,
-                    can_post_messages=False,
-                    can_edit_messages=True,
-                    is_anonymous=False
+                    can_restrict_members=False,
+                    can_promote_members=False,
+                    can_manage_chat=True,
+                    can_manage_video_chats=True,
+                    is_anonymous=False,
                 )
             )
             await message.reply_text(
@@ -195,16 +193,14 @@ def register_promote_handler(app: Client):
                 user_id=user.id,
                 privileges=ChatPrivileges(
                     can_manage_chat=True,
-                    can_delete_messages=True,
-                    can_manage_video_chats=True,
-                    can_restrict_members=True,
-                    can_promote_members=True,
                     can_change_info=True,
+                    can_delete_messages=True,
                     can_invite_users=True,
+                    can_restrict_members=True,
                     can_pin_messages=True,
-                    can_post_messages=True,
-                    can_edit_messages=True,
-                    is_anonymous=False
+                    can_promote_members=True,
+                    is_anonymous=False,
+                   can_manage_video_chats=True,
                 )
             )
             await message.reply_text(
