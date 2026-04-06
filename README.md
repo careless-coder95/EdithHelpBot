@@ -30,11 +30,11 @@
 
 ```
 ╔══════════════════════════════════════════════════════╗
-║                                                      ║
-║   A next-gen Telegram Group Manager Bot              ║
-║   built with Pyrogram & MongoDB                      ║
-║   Packed with powerful moderation tools              ║
-║                                                      ║
+║                                                                ║
+║   A next-gen Telegram Group Manager Bot                        ║
+║   built with Pyrogram & MongoDB                                ║
+║   Packed with powerful moderation tools                        ║
+║                                                                ║
 ╚══════════════════════════════════════════════════════╝
 ```
 
@@ -510,7 +510,7 @@ Click **Create Background Worker** — Render will auto-deploy!
 
 ```
 ╔══════════════════════════════╗
-║   Made with ❤️ by Mr. Stark  ║
+║  Made with ❤️ by Mister Stark.    ║
 ╚══════════════════════════════╝
 ```
 
