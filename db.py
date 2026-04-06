@@ -239,3 +239,21 @@ async def get_mediadelay(chat_id: int) -> int:
     data = await db.mediadelete.find_one({"chat_id": chat_id})
     return data.get("delay", 300) if data else 300
 
+
+# ==========================================================
+# 💬 Messege deleter 
+# ==========================================================
+async def set_cleaner_status(chat_id: int, status: bool):
+    await db.cleaner.update_one({"chat_id": chat_id}, {"$set": {"enabled": status}}, upsert=True)
+
+async def get_cleaner_status(chat_id: int) -> bool:
+    data = await db.cleaner.find_one({"chat_id": chat_id})
+    return bool(data.get("enabled", False)) if data else False
+
+async def set_cleandelay(chat_id: int, seconds: int):
+    await db.cleaner.update_one({"chat_id": chat_id}, {"$set": {"delay": seconds}}, upsert=True)
+
+async def get_cleandelay(chat_id: int) -> int:
+    data = await db.cleaner.find_one({"chat_id": chat_id})
+    return data.get("delay", 300) if data else 300
+
