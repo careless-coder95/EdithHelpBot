@@ -80,7 +80,7 @@ def register_notes_handler(app: Client):
             deep_link = f"https://t.me/{bot_username}?start=note_{message.chat.id}_{name}"
             buttons.append([InlineKeyboardButton(f"📝 #{name}", url=deep_link)])
 
-        text = f"╔════════════════════════╗\n   📝 NOTES — {message.chat.title}\n╚════════════════════════╝\n\nNeeche se note open karo:"
+        text = f"╔═══════════════════════╗\n   📝 NOTES — {message.chat.title}\n╚════════════════════════╝\n\nNeeche se note open karo:"
 
         await message.reply_text(text, reply_markup=InlineKeyboardMarkup(buttons))
 
@@ -102,11 +102,11 @@ def register_notes_handler(app: Client):
         deep_link = f"https://t.me/{bot_username}?start=note_{message.chat.id}_{name}"
 
         buttons = InlineKeyboardMarkup([
-            [InlineKeyboardButton(f"📖 #{name} Look 👀", url=deep_link)]
+            [InlineKeyboardButton(f"📖 See Here", url=deep_link)]
         ])
 
         await message.reply_text(
-            f"📝 Note `#{name}` Your notes are available!\n • Click on the button to read your notice",
+            f"📝 Tap below to view `{name}` in your private chat.",
             reply_markup=buttons
         )
 
@@ -139,7 +139,7 @@ def register_notes_handler(app: Client):
 
         await message.reply_text(
             f"╔════════════════════════╗\n"
-            f"   📝 Note: #{name}\n"
+            f"   📝 Note: {name}\n"
             f"╚════════════════════════╝\n\n"
             f"{content}"
         )
