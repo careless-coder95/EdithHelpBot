@@ -16,7 +16,7 @@ from .mediadelete import register_mediadelete_handler
 from .zombie import register_zombie_handler
 from .tagall import register_tagall_handler
 from .promote import register_promote_handler
-
+from .cleaner import register_cleaner_handler
 # andar:
 
 
@@ -34,4 +34,5 @@ def register_all_handlers(app):
     register_zombie_handler(app)
     register_tagall_handler(app)
     register_promote_handler(app)
+    register_cleaner_handler(app)
     print("✅ All handlers registered!")
