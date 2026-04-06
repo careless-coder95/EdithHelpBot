@@ -99,43 +99,38 @@ def format_msg(chat_name, user_mention, admin_mention, action):
 # ==========================================================
 # Help Text
 # ==========================================================
-
 PROMOTE_HELP_TEXT = """
-╔══════════════════╗
-   👮 PROMOTE SYSTEM
-╚══════════════════╝
+<b>╔══════════════════╗</b>
+<b>   👮 ᴘʀᴏᴍᴏᴛᴇ sʏsᴛᴇᴍ</b>
+<b>╚══════════════════╝</b>
 
-Three levels of promotion available:
+<b>❖ Three levels of promotion available:</b>
 
-• /promote <user> [title]
-  → Standard admin
-  - Delete messages
-  - Invite via link
-  - Pin messages
-  - Manage live streams
-  - Manage voice chats
+❍ /promote <code>{user}</code><blockquote expandable><b>
+➻ sᴛᴀɴᴅᴀʀᴅ ᴀᴅᴍɪɴ  
+➥ ᴅᴇʟᴇᴛᴇ ᴍᴇssᴀɢᴇs  
+➥ ɪɴᴠɪᴛᴇ ᴠɪᴀ ʟɪɴᴋ  
+➥ ᴘɪɴ ᴍᴇssᴀɢᴇs  
+➥ ᴇᴅɪᴛ ᴍᴇssᴀɢᴇs  
+➥ ᴍᴀɴᴀɢᴇ ʟɪᴠᴇ sᴛʀᴇᴀᴍs  
+➥ ᴍᴀɴᴀɢᴇ ᴠᴏɪᴄᴇ ᴄʜᴀᴛs  
+</b></blockquote>
+❍ /mod <code>{user}</code><blockquote expandable><b>
+➻ ᴍᴏᴅᴇʀᴀᴛᴏʀ  
+➥ ᴅᴇʟᴇᴛᴇ ᴍᴇssᴀɢᴇs  
+➥ ᴍᴀɴᴀɢᴇ ᴍᴇssᴀɢᴇs  
+➥ ᴍᴀɴᴀɢᴇ ᴠᴏɪᴄᴇ ᴄʜᴀᴛs  
+➥ ᴍᴀɴᴀɢᴇ ʟɪᴠᴇ sᴛʀᴇᴀᴍs  
+</b></blockquote>
+❍ /fullpromote <code>{user}</code> <blockquote expandable><b>
+➻ ғᴜʟʟ ᴀᴅᴍɪɴ (ᴀʟʟ ᴘᴏᴡᴇʀs)  
+➥ ᴀʟʟ ᴘᴇʀᴍɪssɪᴏɴs ᴇxᴄᴇᴘᴛ ᴀɴᴏɴʏᴍᴏᴜs  
+</b></blockquote>
 
-• /mod <user> [title]
-  → Moderator
-  - Delete messages
-  - Manage messages
-  - Manage voice chats
-  - Manage live streams
+❍ /demote <code>{user}</code> <blockquote expandable><b>➥ ʀᴇᴍᴏᴠᴇ ᴀᴅᴍɪɴ ʀɪɢʜᴛs</b></blockquote>
 
-• /fullpromote <user> [title]
-  → Full admin (all powers)
-  - All permissions except anonymous
-
-• /demote <user>
-  → Remove all admin rights
-
-👮 Only admins with Add Admin
-   permission can use these commands.
-
-💡 You can also set a custom title:
-   /promote @user Manager
+<b>👮 Only admins can use these commands.</b>
 """
-
 
 def register_promote_handler(app: Client):
 
