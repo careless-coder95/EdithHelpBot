@@ -5,7 +5,7 @@
 
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from pyrogram.enums import ChatMemberStatus, ChatType, ChatMembersFilter
+from pyrogram.enums import ChatMemberStatus, ChatType
 import logging
 
 logger = logging.getLogger(__name__)
@@ -239,35 +239,3 @@ def register_utility_handler(app: Client):
             f"📢 {admin_mentions} — please check karo!"
         )
 
-
-    # ==========================================================
-    # @admin mention — tag all admins
-    # ==========================================================
- 
-    @app.on_message(filters.group & filters.text & ~filters.service)
-    async def admin_mention(client, message: Message):
-        if not message.text:
-            return
-
-        if "@admin" not in message.text.lower():
-            return
-
-        try:
-            admins = []
-            async for member in client.get_chat_members(
-                message.chat.id,
-                filter=ChatMembersFilter.ADMINISTRATOR
-            ):
-                if not member.user.is_bot:
-                    admins.append(member.user.mention)
-        except Exception:
-            return
-
-        if not admins:
-            return
-
-        await message.reply_text(
-            f"📢 **Admin Alert!**\n\n"
-            f"{' '.join(admins)}\n\n"
-            f"👆 {message.from_user.mention} needs attention."
-        )
