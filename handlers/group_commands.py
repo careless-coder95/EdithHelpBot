@@ -102,64 +102,6 @@ async def user_has_bio_link(client, user_id: int) -> bool:
 
 def register_group_commands(app: Client):
 
-    # ==========================================================
-    # Welcome event
-    # ==========================================================
-
-    @app.on_chat_member_updated()
-    async def member_update(client: Client, cmu: ChatMemberUpdated):
-        if not cmu.new_chat_member:
-            return
-
-        user = cmu.new_chat_member.user
-        new_status = cmu.new_chat_member.status
-
-        if new_status == ChatMemberStatus.MEMBER:
-            await handle_welcome(
-                client,
-                cmu.chat.id,
-                [user],
-                cmu.chat.title,
-            )
-
-
-    # ==========================================================
-    # Welcome toggle
-    # ==========================================================
-
-    @app.on_message(filters.group & filters.command("welcome"))
-    async def welcome_toggle(client, message: Message):
-        if not await is_power(client, message.chat.id, message.from_user.id):
-            return await message.reply_text("❌ Only admin or owner can use this command.")
-
-        parts = message.text.split(maxsplit=1)
-        if len(parts) < 2 or parts[1].lower() not in ["on", "off"]:
-            return await message.reply_text("⚙️ Usage: /welcome on/off")
-
-        status = parts[1].lower() == "on"
-        await db.set_welcome_status(message.chat.id, status)
-
-        await message.reply_text(
-            "✅ Welcome messages ON." if status else "⚠️ Welcome messages OFF."
-        )
-
-
-    # ==========================================================
-    # Set welcome
-    # ==========================================================
-
-    @app.on_message(filters.group & filters.command("setwelcome"))
-    async def set_welcome(client, message: Message):
-        if not await is_power(client, message.chat.id, message.from_user.id):
-            return await message.reply_text("⚠️ Only admin can use this command.")
-
-        parts = message.text.split(maxsplit=1)
-        if len(parts) < 2:
-            return await message.reply_text("🤖 Usage: /setwelcome <message>")
-
-        await db.set_welcome_message(message.chat.id, parts[1])
-        await message.reply_text("✅ Custom welcome saved!")
-
 
     # ==========================================================
     # Lock
