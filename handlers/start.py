@@ -23,7 +23,7 @@ def register_handlers(app: Client):
 
    ✨ Hello {user}! ✨
 
-👋 I am Nomad 🤖 
+👋 I am Edith 🤖 
 
 Highlights:
 ─────────────────────────────
@@ -129,15 +129,10 @@ Highlights:
 
     def build_help_page(page: int):
         text = (
-            f"╔══════════════════╗
-"
-            f"     📚 Help Menu
-"
-            f"╚══════════════════╝
-
-"
-            f"Page {page + 1} of {len(HELP_PAGES)}
-"
+            f"╔══════════════════╗"
+            f"     📚 Help Menu"
+            f"╚══════════════════╝"
+            f"Page {page + 1} of {len(HELP_PAGES)}"
             f"Choose a category:"
         )
         rows = list(HELP_PAGES[page])
