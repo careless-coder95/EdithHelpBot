@@ -35,16 +35,16 @@ def register_handlers(app: Client):
         )
         )
         buttons = InlineKeyboardMarkup([
-            [InlineKeyboardButton("⚒️ Add to Group ⚒️", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
+            [InlineKeyboardButton("✙ 𝐀ᴅᴅ 𝐌є 𝐈η 𝐘συʀ 𝐆ʀσυᴘ ✙", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
             [
-                InlineKeyboardButton("⌂ Support ⌂", url=SUPPORT_GROUP),
-                InlineKeyboardButton("⌂ Update ⌂", url=UPDATE_CHANNEL),
+                InlineKeyboardButton("⌯ 𝐒ᴜᴘᴘσʀᴛ ⌯", url=SUPPORT_GROUP),
+                InlineKeyboardButton("⌯ 𝐔ᴘᴅᴀᴛᴇ ⌯", url=UPDATE_CHANNEL),
             ],
             [
-                InlineKeyboardButton("※ ŎŴɳēŔ ※", url=f"tg://user?id={OWNER_ID}"),
+                InlineKeyboardButton("⌯ 𝐌ʏ 𝐌ᴧsᴛᴇʀ ⌯", url=f"tg://user?id={OWNER_ID}"),
                 InlineKeyboardButton("🌍 Language", callback_data="lang_help"),
             ],
-            [InlineKeyboardButton("📚 Help Commands 📚", callback_data="help")]
+            [InlineKeyboardButton("⌯ 𝐇єʟᴘ 𝐀ηᴅ 𝐂ᴏᴍᴍᴧηᴅ𝐬 ⌯", callback_data="help")]
         ])
 
         if message.text:
@@ -237,7 +237,7 @@ def register_handlers(app: Client):
         )
 
         
-        buttons = InlineKeyboardMarkup([[InlineKeyboardButton("", callback_data="help")]])
+        buttons = InlineKeyboardMarkup([[InlineKeyboardButton("⌯ 𝐁𝐚𝐜𝐤 ⌯", callback_data="help")]])
         media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
         await callback_query.message.edit_media(media=media, reply_markup=buttons)
         await callback_query.answer()
@@ -266,7 +266,7 @@ def register_handlers(app: Client):
     f"<b><code>username</code> • <code>forward</code> • <code>edit</code></b>"
     f"</blockquote>"
         )
-        buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
+        buttons = InlineKeyboardMarkup([[InlineKeyboardButton("⌯ 𝐁𝐚𝐜𝐤 ⌯", callback_data="help")]])
         media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
         await callback_query.message.edit_media(media=media, reply_markup=buttons)
         await callback_query.answer()
@@ -298,7 +298,7 @@ def register_handlers(app: Client):
     f"<b><i>ʀᴇᴘʟʏ ᴛᴏ ᴧ ᴜsᴇʀ ᴏʀ ᴛʏᴘᴇ /ban @username</i></b>"
     f"</blockquote>"
             )
-            buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
+            buttons = InlineKeyboardMarkup([[InlineKeyboardButton("⌯ 𝐁𝐚𝐜𝐤 ⌯", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
             await callback_query.message.edit_media(media=media, reply_markup=buttons)
             await callback_query.answer()
@@ -331,7 +331,7 @@ def register_handlers(app: Client):
     f"<b>➻ ʙᴏᴛ ɴᴇᴇᴅs ᴅᴇʟᴇᴛᴇ ᴍᴇssᴧɢᴇs ᴘᴇʀᴍɪssɪᴏɴ</b>"
     f"</blockquote>"
             )
-            buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
+            buttons = InlineKeyboardMarkup([[InlineKeyboardButton("⌯ 𝐁𝐚𝐜𝐤 ⌯", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
             await callback_query.message.edit_media(media=media, reply_markup=buttons)
             await callback_query.answer()
@@ -363,7 +363,7 @@ def register_handlers(app: Client):
     f"<b><i>ᴇᴧᴄʜ ɴᴏᴛᴇ ᴏᴘᴇɴs ɪɴ ᴘʀɪᴠᴧᴛᴇ ᴄʜᴧᴛ ᴠɪᴧ ʟɪɴᴋ</i></b>"
     f"</blockquote>"
             )
-            buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
+            buttons = InlineKeyboardMarkup([[InlineKeyboardButton("⌯ 𝐁𝐚𝐜𝐤 ⌯", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
             await callback_query.message.edit_media(media=media, reply_markup=buttons)
             await callback_query.answer()
@@ -392,7 +392,7 @@ def register_handlers(app: Client):
     f"<b>➻ 🌟 ғᴏʀᴍᴧᴛᴛɪɴɢ ɪs ᴘʀᴇsᴇʀᴠᴇᴅ ᴇxᴧᴄᴛʟʏ ᴧs ᴛʏᴘᴇᴅ</b>"
     f"</blockquote>"
             )
-            buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
+            buttons = InlineKeyboardMarkup([[InlineKeyboardButton("⌯ 𝐁𝐚𝐜𝐤 ⌯", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
             await callback_query.message.edit_media(media=media, reply_markup=buttons)
             await callback_query.answer()
@@ -425,7 +425,7 @@ def register_handlers(app: Client):
     f"<b>➻ ᴧᴅᴍɪɴs ɴᴏᴛ ᴧғғᴇᴄᴛᴇᴅ</b>"
     f"</blockquote>"
             )
-            buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
+            buttons = InlineKeyboardMarkup([[InlineKeyboardButton("⌯ 𝐁𝐚𝐜𝐤 ⌯", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
             await callback_query.message.edit_media(media=media, reply_markup=buttons)
             await callback_query.answer()
@@ -457,7 +457,7 @@ def register_handlers(app: Client):
     f"<b><i>ʙᴏᴛ ᴍᴜsᴛ ʙᴇ ᴧᴅᴍɪɴ ɪɴ ᴛʜᴇ ᴄʜᴧɴɴᴇʟ</i></b>"
     f"</blockquote>"
             )
-            buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
+            buttons = InlineKeyboardMarkup([[InlineKeyboardButton("⌯ 𝐁𝐚𝐜𝐤 ⌯", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
             await callback_query.message.edit_media(media=media, reply_markup=buttons)
             await callback_query.answer()
@@ -491,7 +491,7 @@ def register_handlers(app: Client):
     f"<b><i>ᴅᴇғᴧᴜʟᴛ ʟɪᴍɪᴛ: 800 ᴄʜᴧʀᴧᴄᴛᴇʀs</i></b>"
     f"</blockquote>"
             )
-            buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
+            buttons = InlineKeyboardMarkup([[InlineKeyboardButton("⌯ 𝐁𝐚𝐜𝐤 ⌯", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
             await callback_query.message.edit_media(media=media, reply_markup=buttons)
             await callback_query.answer()
@@ -525,7 +525,7 @@ def register_handlers(app: Client):
     f"<b>➻ 919876543210</b>"
     f"</blockquote>"
             )
-            buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
+            buttons = InlineKeyboardMarkup([[InlineKeyboardButton("⌯ 𝐁𝐚𝐜𝐤 ⌯", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
             await callback_query.message.edit_media(media=media, reply_markup=buttons)
             await callback_query.answer()
@@ -559,7 +559,7 @@ def register_handlers(app: Client):
     f"<b><i>ᴅᴇғᴧᴜʟᴛ ʟɪᴍɪᴛ: 800 ᴄʜᴧʀᴧᴄᴛᴇʀs</i></b>"
     f"</blockquote>"
             )
-            buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
+            buttons = InlineKeyboardMarkup([[InlineKeyboardButton("⌯ 𝐁𝐚𝐜𝐤 ⌯", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
             await callback_query.message.edit_media(media=media, reply_markup=buttons)
             await callback_query.answer()
@@ -591,7 +591,7 @@ def register_handlers(app: Client):
     f"<b>➻ ᴧɴʏ ᴡᴏʀᴅ sᴛᴧʀᴛɪɴɢ ᴡɪᴛʜ #</b>"
     f"</blockquote>"
             )
-            buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
+            buttons = InlineKeyboardMarkup([[InlineKeyboardButton("⌯ 𝐁𝐚𝐜𝐤 ⌯", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
             await callback_query.message.edit_media(media=media, reply_markup=buttons)
             await callback_query.answer()
@@ -623,7 +623,7 @@ def register_handlers(app: Client):
     f"<b><i>ᴘɪɴ, ᴘᴜʀɢᴇ, ᴅᴇʟ — ᴧᴅᴍɪɴ ᴏɴʟʏ</i></b>"
     f"</blockquote>"
             )
-            buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
+            buttons = InlineKeyboardMarkup([[InlineKeyboardButton("⌯ 𝐁𝐚𝐜𝐤 ⌯", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
             await callback_query.message.edit_media(media=media, reply_markup=buttons)
             await callback_query.answer()
@@ -654,7 +654,7 @@ def register_handlers(app: Client):
     f"<b><i>ᴀᴅᴍɪɴs ᴀʀᴇ ɴᴏᴛ ᴀғғᴇᴄᴛᴇᴅ.</i></b>"
     f"</blockquote>"
             )
-            buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
+            buttons = InlineKeyboardMarkup([[InlineKeyboardButton("⌯ 𝐁𝐚𝐜𝐤 ⌯", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
             await callback_query.message.edit_media(media=media, reply_markup=buttons)
             await callback_query.answer()
@@ -690,7 +690,7 @@ def register_handlers(app: Client):
     f"<b><i>ʀᴧɴɢᴇ: 1ᴍ ᴛᴏ 24ʜ — ᴅᴇғᴧᴜʟᴛ: 5ᴍ</i></b>"
     f"</blockquote>"
             )
-            buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
+            buttons = InlineKeyboardMarkup([[InlineKeyboardButton("⌯ 𝐁𝐚𝐜𝐤 ⌯", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
             await callback_query.message.edit_media(media=media, reply_markup=buttons)
             await callback_query.answer()
@@ -725,7 +725,7 @@ def register_handlers(app: Client):
     f"<b>➻ ʀᴧɴɢᴇ: 1ᴍ ᴛᴏ 24ʜ — ᴅᴇғᴧᴜʟᴛ: 5ᴍ</b>"
     f"</blockquote>"
             )
-            buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
+            buttons = InlineKeyboardMarkup([[InlineKeyboardButton("⌯ 𝐁𝐚𝐜𝐤 ⌯", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
             await callback_query.message.edit_media(media=media, reply_markup=buttons)
             await callback_query.answer()
@@ -757,7 +757,7 @@ def register_handlers(app: Client):
     f"<b>➻ ᴏɴʟʏ ᴧᴅᴍɪɴs ᴄᴧɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴧɴᴅ</b>"
     f"</blockquote>"
             )
-            buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
+            buttons = InlineKeyboardMarkup([[InlineKeyboardButton("⌯ 𝐁𝐚𝐜𝐤 ⌯", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
             await callback_query.message.edit_media(media=media, reply_markup=buttons)
             await callback_query.answer()
@@ -791,7 +791,7 @@ def register_handlers(app: Client):
     f"<b>➻ ᴏɴʟʏ ᴧᴅᴍɪɴs ᴄᴧɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴧɴᴅ</b>"
     f"</blockquote>"
             )
-            buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
+            buttons = InlineKeyboardMarkup([[InlineKeyboardButton("⌯ 𝐁𝐚𝐜𝐤 ⌯", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
             await callback_query.message.edit_media(media=media, reply_markup=buttons)
             await callback_query.answer()
@@ -830,7 +830,7 @@ def register_handlers(app: Client):
     f"<b><i>ᴄᴧɴ ᴜsᴇ ᴛʜᴇsᴇ ᴄᴏᴍᴍᴧɴᴅs</i></b>"
     f"</blockquote>"
             )
-            buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
+            buttons = InlineKeyboardMarkup([[InlineKeyboardButton("⌯ 𝐁𝐚𝐜𝐤 ⌯", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
             await callback_query.message.edit_media(media=media, reply_markup=buttons)
             await callback_query.answer()
@@ -882,7 +882,7 @@ def register_handlers(app: Client):
     @app.on_callback_query(filters.regex("^blacklist_help$"))
     async def blacklist_help_callback(client, callback_query):
         from handlers.blacklist import BLACKLIST_HELP_TEXT
-        buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
+        buttons = InlineKeyboardMarkup([[InlineKeyboardButton("⌯ 𝐁𝐚𝐜𝐤 ⌯", callback_data="help")]])
         media = InputMediaPhoto(media=START_IMAGE, caption=BLACKLIST_HELP_TEXT, parse_mode=enums.ParseMode.HTML)
         await callback_query.message.edit_media(media=media, reply_markup=buttons)
         await callback_query.answer()
@@ -890,7 +890,7 @@ def register_handlers(app: Client):
     @app.on_callback_query(filters.regex("^filters_help$"))
     async def filters_help_callback(client, callback_query):
         from handlers.filters import FILTERS_HELP_TEXT
-        buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
+        buttons = InlineKeyboardMarkup([[InlineKeyboardButton("⌯ 𝐁𝐚𝐜𝐤 ⌯", callback_data="help")]])
         media = InputMediaPhoto(media=START_IMAGE, caption=FILTERS_HELP_TEXT, parse_mode=enums.ParseMode.HTML)
         await callback_query.message.edit_media(media=media, reply_markup=buttons)
         await callback_query.answer()
@@ -898,7 +898,7 @@ def register_handlers(app: Client):
     @app.on_callback_query(filters.regex("^joinrequest_help$"))
     async def joinrequest_help_callback(client, callback_query):
         from handlers.joinrequest import JOINREQUEST_HELP_TEXT
-        buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
+        buttons = InlineKeyboardMarkup([[InlineKeyboardButton("⌯ 𝐁𝐚𝐜𝐤 ⌯", callback_data="help")]])
         media = InputMediaPhoto(media=START_IMAGE, caption=JOINREQUEST_HELP_TEXT, parse_mode=enums.ParseMode.HTML)
         await callback_query.message.edit_media(media=media, reply_markup=buttons)
         await callback_query.answer()
