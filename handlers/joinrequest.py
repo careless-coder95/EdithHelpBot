@@ -121,7 +121,7 @@ def register_joinrequest_handler(app: Client):
                 chat_id,
                 text,
                 reply_markup=buttons,
-                parse_mode="html"
+                parse_mode=enums.ParseMode.HTML
             )
         except Exception as e:
             logger.error(f"Join request notify error: {e}")
@@ -148,7 +148,7 @@ def register_joinrequest_handler(app: Client):
                 f":⧽ 𝑛𝑎𝑚𝑒: <b>{user.first_name}</b>\n"
                 f":⧽ 𝑖𝑑: <code>{user_id}</code>\n\n"
                 f"<i>Approved by {callback_query.from_user.mention}</i>",
-                parse_mode="html"
+                parse_mode=enums.ParseMode.HTML
             )
             await callback_query.answer("✅ User approved!")
         except Exception as e:
@@ -176,7 +176,7 @@ def register_joinrequest_handler(app: Client):
                 f":⧽ 𝑛𝑎𝑚𝑒: <b>{user.first_name}</b>\n"
                 f":⧽ 𝑖𝑑: <code>{user_id}</code>\n\n"
                 f"<i>Declined by {callback_query.from_user.mention}</i>",
-                parse_mode="html"
+                parse_mode=enums.ParseMode.HTML
             )
             await callback_query.answer("❌ User declined.")
         except Exception as e:
