@@ -21,7 +21,7 @@ def register_handlers(app: Client):
     async def send_start_menu(message, user):
         text = (
             f"\n   ✨ Hello {user}! ✨\n\n"
-            f"👋 I am Nomad 🤖\n\n"
+            f"👋 I am Edith 🤖\n\n"
             f"Highlights:\n"
             f"─────────────────────────────\n"
             f"- Smart Anti-Spam &amp; Link Shield\n"
@@ -117,6 +117,9 @@ def register_handlers(app: Client):
         ("🧟 Zombie", "zombie_help"),
         ("📢 Tag All", "tagall_help"),
         ("👑 Promote", "promote_help"),
+        ("🚫 Blacklist", "blacklist_help"),
+        ("📝 Filters", "filters_help"),
+        ("🤖 Join Request", "joinrequest_help"),
     ]
 
     BUTTONS_PER_PAGE = 8
@@ -776,3 +779,27 @@ def register_handlers(app: Client):
 
         users = await db.get_all_users()
         return await message.reply_text(f"💡 Total users: {len(users)}")
+
+    @app.on_callback_query(filters.regex("^blacklist_help$"))
+    async def blacklist_help_callback(client, callback_query):
+        from handlers.blacklist import BLACKLIST_HELP_TEXT
+        buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
+        media = InputMediaPhoto(media=START_IMAGE, caption=BLACKLIST_HELP_TEXT, parse_mode=enums.ParseMode.HTML)
+        await callback_query.message.edit_media(media=media, reply_markup=buttons)
+        await callback_query.answer()
+
+    @app.on_callback_query(filters.regex("^filters_help$"))
+    async def filters_help_callback(client, callback_query):
+        from handlers.filters import FILTERS_HELP_TEXT
+        buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
+        media = InputMediaPhoto(media=START_IMAGE, caption=FILTERS_HELP_TEXT, parse_mode=enums.ParseMode.HTML)
+        await callback_query.message.edit_media(media=media, reply_markup=buttons)
+        await callback_query.answer()
+
+    @app.on_callback_query(filters.regex("^joinrequest_help$"))
+    async def joinrequest_help_callback(client, callback_query):
+        from handlers.joinrequest import JOINREQUEST_HELP_TEXT
+        buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
+        media = InputMediaPhoto(media=START_IMAGE, caption=JOINREQUEST_HELP_TEXT, parse_mode=enums.ParseMode.HTML)
+        await callback_query.message.edit_media(media=media, reply_markup=buttons)
+        await callback_query.answer()
