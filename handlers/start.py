@@ -157,13 +157,13 @@ def register_handlers(app: Client):
         rows.append(nav)
 
         text = (
-            f"<blockquote>"
-            f"<b>❖ ᴄʜσσsє ᴛʜє ᴄᴧᴛєɢσʀʏ ғσʀ ᴡʜɪᴄʜ ʏσυ ᴡᴧηηᴧ ɢєᴛ ʜєʟᴩ</b>\n\n"
-            f"<b>➥ ᴧsᴋ ʏσυʀ ᴅσυʙᴛs ᴀᴛ <a href="https://t.me/CarelessxWorld">sᴜᴘᴘᴏʀᴛ cʜᴀᴛ</a></b>\n"
-            f"</blockquote>"
-            f"<blockquote>"
-            f"<b>ᴀʟʟ ᴄσϻϻᴧɴᴅs ᴄᴀɴ ʙє υsєᴅ ᴡɪᴛʜ :</b><code>/</code>"
-            f"</blockquote>"
+            "<blockquote>"
+            "<b>❖ ᴄʜσσsє ᴛʜє ᴄᴧᴛєɢσʀʏ ғσʀ ᴡʜɪᴄʜ ʏσυ ᴡᴧηηᴧ ɢєᴛ ʜєʟᴩ</b>\n\n"
+            "<b>➥ ᴧsᴋ ʏσυʀ ᴅσυʙᴛs ᴀᴛ <a href='https://t.me/CarelessxWorld'>sᴜᴘᴘᴏʀᴛ cʜᴀᴛ</a></b>\n"
+            "</blockquote>"
+            "<blockquote>"
+            "<b>ᴀʟʟ ᴄσϻϻᴧɴᴅs ᴄᴀɴ ʙє υsєᴅ ᴡɪᴛʜ :</b><code>/</code>"
+            "</blockquote>"
         )
         return text, InlineKeyboardMarkup(rows)
 
