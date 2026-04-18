@@ -6,6 +6,7 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from pyrogram.enums import ChatMemberStatus
+from pyrogram import Client, filters, enums
 import db
 import re
 import logging
@@ -39,16 +40,16 @@ def register_blacklist_handler(app: Client):
 
         parts = message.text.split(maxsplit=1)
         if len(parts) < 2:
-            return await message.reply_text("⚙️ Usage: <code>/addblack &lt;word&gt;</code>", parse_mode="html")
+            return await message.reply_text("⚙️ Usage: <code>/addblack &lt;word&gt;</code>", parse_mode=enums.ParseMode.HTML)
 
         word = parts[1].strip().lower()
         existing = await db.get_blacklist(message.chat.id)
 
         if word in existing:
-            return await message.reply_text(f"⚠️ <code>{word}</code> is already blacklisted.", parse_mode="html")
+            return await message.reply_text(f"⚠️ <code>{word}</code> is already blacklisted.", parse_mode=enums.ParseMode.HTML)
 
         await db.add_blacklist_word(message.chat.id, word)
-        await message.reply_text(f"✅ Word <code>{word}</code> added to blacklist.", parse_mode="html")
+        await message.reply_text(f"✅ Word <code>{word}</code> added to blacklist.", parse_mode=enums.ParseMode.HTML)
 
 
     @app.on_message(filters.group & filters.command("rmblack"))
@@ -58,15 +59,15 @@ def register_blacklist_handler(app: Client):
 
         parts = message.text.split(maxsplit=1)
         if len(parts) < 2:
-            return await message.reply_text("⚙️ Usage: <code>/rmblack &lt;word&gt;</code>", parse_mode="html")
+            return await message.reply_text("⚙️ Usage: <code>/rmblack &lt;word&gt;</code>", parse_mode=enums.ParseMode.HTML)
 
         word = parts[1].strip().lower()
         removed = await db.remove_blacklist_word(message.chat.id, word)
 
         if removed:
-            await message.reply_text(f"🗑️ Word <code>{word}</code> removed from blacklist.", parse_mode="html")
+            await message.reply_text(f"🗑️ Word <code>{word}</code> removed from blacklist.", parse_mode=enums.ParseMode.HTML)
         else:
-            await message.reply_text(f"⚠️ <code>{word}</code> was not in the blacklist.", parse_mode="html")
+            await message.reply_text(f"⚠️ <code>{word}</code> was not in the blacklist.", parse_mode=enums.ParseMode.HTML)
 
 
     @app.on_message(filters.group & filters.command("blacklist"))
@@ -79,7 +80,7 @@ def register_blacklist_handler(app: Client):
         word_list = "\n".join(f"• <code>{w}</code>" for w in sorted(words))
         await message.reply_text(
             f"🚫 <b>Blacklisted Words:</b>\n\n{word_list}",
-            parse_mode="html"
+            parse_mode=enums.ParseMode.HTML
         )
 
 
