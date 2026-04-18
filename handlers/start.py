@@ -249,18 +249,22 @@ def register_handlers(app: Client):
     @app.on_callback_query(filters.regex("^locks$"))
     async def locks_callback(client, callback_query):
         text = (
-            "╔══════════════════╗\n"
-            "     ⚙ Locks System\n"
-            "╚══════════════════╝\n\n"
-            "<b>Commands:</b>\n\n"
-            "• /lock &lt;type&gt;  — Enable a lock\n"
-            "• /unlock &lt;type&gt; — Disable a lock\n"
-            "• /locks          — Show active locks\n"
-            "• /lockall        — Lock everything 🔐\n"
-            "• /unlockall      — Unlock everything 🔓\n\n"
-            "<b>Available Types:</b>\n"
-            "<code>url</code> • <code>text</code> • <code>sticker</code> • <code>media</code>\n"
-            "<code>username</code> • <code>forward</code> • <code>edit</code>"
+    f"<blockquote expandable>"
+    f"<b>╔══════════════════╗</b>\n"
+    f"<b>⚙ ʟᴏᴄᴋs sʏsᴛᴇᴍ</b>\n"
+    f"<b>╚══════════════════╝</b>\n\n"
+    
+    f"<b>❖ ᴄᴏᴍᴍᴧɴᴅs ❖</b>\n\n"
+    f"<b>➻ /lock &lt;type&gt; — ᴇɴᴧʙʟᴇ ᴧ ʟᴏᴄᴋ</b>\n"
+    f"<b>➻ /unlock &lt;type&gt; — ᴅɪsᴧʙʟᴇ ᴧ ʟᴏᴄᴋ</b>\n"
+    f"<b>➻ /locks — sʜᴏᴡ ᴧᴄᴛɪᴠᴇ ʟᴏᴄᴋs</b>\n"
+    f"<b>➻ /lockall — ʟᴏᴄᴋ ᴇᴠᴇʀʏᴛʜɪɴɢ 🔐</b>\n"
+    f"<b>➻ /unlockall — ᴜɴʟᴏᴄᴋ ᴇᴠᴇʀʏᴛʜɪɴɢ 🔓</b>\n\n"
+    
+    f"<b>❖ ᴧᴠᴧɪʟᴧʙʟᴇ ᴛʏᴘᴇs ❖</b>\n"
+    f"<b><code>url</code> • <code>text</code> • <code>sticker</code> • <code>media</code></b>\n"
+    f"<b><code>username</code> • <code>forward</code> • <code>edit</code></b>"
+    f"</blockquote>"
         )
         buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
         media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
@@ -275,20 +279,24 @@ def register_handlers(app: Client):
     async def moderation_callback(client, callback_query):
         try:
             text = (
-                "╔══════════════════╗\n"
-                "      ⚙️ Moderation\n"
-                "╚══════════════════╝\n\n"
-                "• /kick &lt;user&gt;         — Remove a user\n"
-                "• /ban &lt;user&gt;          — Ban permanently\n"
-                "• /unban &lt;user&gt;        — Lift ban\n"
-                "• /mute &lt;user&gt;         — Disable messages\n"
-                "• /unmute &lt;user&gt;       — Allow messages again\n"
-                "• /tmute &lt;user&gt; &lt;time&gt; — Temp mute (1m–24h)\n"
-                "• /tban &lt;user&gt; &lt;time&gt;  — Temp ban (1m–24h)\n"
-                "• /warn &lt;user&gt;         — Warning (3 = mute)\n"
-                "• /warns &lt;user&gt;        — View warnings\n"
-                "• /resetwarns &lt;user&gt;   — Clear warnings\n\n"
-                "<i>Reply to a user or type /ban @username</i>"
+    f"<blockquote expandable>"
+    f"<b>╔══════════════════╗</b>\n"
+    f"<b>⚙️ ᴍᴏᴅᴇʀᴧᴛɪᴏɴ</b>\n"
+    f"<b>╚══════════════════╝</b>\n\n"
+    
+    f"<b>➻ /kick &lt;user&gt; — ʀᴇᴍᴏᴠᴇ ᴧ ᴜsᴇʀ</b>\n"
+    f"<b>➻ /ban &lt;user&gt; — ʙᴧɴ ᴘᴇʀᴍᴧɴᴇɴᴛʟʏ</b>\n"
+    f"<b>➻ /unban &lt;user&gt; — ʟɪғᴛ ʙᴧɴ</b>\n"
+    f"<b>➻ /mute &lt;user&gt; — ᴅɪsᴧʙʟᴇ ᴍᴇssᴧɢᴇs</b>\n"
+    f"<b>➻ /unmute &lt;user&gt; — ᴧʟʟᴏᴡ ᴍᴇssᴧɢᴇs ᴧɢᴧɪɴ</b>\n"
+    f"<b>➻ /tmute &lt;user&gt; &lt;time&gt; — ᴛᴇᴍᴘ ᴍᴜᴛᴇ (1ᴍ–24ʜ)</b>\n"
+    f"<b>➻ /tban &lt;user&gt; &lt;time&gt; — ᴛᴇᴍᴘ ʙᴧɴ (1ᴍ–24ʜ)</b>\n"
+    f"<b>➻ /warn &lt;user&gt; — ᴡᴧʀɴɪɴɢ (3 = ᴍᴜᴛᴇ)</b>\n"
+    f"<b>➻ /warns &lt;user&gt; — ᴠɪᴇᴡ ᴡᴧʀɴɪɴɢs</b>\n"
+    f"<b>➻ /resetwarns &lt;user&gt; — ᴄʟᴇᴧʀ ᴡᴧʀɴɪɴɢs</b>\n\n"
+    
+    f"<b><i>ʀᴇᴘʟʏ ᴛᴏ ᴧ ᴜsᴇʀ ᴏʀ ᴛʏᴘᴇ /ban @username</i></b>"
+    f"</blockquote>"
             )
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
@@ -306,17 +314,22 @@ def register_handlers(app: Client):
     async def biolink_callback(client, callback_query):
         try:
             text = (
-                "╔══════════════════╗\n"
-                "    🔗 BioLink Protection\n"
-                "╚══════════════════╝\n\n"
-                "Blocks users who have links in their bio.\n\n"
-                "<b>Commands:</b>\n\n"
-                "• /biolink on  — Protection ON ✅\n"
-                "• /biolink off — Protection OFF ❌\n\n"
-                "<b>Notes:</b>\n"
-                "- Bio link detected → message deleted.\n"
-                "- Admins are not affected.\n"
-                "- Bot needs Delete Messages permission."
+    f"<blockquote expandable>"
+    f"<b>╔══════════════════╗</b>\n"
+    f"<b>🔗 ʙɪᴏʟɪɴᴋ ᴘʀᴏᴛᴇᴄᴛɪᴏɴ</b>\n"
+    f"<b>╚══════════════════╝</b>\n\n"
+    
+    f"<b>ʙʟᴏᴄᴋs ᴜsᴇʀs ᴡʜᴏ ʜᴧᴠᴇ ʟɪɴᴋs ɪɴ ᴛʜᴇɪʀ ʙɪᴏ.</b>\n\n"
+    
+    f"<b>❖ ᴄᴏᴍᴍᴧɴᴅs ❖</b>\n\n"
+    f"<b>➻ /biolink on — ᴘʀᴏᴛᴇᴄᴛɪᴏɴ ᴏɴ ✅</b>\n"
+    f"<b>➻ /biolink off — ᴘʀᴏᴛᴇᴄᴛɪᴏɴ ᴏғғ ❌</b>\n\n"
+    
+    f"<b>❖ ɴᴏᴛᴇs ❖</b>\n"
+    f"<b>➻ ʙɪᴏ ʟɪɴᴋ ᴅᴇᴛᴇᴄᴛᴇᴅ → ᴍᴇssᴧɢᴇ ᴅᴇʟᴇᴛᴇᴅ</b>\n"
+    f"<b>➻ ᴧᴅᴍɪɴs ᴧʀᴇ ɴᴏᴛ ᴧғғᴇᴄᴛᴇᴅ</b>\n"
+    f"<b>➻ ʙᴏᴛ ɴᴇᴇᴅs ᴅᴇʟᴇᴛᴇ ᴍᴇssᴧɢᴇs ᴘᴇʀᴍɪssɪᴏɴ</b>"
+    f"</blockquote>"
             )
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
@@ -334,16 +347,21 @@ def register_handlers(app: Client):
     async def notes_help_callback(client, callback_query):
         try:
             text = (
-                "╔════════════════════════╗\n"
-                "   📝 NOTES\n"
-                "╚════════════════════════╝\n\n"
-                "<b>👮 Admin Commands:</b>\n"
-                "• /setnote &lt;name&gt; &lt;content&gt;\n"
-                "• /delnote &lt;name&gt;\n\n"
-                "<b>👥 User Commands:</b>\n"
-                "• /notes — List all notes\n"
-                "• #note_name — Get private link\n\n"
-                "<i>Each note opens in private chat via link.</i>"
+    f"<blockquote expandable>"
+    f"<b>╔════════════════════════╗</b>\n"
+    f"<b>📝 ɴᴏᴛᴇs</b>\n"
+    f"<b>╚════════════════════════╝</b>\n\n"
+    
+    f"<b>❖ 👮 ᴧᴅᴍɪɴ ᴄᴏᴍᴍᴧɴᴅs ❖</b>\n"
+    f"<b>➻ /setnote &lt;name&gt; &lt;content&gt;</b>\n"
+    f"<b>➻ /delnote &lt;name&gt;</b>\n\n"
+    
+    f"<b>❖ 👥 ᴜsᴇʀ ᴄᴏᴍᴍᴧɴᴅs ❖</b>\n"
+    f"<b>➻ /notes — ʟɪsᴛ ᴧʟʟ ɴᴏᴛᴇs</b>\n"
+    f"<b>➻ #note_name — ɢᴇᴛ ᴘʀɪᴠᴧᴛᴇ ʟɪɴᴋ</b>\n\n"
+    
+    f"<b><i>ᴇᴧᴄʜ ɴᴏᴛᴇ ᴏᴘᴇɴs ɪɴ ᴘʀɪᴠᴧᴛᴇ ᴄʜᴧᴛ ᴠɪᴧ ʟɪɴᴋ</i></b>"
+    f"</blockquote>"
             )
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
@@ -361,14 +379,18 @@ def register_handlers(app: Client):
     async def rules_help_callback(client, callback_query):
         try:
             text = (
-                "╔══════════════════╗\n"
-                "   📜 RULES\n"
-                "╚══════════════════╝\n\n"
-                "<b>Commands:</b>\n\n"
-                "• /setrules &lt;text&gt; — Set group rules\n"
-                "• /rules           — Show current rules\n"
-                "• /clearrules      — Remove all rules\n\n"
-                "🌟 Formatting is preserved exactly as typed."
+    f"<blockquote expandable>"
+    f"<b>╔══════════════════╗</b>\n"
+    f"<b>📜 ʀᴜʟᴇs</b>\n"
+    f"<b>╚══════════════════╝</b>\n\n"
+    
+    f"<b>❖ ᴄᴏᴍᴍᴧɴᴅs ❖</b>\n\n"
+    f"<b>➻ /setrules &lt;text&gt; — sᴇᴛ ɢʀᴏᴜᴘ ʀᴜʟᴇs</b>\n"
+    f"<b>➻ /rules — sʜᴏᴡ ᴄᴜʀʀᴇɴᴛ ʀᴜʟᴇs</b>\n"
+    f"<b>➻ /clearrules — ʀᴇᴍᴏᴠᴇ ᴧʟʟ ʀᴜʟᴇs</b>\n\n"
+    
+    f"<b>➻ 🌟 ғᴏʀᴍᴧᴛᴛɪɴɢ ɪs ᴘʀᴇsᴇʀᴠᴇᴅ ᴇxᴧᴄᴛʟʏ ᴧs ᴛʏᴘᴇᴅ</b>"
+    f"</blockquote>"
             )
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
@@ -386,17 +408,22 @@ def register_handlers(app: Client):
     async def abuse_help_callback(client, callback_query):
         try:
             text = (
-                "╔══════════════════╗\n"
-                "   🤬 Abuse Detection\n"
-                "╚══════════════════╝\n\n"
-                "Abusive messages are automatically deleted.\n\n"
-                "<b>Commands:</b>\n\n"
-                "• /noabuse on  — Enable ✅\n"
-                "• /noabuse off — Disable ❌\n\n"
-                "<b>Notes:</b>\n"
-                "- Message deleted instantly.\n"
-                "- 5 second warning sent.\n"
-                "- Admins not affected."
+    f"<blockquote expandable>"
+    f"<b>╔══════════════════╗</b>\n"
+    f"<b>🤬 ᴧʙᴜsᴇ ᴅᴇᴛᴇᴄᴛɪᴏɴ</b>\n"
+    f"<b>╚══════════════════╝</b>\n\n"
+    
+    f"<b>ᴧʙᴜsɪᴠᴇ ᴍᴇssᴧɢᴇs ᴧʀᴇ ᴧᴜᴛᴏᴍᴧᴛɪᴄᴧʟʟʏ ᴅᴇʟᴇᴛᴇᴅ.</b>\n\n"
+    
+    f"<b>❖ ᴄᴏᴍᴍᴧɴᴅs ❖</b>\n\n"
+    f"<b>➻ /noabuse on — ᴇɴᴧʙʟᴇ ✅</b>\n"
+    f"<b>➻ /noabuse off — ᴅɪsᴧʙʟᴇ ❌</b>\n\n"
+    
+    f"<b>❖ ɴᴏᴛᴇs ❖</b>\n"
+    f"<b>➻ ᴍᴇssᴧɢᴇ ᴅᴇʟᴇᴛᴇᴅ ɪɴsᴛᴧɴᴛʟʏ</b>\n"
+    f"<b>➻ 5 sᴇᴄᴏɴᴅ ᴡᴧʀɴɪɴɢ sᴇɴᴛ</b>\n"
+    f"<b>➻ ᴧᴅᴍɪɴs ɴᴏᴛ ᴧғғᴇᴄᴛᴇᴅ</b>"
+    f"</blockquote>"
             )
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
@@ -414,16 +441,21 @@ def register_handlers(app: Client):
     async def fsub_help_callback(client, callback_query):
         try:
             text = (
-                "╔══════════════════╗\n"
-                "   🔗 FORCE-SUBSCRIBE\n"
-                "╚══════════════════╝\n\n"
-                "Users who haven't joined required\n"
-                "channels cannot send messages.\n\n"
-                "<b>Commands:</b>\n\n"
-                "• /addfsub @channel    — Add channel\n"
-                "• /removefsub @channel — Remove channel\n"
-                "• /fsublist            — List channels\n\n"
-                "<i>Bot must be admin in the channel.</i>"
+    f"<blockquote expandable>"
+    f"<b>╔══════════════════╗</b>\n"
+    f"<b>🔗 ғᴏʀᴄᴇ-sᴜʙsᴄʀɪʙᴇ</b>\n"
+    f"<b>╚══════════════════╝</b>\n\n"
+    
+    f"<b>ᴜsᴇʀs ᴡʜᴏ ʜᴧᴠᴇɴ'ᴛ ᴊᴏɪɴᴇᴅ ʀᴇǫᴜɪʀᴇᴅ</b>\n"
+    f"<b>ᴄʜᴧɴɴᴇʟs ᴄᴧɴɴᴏᴛ sᴇɴᴅ ᴍᴇssᴧɢᴇs.</b>\n\n"
+    
+    f"<b>❖ ᴄᴏᴍᴍᴧɴᴅs ❖</b>\n\n"
+    f"<b>➻ /addfsub @channel — ᴧᴅᴅ ᴄʜᴧɴɴᴇʟ</b>\n"
+    f"<b>➻ /removefsub @channel — ʀᴇᴍᴏᴠᴇ ᴄʜᴧɴɴᴇʟ</b>\n"
+    f"<b>➻ /fsublist — ʟɪsᴛ ᴄʜᴧɴɴᴇʟs</b>\n\n"
+    
+    f"<b><i>ʙᴏᴛ ᴍᴜsᴛ ʙᴇ ᴧᴅᴍɪɴ ɪɴ ᴛʜᴇ ᴄʜᴧɴɴᴇʟ</i></b>"
+    f"</blockquote>"
             )
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
@@ -441,18 +473,23 @@ def register_handlers(app: Client):
     async def echo_help_callback(client, callback_query):
         try:
             text = (
-                "╔══════════════════╗\n"
-                "   📄 LONG MESSAGE\n"
-                "╚══════════════════╝\n\n"
-                "Long messages are uploaded to Telegraph\n"
-                "and sent as a link automatically.\n\n"
-                "<b>Commands:</b>\n\n"
-                "• /echo &lt;text&gt; — Echo text\n"
-                "• /setlongmode off — No action\n"
-                "• /setlongmode manual — Delete + warn\n"
-                "• /setlongmode automatic — Delete + link ✅\n"
-                "• /setlonglimit &lt;200–4000&gt; — Set limit\n\n"
-                "<i>Default limit: 800 characters</i>"
+    f"<blockquote expandable>"
+    f"<b>╔══════════════════╗</b>\n"
+    f"<b>📄 ʟᴏɴɢ ᴍᴇssᴧɢᴇ</b>\n"
+    f"<b>╚══════════════════╝</b>\n\n"
+    
+    f"<b>ʟᴏɴɢ ᴍᴇssᴧɢᴇs ᴧʀᴇ ᴜᴘʟᴏᴧᴅᴇᴅ ᴛᴏ ᴛᴇʟᴇɢʀᴧᴘʜ</b>\n"
+    f"<b>ᴧɴᴅ sᴇɴᴛ ᴧs ᴧ ʟɪɴᴋ ᴧᴜᴛᴏᴍᴧᴛɪᴄᴧʟʟʏ.</b>\n\n"
+    
+    f"<b>❖ ᴄᴏᴍᴍᴧɴᴅs ❖</b>\n\n"
+    f"<b>➻ /echo &lt;text&gt; — ᴇᴄʜᴏ ᴛᴇxᴛ</b>\n"
+    f"<b>➻ /setlongmode off — ɴᴏ ᴧᴄᴛɪᴏɴ</b>\n"
+    f"<b>➻ /setlongmode manual — ᴅᴇʟᴇᴛᴇ + ᴡᴧʀɴ</b>\n"
+    f"<b>➻ /setlongmode automatic — ᴅᴇʟᴇᴛᴇ + ʟɪɴᴋ ✅</b>\n"
+    f"<b>➻ /setlonglimit &lt;200–4000&gt; — sᴇᴛ ʟɪᴍɪᴛ</b>\n\n"
+    
+    f"<b><i>ᴅᴇғᴧᴜʟᴛ ʟɪᴍɪᴛ: 800 ᴄʜᴧʀᴧᴄᴛᴇʀs</i></b>"
+    f"</blockquote>"
             )
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
@@ -470,18 +507,23 @@ def register_handlers(app: Client):
     async def phone_help_callback(client, callback_query):
         try:
             text = (
-                "╔══════════════════╗\n"
-                "   📞 PHONE PROTECTION\n"
-                "╚══════════════════╝\n\n"
-                "Phone numbers in messages are\n"
-                "automatically deleted.\n\n"
-                "<b>Commands:</b>\n\n"
-                "• /nophone on  — Block ✅\n"
-                "• /nophone off — Allow ❌\n\n"
-                "<b>Detection:</b>\n"
-                "• +91 9876543210\n"
-                "• +1-234-567-8900\n"
-                "• 919876543210"
+    f"<blockquote expandable>"
+    f"<b>╔══════════════════╗</b>\n"
+    f"<b>📞 ᴘʜᴏɴᴇ ᴘʀᴏᴛᴇᴄᴛɪᴏɴ</b>\n"
+    f"<b>╚══════════════════╝</b>\n\n"
+    
+    f"<b>ᴘʜᴏɴᴇ ɴᴜᴍʙᴇʀs ɪɴ ᴍᴇssᴧɢᴇs ᴧʀᴇ</b>\n"
+    f"<b>ᴧᴜᴛᴏᴍᴧᴛɪᴄᴧʟʟʏ ᴅᴇʟᴇᴛᴇᴅ.</b>\n\n"
+    
+    f"<b>❖ ᴄᴏᴍᴍᴧɴᴅs ❖</b>\n\n"
+    f"<b>➻ /nophone on — ʙʟᴏᴄᴋ ✅</b>\n"
+    f"<b>➻ /nophone off — ᴧʟʟᴏᴡ ❌</b>\n\n"
+    
+    f"<b>❖ ᴅᴇᴛᴇᴄᴛɪᴏɴ ❖</b>\n"
+    f"<b>➻ +91 9876543210</b>\n"
+    f"<b>➻ +1-234-567-8900</b>\n"
+    f"<b>➻ 919876543210</b>"
+    f"</blockquote>"
             )
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
@@ -499,15 +541,23 @@ def register_handlers(app: Client):
     async def longmsg_help_callback(client, callback_query):
         try:
             text = (
-                "╔══════════════════╗\n"
-                "   📄 LONG MESSAGE\n"
-                "╚══════════════════╝\n\n"
-                "<b>Commands:</b>\n\n"
-                "• /setlongmode off — No action\n"
-                "• /setlongmode manual — Delete + warn\n"
-                "• /setlongmode automatic — Delete + link\n"
-                "• /setlonglimit &lt;200–4000&gt; — Character limit\n\n"
-                "<i>Default: automatic mode, 800 chars</i>"
+    f"<blockquote expandable>"
+    f"<b>╔══════════════════╗</b>\n"
+    f"<b>📄 ʟᴏɴɢ ᴍᴇssᴧɢᴇ</b>\n"
+    f"<b>╚══════════════════╝</b>\n\n"
+    
+    f"<b>ʟᴏɴɢ ᴍᴇssᴧɢᴇs ᴧʀᴇ ᴜᴘʟᴏᴧᴅᴇᴅ ᴛᴏ ᴛᴇʟᴇɢʀᴧᴘʜ</b>\n"
+    f"<b>ᴧɴᴅ sᴇɴᴛ ᴧs ᴧ ʟɪɴᴋ ᴧᴜᴛᴏᴍᴧᴛɪᴄᴧʟʟʏ.</b>\n\n"
+    
+    f"<b>❖ ᴄᴏᴍᴍᴧɴᴅs ❖</b>\n\n"
+    f"<b>➻ /echo &lt;text&gt; — ᴇᴄʜᴏ ᴛᴇxᴛ</b>\n"
+    f"<b>➻ /setlongmode off — ɴᴏ ᴧᴄᴛɪᴏɴ</b>\n"
+    f"<b>➻ /setlongmode manual — ᴅᴇʟᴇᴛᴇ + ᴡᴧʀɴ</b>\n"
+    f"<b>➻ /setlongmode automatic — ᴅᴇʟᴇᴛᴇ + ʟɪɴᴋ ✅</b>\n"
+    f"<b>➻ /setlonglimit &lt;200–4000&gt; — sᴇᴛ ʟɪᴍɪᴛ</b>\n\n"
+    
+    f"<b><i>ᴅᴇғᴧᴜʟᴛ ʟɪᴍɪᴛ: 800 ᴄʜᴧʀᴧᴄᴛᴇʀs</i></b>"
+    f"</blockquote>"
             )
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
@@ -525,16 +575,21 @@ def register_handlers(app: Client):
     async def hashtag_help_callback(client, callback_query):
         try:
             text = (
-                "╔══════════════════╗\n"
-                "   # HASHTAG FILTER\n"
-                "╚══════════════════╝\n\n"
-                "Hashtag messages are automatically deleted.\n\n"
-                "<b>Commands:</b>\n\n"
-                "• /nohashtags on  — Block ✅\n"
-                "• /nohashtags off — Allow ❌\n\n"
-                "<b>Detection:</b>\n"
-                "• #join, #promotion, #trending\n"
-                "• Any word starting with #"
+    f"<blockquote expandable>"
+    f"<b>╔══════════════════╗</b>\n"
+    f"<b># ʜᴧsʜᴛᴧɢ ғɪʟᴛᴇʀ</b>\n"
+    f"<b>╚══════════════════╝</b>\n\n"
+    
+    f"<b>ʜᴧsʜᴛᴧɢ ᴍᴇssᴧɢᴇs ᴧʀᴇ ᴧᴜᴛᴏᴍᴧᴛɪᴄᴧʟʟʏ ᴅᴇʟᴇᴛᴇᴅ.</b>\n\n"
+    
+    f"<b>❖ ᴄᴏᴍᴍᴧɴᴅs ❖</b>\n\n"
+    f"<b>➻ /nohashtags on — ʙʟᴏᴄᴋ ✅</b>\n"
+    f"<b>➻ /nohashtags off — ᴧʟʟᴏᴡ ❌</b>\n\n"
+    
+    f"<b>❖ ᴅᴇᴛᴇᴄᴛɪᴏɴ ❖</b>\n"
+    f"<b>➻ #join, #promotion, #trending</b>\n"
+    f"<b>➻ ᴧɴʏ ᴡᴏʀᴅ sᴛᴧʀᴛɪɴɢ ᴡɪᴛʜ #</b>"
+    f"</blockquote>"
             )
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
@@ -552,17 +607,21 @@ def register_handlers(app: Client):
     async def utility_help_callback(client, callback_query):
         try:
             text = (
-                "╔══════════════════╗\n"
-                "   ⚙️ UTILITY\n"
-                "╚══════════════════╝\n\n"
-                "• /chatinfo — Group details &amp; member count\n"
-                "• /id       — Your ID or replied user's ID\n"
-                "• /pin      — Pin a replied message\n"
-                "• /unpin    — Unpin message or all pins\n"
-                "• /purge    — Bulk delete messages\n"
-                "• /del      — Delete a replied message\n"
-                "• /report   — Report a user to admins\n\n"
-                "<i>pin, purge, del — admin only.</i>"
+    f"<blockquote expandable>"
+    f"<b>╔══════════════════╗</b>\n"
+    f"<b>⚙️ ᴜᴛɪʟɪᴛʏ</b>\n"
+    f"<b>╚══════════════════╝</b>\n\n"
+    
+    f"<b>➻ /chatinfo — ɢʀᴏᴜᴘ ᴅᴇᴛᴧɪʟs &amp; ᴍᴇᴍʙᴇʀ ᴄᴏᴜɴᴛ</b>\n"
+    f"<b>➻ /id — ʏᴏᴜʀ ɪᴅ ᴏʀ ʀᴇᴘʟɪᴇᴅ ᴜsᴇʀ's ɪᴅ</b>\n"
+    f"<b>➻ /pin — ᴘɪɴ ᴧ ʀᴇᴘʟɪᴇᴅ ᴍᴇssᴧɢᴇ</b>\n"
+    f"<b>➻ /unpin — ᴜɴᴘɪɴ ᴍᴇssᴧɢᴇ ᴏʀ ᴧʟʟ ᴘɪɴs</b>\n"
+    f"<b>➻ /purge — ʙᴜʟᴋ ᴅᴇʟᴇᴛᴇ ᴍᴇssᴧɢᴇs</b>\n"
+    f"<b>➻ /del — ᴅᴇʟᴇᴛᴇ ᴧ ʀᴇᴘʟɪᴇᴅ ᴍᴇssᴧɢᴇ</b>\n"
+    f"<b>➻ /report — ʀᴇᴘᴏʀᴛ ᴧ ᴜsᴇʀ ᴛᴏ ᴧᴅᴍɪɴs</b>\n\n"
+    
+    f"<b><i>ᴘɪɴ, ᴘᴜʀɢᴇ, ᴅᴇʟ — ᴧᴅᴍɪɴ ᴏɴʟʏ</i></b>"
+    f"</blockquote>"
             )
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
@@ -580,15 +639,20 @@ def register_handlers(app: Client):
     async def cmd_help_callback(client, callback_query):
         try:
             text = (
-                "╔══════════════════╗\n"
-                "   🗑️ CMD DELETER\n"
-                "╚══════════════════╝\n\n"
-                "Commands starting with <code>/</code> <code>!</code> <code>.</code>\n"
-                "are automatically deleted.\n\n"
-                "<b>Commands:</b>\n\n"
-                "• /cmd on  — Auto delete ON ✅\n"
-                "• /cmd off — Auto delete OFF ❌\n\n"
-                "<i>Admins are not affected.</i>"
+    f"<blockquote expandable>"
+    f"<b>╔══════════════════╗</b>\n"
+    f"<b>🗑️ ᴄᴍᴅ ᴅᴇʟᴇᴛᴇʀ</b>\n"
+    f"<b>╚══════════════════╝</b>\n\n"
+    
+    f"<b>ᴄᴏᴍᴍᴧɴᴅs sᴛᴀʀᴛɪɴɢ ᴡɪᴛʜ <code>/</code> <code>!</code> <code>.</code></b>\n"
+    f"<b>ᴀʀᴇ ᴀᴜᴛᴏᴍᴧᴛɪᴄᴧʟʟʏ ᴅᴇʟᴇᴛᴇᴅ.</b>\n\n"
+    
+    f"<b>❖ ᴄᴏᴍᴍᴧɴᴅs ❖</b>\n\n"
+    f"<b>➻ /cmd on — ᴀᴜᴛᴏ ᴅᴇʟᴇᴛᴇ ᴏɴ ✅</b>\n"
+    f"<b>➻ /cmd off — ᴀᴜᴛᴏ ᴅᴇʟᴇᴛᴇ ᴏғғ ❌</b>\n\n"
+    
+    f"<b><i>ᴀᴅᴍɪɴs ᴀʀᴇ ɴᴏᴛ ᴀғғᴇᴄᴛᴇᴅ.</i></b>"
+    f"</blockquote>"
             )
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
@@ -606,19 +670,25 @@ def register_handlers(app: Client):
     async def mediadelete_help_callback(client, callback_query):
         try:
             text = (
-                "╔══════════════════╗\n"
-                "   🎬 MEDIA AUTO-DELETE\n"
-                "╚══════════════════╝\n\n"
-                "Media messages are automatically deleted\n"
-                "after a configured delay.\n\n"
-                "<b>Commands:</b>\n\n"
-                "• /mediadelete on  — Enable ✅\n"
-                "• /mediadelete off — Disable ❌\n"
-                "• /setmediadelay &lt;time&gt; — Set delay\n\n"
-                "<b>Applies to:</b>\n"
-                "Photos, Videos, Stickers, GIFs,\n"
-                "Animations, Locations, Polls\n\n"
-                "<i>Range: 1m to 24h — Default: 5m</i>"
+    f"<blockquote expandable>"
+    f"<b>╔══════════════════╗</b>\n"
+    f"<b>🎬 ᴍᴇᴅɪᴧ ᴧᴜᴛᴏ-ᴅᴇʟᴇᴛᴇ</b>\n"
+    f"<b>╚══════════════════╝</b>\n\n"
+    
+    f"<b>ᴍᴇᴅɪᴧ ᴍᴇssᴧɢᴇs ᴧʀᴇ ᴧᴜᴛᴏᴍᴧᴛɪᴄᴧʟʟʏ ᴅᴇʟᴇᴛᴇᴅ</b>\n"
+    f"<b>ᴧғᴛᴇʀ ᴧ ᴄᴏɴғɪɢᴜʀᴇᴅ ᴅᴇʟᴧʏ.</b>\n\n"
+    
+    f"<b>❖ ᴄᴏᴍᴍᴧɴᴅs ❖</b>\n\n"
+    f"<b>➻ /mediadelete on — ᴇɴᴧʙʟᴇ ✅</b>\n"
+    f"<b>➻ /mediadelete off — ᴅɪsᴧʙʟᴇ ❌</b>\n"
+    f"<b>➻ /setmediadelay &lt;time&gt; — sᴇᴛ ᴅᴇʟᴧʏ</b>\n\n"
+    
+    f"<b>❖ ᴧᴘᴘʟɪᴇs ᴛᴏ ❖</b>\n"
+    f"<b>➻ ᴘʜᴏᴛᴏs, ᴠɪᴅᴇᴏs, sᴛɪᴄᴋᴇʀs, ɢɪғs</b>\n"
+    f"<b>➻ ᴧɴɪᴍᴧᴛɪᴏɴs, ʟᴏᴄᴧᴛɪᴏɴs, ᴘᴏʟʟs</b>\n\n"
+    
+    f"<b><i>ʀᴧɴɢᴇ: 1ᴍ ᴛᴏ 24ʜ — ᴅᴇғᴧᴜʟᴛ: 5ᴍ</i></b>"
+    f"</blockquote>"
             )
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
@@ -636,19 +706,24 @@ def register_handlers(app: Client):
     async def cleaner_help_callback(client, callback_query):
         try:
             text = (
-                "╔══════════════════╗\n"
-                "   🧹 MESSAGE CLEANER\n"
-                "╚══════════════════╝\n\n"
-                "All regular user messages are deleted\n"
-                "automatically after a set delay.\n\n"
-                "<b>Commands:</b>\n\n"
-                "• /cleaner on  — Enable ✅\n"
-                "• /cleaner off — Disable ❌\n"
-                "• /setcleandelay &lt;time&gt; — Set delay\n"
-                "• /cleanstatus — Show settings\n\n"
-                "<b>Notes:</b>\n"
-                "- Admin messages are never deleted.\n"
-                "- Range: 1m to 24h — Default: 5m"
+    f"<blockquote expandable>"
+    f"<b>╔══════════════════╗</b>\n"
+    f"<b>🧹 ᴍᴇssᴧɢᴇ ᴄʟᴇᴧɴᴇʀ</b>\n"
+    f"<b>╚══════════════════╝</b>\n\n"
+    
+    f"<b>ᴧʟʟ ʀᴇɢᴜʟᴧʀ ᴜsᴇʀ ᴍᴇssᴧɢᴇs ᴧʀᴇ ᴅᴇʟᴇᴛᴇᴅ</b>\n"
+    f"<b>ᴧᴜᴛᴏᴍᴧᴛɪᴄᴧʟʟʏ ᴧғᴛᴇʀ ᴧ sᴇᴛ ᴅᴇʟᴧʏ.</b>\n\n"
+    
+    f"<b>❖ ᴄᴏᴍᴍᴧɴᴅs ❖</b>\n\n"
+    f"<b>➻ /cleaner on — ᴇɴᴧʙʟᴇ ✅</b>\n"
+    f"<b>➻ /cleaner off — ᴅɪsᴧʙʟᴇ ❌</b>\n"
+    f"<b>➻ /setcleandelay &lt;time&gt; — sᴇᴛ ᴅᴇʟᴧʏ</b>\n"
+    f"<b>➻ /cleanstatus — sʜᴏᴡ sᴇᴛᴛɪɴɢs</b>\n\n"
+    
+    f"<b>❖ ɴᴏᴛᴇs ❖</b>\n"
+    f"<b>➻ ᴧᴅᴍɪɴ ᴍᴇssᴧɢᴇs ᴧʀᴇ ɴᴇᴠᴇʀ ᴅᴇʟᴇᴛᴇᴅ</b>\n"
+    f"<b>➻ ʀᴧɴɢᴇ: 1ᴍ ᴛᴏ 24ʜ — ᴅᴇғᴧᴜʟᴛ: 5ᴍ</b>"
+    f"</blockquote>"
             )
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
@@ -666,16 +741,21 @@ def register_handlers(app: Client):
     async def zombie_help_callback(client, callback_query):
         try:
             text = (
-                "╔════════════════════╗\n"
-                "   ⚠️ ZOMBIE REMOVER\n"
-                "╚════════════════════╝\n\n"
-                "Scans and removes all deleted Telegram\n"
-                "accounts from the group.\n\n"
-                "<b>Commands:</b>\n\n"
-                "• /zombie — Scan &amp; remove deleted accounts\n\n"
-                "<b>Notes:</b>\n"
-                "- Bot must be admin with ban permission.\n"
-                "- Only admins can use this command."
+    f"<blockquote expandable>"
+    f"<b>╔════════════════════╗</b>\n"
+    f"<b>⚠️ ᴢᴏᴍʙɪᴇ ʀᴇᴍᴏᴠᴇʀ</b>\n"
+    f"<b>╚════════════════════╝</b>\n\n"
+    
+    f"<b>sᴄᴧɴs ᴧɴᴅ ʀᴇᴍᴏᴠᴇs ᴧʟʟ ᴅᴇʟᴇᴛᴇᴅ ᴛᴇʟᴇɢʀᴧᴍ</b>\n"
+    f"<b>ᴧᴄᴄᴏᴜɴᴛs ғʀᴏᴍ ᴛʜᴇ ɢʀᴏᴜᴘ.</b>\n\n"
+    
+    f"<b>❖ ᴄᴏᴍᴍᴧɴᴅs ❖</b>\n\n"
+    f"<b>➻ /zombie — sᴄᴧɴ &amp; ʀᴇᴍᴏᴠᴇ ᴅᴇʟᴇᴛᴇᴅ ᴧᴄᴄᴏᴜɴᴛs</b>\n\n"
+    
+    f"<b>❖ ɴᴏᴛᴇs ❖</b>\n"
+    f"<b>➻ ʙᴏᴛ ᴍᴜsᴛ ʙᴇ ᴧᴅᴍɪɴ ᴡɪᴛʜ ʙᴧɴ ᴘᴇʀᴍɪssɪᴏɴ</b>\n"
+    f"<b>➻ ᴏɴʟʏ ᴧᴅᴍɪɴs ᴄᴧɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴧɴᴅ</b>"
+    f"</blockquote>"
             )
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
@@ -693,18 +773,23 @@ def register_handlers(app: Client):
     async def tagall_help_callback(client, callback_query):
         try:
             text = (
-                "╔════════════════════════╗\n"
-                "   📢 TAG ALL\n"
-                "╚════════════════════════╝\n\n"
-                "Mention all group members at once.\n\n"
-                "<b>Commands:</b>\n\n"
-                "• /tagall — Mention all members\n"
-                "• /tagall &lt;message&gt; — With custom message\n"
-                "• /stop — Stop tagging immediately\n\n"
-                "<b>Notes:</b>\n"
-                "- Members mentioned in batches of 5.\n"
-                "- Bots and deleted accounts skipped.\n"
-                "- Only admins can use this command."
+    f"<blockquote expandable>"
+    f"<b>╔════════════════════════╗</b>\n"
+    f"<b>📢 ᴛᴧɢ ᴧʟʟ</b>\n"
+    f"<b>╚════════════════════════╝</b>\n\n"
+    
+    f"<b>ᴍᴇɴᴛɪᴏɴ ᴧʟʟ ɢʀᴏᴜᴘ ᴍᴇᴍʙᴇʀs ᴧᴛ ᴏɴᴄᴇ.</b>\n\n"
+    
+    f"<b>❖ ᴄᴏᴍᴍᴧɴᴅs ❖</b>\n\n"
+    f"<b>➻ /tagall — ᴍᴇɴᴛɪᴏɴ ᴧʟʟ ᴍᴇᴍʙᴇʀs</b>\n"
+    f"<b>➻ /tagall &lt;message&gt; — ᴡɪᴛʜ ᴄᴜsᴛᴏᴍ ᴍᴇssᴧɢᴇ</b>\n"
+    f"<b>➻ /stop — sᴛᴏᴘ ᴛᴧɢɢɪɴɢ ɪᴍᴍᴇᴅɪᴧᴛᴇʟʏ</b>\n\n"
+    
+    f"<b>❖ ɴᴏᴛᴇs ❖</b>\n"
+    f"<b>➻ ᴍᴇᴍʙᴇʀs ᴍᴇɴᴛɪᴏɴᴇᴅ ɪɴ ʙᴧᴛᴄʜᴇs ᴏғ 5</b>\n"
+    f"<b>➻ ʙᴏᴛs ᴧɴᴅ ᴅᴇʟᴇᴛᴇᴅ ᴧᴄᴄᴏᴜɴᴛs sᴋɪᴘᴘᴇᴅ</b>\n"
+    f"<b>➻ ᴏɴʟʏ ᴧᴅᴍɪɴs ᴄᴧɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴧɴᴅ</b>"
+    f"</blockquote>"
             )
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
@@ -722,20 +807,28 @@ def register_handlers(app: Client):
     async def promote_help_callback(client, callback_query):
         try:
             text = (
-                "╔══════════════════╗\n"
-                "   👑 PROMOTE SYSTEM\n"
-                "╚══════════════════╝\n\n"
-                "Three levels of promotion:\n\n"
-                "• /promote &lt;user&gt; [title]\n"
-                "  → Standard admin\n\n"
-                "• /mod &lt;user&gt; [title]\n"
-                "  → Moderator role\n\n"
-                "• /fullpromote &lt;user&gt; [title]\n"
-                "  → Full admin (all powers)\n\n"
-                "• /demote &lt;user&gt;\n"
-                "  → Remove admin rights\n\n"
-                "<i>Only admins with Add Admin permission\n"
-                "can use these commands.</i>"
+    f"<blockquote expandable>"
+    f"<b>╔══════════════════╗</b>\n"
+    f"<b>👑 ᴘʀᴏᴍᴏᴛᴇ sʏsᴛᴇᴍ</b>\n"
+    f"<b>╚══════════════════╝</b>\n\n"
+    
+    f"<b>ᴛʜʀᴇᴇ ʟᴇᴠᴇʟs ᴏғ ᴘʀᴏᴍᴏᴛɪᴏɴ:</b>\n\n"
+    
+    f"<b>➻ /promote &lt;user&gt; [title]</b>\n"
+    f"<b>→ sᴛᴧɴᴅᴧʀᴅ ᴧᴅᴍɪɴ</b>\n\n"
+    
+    f"<b>➻ /mod &lt;user&gt; [title]</b>\n"
+    f"<b>→ ᴍᴏᴅᴇʀᴧᴛᴏʀ ʀᴏʟᴇ</b>\n\n"
+    
+    f"<b>➻ /fullpromote &lt;user&gt; [title]</b>\n"
+    f"<b>→ ғᴜʟʟ ᴧᴅᴍɪɴ (ᴧʟʟ ᴘᴏᴡᴇʀs)</b>\n\n"
+    
+    f"<b>➻ /demote &lt;user&gt;</b>\n"
+    f"<b>→ ʀᴇᴍᴏᴠᴇ ᴧᴅᴍɪɴ ʀɪɢʜᴛs</b>\n\n"
+    
+    f"<b><i>ᴏɴʟʏ ᴧᴅᴍɪɴs ᴡɪᴛʜ ᴧᴅᴅ ᴧᴅᴍɪɴ ᴘᴇʀᴍɪssɪᴏɴ</i></b>\n"
+    f"<b><i>ᴄᴧɴ ᴜsᴇ ᴛʜᴇsᴇ ᴄᴏᴍᴍᴧɴᴅs</i></b>"
+    f"</blockquote>"
             )
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
             media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
