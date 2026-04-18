@@ -9,6 +9,7 @@ from pyrogram.types import (
     InlineKeyboardMarkup, InlineKeyboardButton
 )
 from pyrogram.enums import ChatMemberStatus
+from pyrogram import Client, filters, enums
 import db
 import logging
 
@@ -56,7 +57,7 @@ def register_joinrequest_handler(app: Client):
             return await message.reply_text(
                 f"⚙️ Usage: <code>/acceptall on</code> or <code>/acceptall off</code>\n\n"
                 f"📊 Current: {current}",
-                parse_mode="html"
+                parse_mode=enums.ParseMode.HTML
             )
 
         status = parts[1].lower() == "on"
@@ -66,13 +67,13 @@ def register_joinrequest_handler(app: Client):
             await message.reply_text(
                 "✅ <b>Auto Accept ON!</b>\n\n"
                 "All join requests will be approved automatically.",
-                parse_mode="html"
+                parse_mode=enums.ParseMode.HTML
             )
         else:
             await message.reply_text(
                 "⚠️ <b>Auto Accept OFF!</b>\n\n"
                 "Admins will be notified for each join request.",
-                parse_mode="html"
+                parse_mode=enums.ParseMode.HTML
             )
 
 
