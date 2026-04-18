@@ -41,7 +41,7 @@ def register_handlers(app: Client):
                 InlineKeyboardButton("⌯ 𝐔ᴘᴅᴀᴛᴇ ⌯", url=UPDATE_CHANNEL),
             ],
             [
-                InlineKeyboardButton("⌯ 𝐌ʏ 𝐌ᴧsᴛᴇʀ ⌯", url=f"tg://user?id={OWNER_ID}"),
+                InlineKeyboardButton("⌯ 𝐌ʏ 𝐌ᴧsᴛᴇʀ ⌯", url=f"tg://openmessage?user_id={OWNER_ID}"),
                 InlineKeyboardButton("⌯ 𝐌ᴏʀᴇ 𝐁ᴏᴛs ⌯", url=f"https://t.me/Anya_Bots"),
             ],
             [InlineKeyboardButton("⌯ 𝐇єʟᴘ 𝐀ηᴅ 𝐂ᴏᴍᴍᴧηᴅ𝐬 ⌯", callback_data="help")]
