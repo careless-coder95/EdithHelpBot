@@ -40,7 +40,7 @@ def register_handlers(app: Client):
             ],
             [
                 InlineKeyboardButton("※ ŎŴɳēŔ ※", url=f"tg://user?id={OWNER_ID}"),
-                InlineKeyboardButton("Repo", url="https://github.com/careless-coder95/EdithHelpBot"),
+                InlineKeyboardButton("🌍 Language", callback_data="lang_help"),
             ],
             [InlineKeyboardButton("📚 Help Commands 📚", callback_data="help")]
         ])
@@ -801,5 +801,13 @@ def register_handlers(app: Client):
         from handlers.joinrequest import JOINREQUEST_HELP_TEXT
         buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
         media = InputMediaPhoto(media=START_IMAGE, caption=JOINREQUEST_HELP_TEXT, parse_mode=enums.ParseMode.HTML)
+        await callback_query.message.edit_media(media=media, reply_markup=buttons)
+        await callback_query.answer()
+
+    @app.on_callback_query(filters.regex("^lang_help$"))
+    async def lang_help_callback(client, callback_query):
+        from handlers.language import LANGUAGE_HELP_TEXT
+        buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
+        media = InputMediaPhoto(media=START_IMAGE, caption=LANGUAGE_HELP_TEXT, parse_mode=enums.ParseMode.HTML)
         await callback_query.message.edit_media(media=media, reply_markup=buttons)
         await callback_query.answer()
