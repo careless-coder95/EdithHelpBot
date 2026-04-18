@@ -17,6 +17,9 @@ from .zombie import register_zombie_handler
 from .tagall import register_tagall_handler
 from .promote import register_promote_handler
 from .cleaner import register_cleaner_handler
+from .blacklist import register_blacklist_handler
+from .filters import register_filters_handler
+from .joinrequest import register_joinrequest_handler
 
 # andar:
 # andar:
@@ -37,4 +40,7 @@ def register_all_handlers(app):
     register_tagall_handler(app)
     register_promote_handler(app)
     register_cleaner_handler(app)
+    register_blacklist_handler(app)
+    register_filters_handler(app)
+    register_joinrequest_handler(app)
     print("✅ All handlers registered!")
