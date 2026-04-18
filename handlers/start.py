@@ -21,16 +21,16 @@ def register_handlers(app: Client):
     async def send_start_menu(message, user):
         text = (
             f"<blockquote>"
-            f"<b>✨ ʜᴇʏ {{user}} 🤍 ✨</b>\n"
-            f"<b>❍ ɪ’ᴍ ᴇᴅɪᴛʜ 🤖 — ʏᴏᴜʀ sᴍᴧʀᴛ ɢʀᴏᴜᴘ ɢᴜᴧɪᴧɴ.</b>"
+            f"<b>✨ 𝐇ᴇʏ {user} 🤍 </b>\n"
+            f"<b>❍ ɪ’ᴍ 𝙴𝙳𝙸𝚃𝙷 🤖 — ʏᴏᴜʀ sᴍᴧʀᴛ ɢʀᴏᴜᴘ ʜᴇʟᴘ ʙᴏᴛ.</b>"
             f"</blockquote>\n"
             f"<blockquote expandable>"
             f"<b>❖ 𝐇𝐈𝐆𝐇𝐋𝐈𝐆𝐇𝐓𝐒 ❖</b>\n"
-            f"<b>➻ sᴍᴧʀᴛ ᴧɴᴛɪ-sᴘᴧᴍ & ʟɪɴᴋ sʜɪᴇʟᴅ</b>\n"
-            f"<b>➻ ᴧᴅᴧᴘᴛɪᴠᴇ ʟᴏᴄᴋ sʏsᴛᴇᴍ 🔒</b>\n"
+            f"<b>➻ sᴍᴀʀᴛ ᴀɴᴛɪ-sᴘᴀᴍ & ʟɪɴᴋ sʜɪᴇʟᴅ</b>\n"
+            f"<b>➻ ᴀᴅᴀᴘᴛɪᴠᴇ ʟᴏᴄᴋ sʏsᴛᴇᴍ 🔒</b>\n"
             f"<b>➻ ʙɪᴏʟɪɴᴋ ᴘʀᴏᴛᴇᴄᴛɪᴏɴ 🛡️</b>\n"
-            f"<b>➻ ɴᴏᴛᴇs & ʀᴜʟᴇs ᴍᴧɴᴧɢᴇᴍᴇɴᴛ 📌</b>\n"
-            f"<b>✦ ғᴧsᴛ ✦ sᴇᴄᴜʀᴇ ✦ ʀᴇʟɪᴧʙʟᴇ ✦</b>"
+            f"<b>➻ ɴᴏᴛᴇs & ʀᴜʟᴇs ᴍᴀɴᴀɢᴇᴍᴇɴᴛ 📌</b>\n"
+            f"<b>✦ ꜰᴀsᴛ ✦ sᴇᴄᴜʀᴇ ✦ ʀᴇʟɪᴀʙʟᴇ ✦</b>"
             f"</blockquote>"
         )
         )
@@ -84,7 +84,7 @@ def register_handlers(app: Client):
 
             return await message.reply_text(
                 f"╔════════════════════════╗\n"
-                f"   📝 Note: <b>#{name}</b>\n"
+                f"   📝 𝙽𝙾𝚃𝙴: <b>#{name}</b>\n"
                 f"╚════════════════════════╝\n\n"
                 f"{content}",
                 parse_mode=enums.ParseMode.HTML
@@ -156,11 +156,9 @@ def register_handlers(app: Client):
         rows.append(nav)
 
         text = (
-            f"╔══════════════════╗\n"
-            f"     Help Menu\n"
-            f"╚══════════════════╝\n\n"
-            f"Page <b>{page + 1}</b> of <b>{TOTAL_PAGES}</b>\n"
-            f"Choose a category:"
+            f"<b>❖ ᴄʜσσsє ᴛʜє ᴄᴧᴛєɢσʀʏ ғσʀ ᴡʜɪᴄʜ ʏσυ ᴡᴧηηᴧ ɢєᴛ ʜєʟᴩ</b>\n\n"
+            f"<b>➥ ᴧsᴋ ʏσυʀ ᴅσυʙᴛs ᴧᴛ sυᴘᴘσʀᴛ ᴄʜᴧᴛ</b>\n"
+            f"<b>ᴧʟʟ ᴄσϻϻᴧηᴅs ᴄᴧη ʙє υsєᴅ ᴡɪᴛʜ :</b><code>/</code>"
         )
         return text, InlineKeyboardMarkup(rows)
 
