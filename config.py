@@ -19,4 +19,4 @@ BOT_USERNAME = os.getenv("BOT_USERNAME", "YOUR_BOT_USERNAME") # without @
 
 SUPPORT_GROUP = os.getenv("SUPPORT_GROUP", "https://t.me/CarelessxWorld") #YOUR SUPPORT GROUP LINK
 UPDATE_CHANNEL = os.getenv("UPDATE_CHANNEL", "https://t.me/+wQonHdyvZh5mZWM1") #YOUR UPDATE CHANELL LINK
-START_IMAGE = os.getenv("START_IMAGE", "https://files.catbox.moe/676gur.jpg") #YOUR START IMAGE LINK GENERATE FROM CATBOX
+START_IMAGE = os.getenv("START_IMAGE", "https://files.catbox.moe/h6ujtk.jpg") #YOUR START IMAGE LINK GENERATE FROM CATBOX
