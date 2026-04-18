@@ -3,7 +3,7 @@
 # Author: Mr. Stark
 # ============================================================
 
-from pyrogram import Client, filters
+from pyrogram import Client, filters, enums
 from pyrogram.types import Message
 from pyrogram.enums import ChatMemberStatus
 import db
@@ -49,14 +49,14 @@ def register_filters_handler(app: Client):
             return await message.reply_text(
                 "⚙️ Reply to a message or sticker and use:\n"
                 "<code>/filter &lt;keyword&gt;</code>",
-                parse_mode="html"
+                parse_mode=enums.ParseMode.HTML
             )
 
         parts = message.text.split(maxsplit=1)
         if len(parts) < 2:
             return await message.reply_text(
                 "⚙️ Usage: Reply to a message and type <code>/filter &lt;keyword&gt;</code>",
-                parse_mode="html"
+                parse_mode=enums.ParseMode.HTML
             )
 
         keyword = parts[1].strip().lower()
@@ -97,7 +97,7 @@ def register_filters_handler(app: Client):
         await db.set_filter(message.chat.id, keyword, content_type, content, file_id)
         await message.reply_text(
             f"✅ Filter set for keyword: <code>{keyword}</code>",
-            parse_mode="html"
+            parse_mode=enums.ParseMode.HTML
         )
 
 
@@ -112,15 +112,15 @@ def register_filters_handler(app: Client):
 
         parts = message.text.split(maxsplit=1)
         if len(parts) < 2:
-            return await message.reply_text("⚙️ Usage: <code>/stopfilter &lt;keyword&gt;</code>", parse_mode="html")
+            return await message.reply_text("⚙️ Usage: <code>/stopfilter &lt;keyword&gt;</code>", parse_mode=enums.ParseMode.HTML)
 
         keyword = parts[1].strip().lower()
         removed = await db.delete_filter(message.chat.id, keyword)
 
         if removed:
-            await message.reply_text(f"🗑️ Filter for <code>{keyword}</code> removed.", parse_mode="html")
+            await message.reply_text(f"🗑️ Filter for <code>{keyword}</code> removed.", parse_mode=enums.ParseMode.HTML)
         else:
-            await message.reply_text(f"⚠️ No filter found for <code>{keyword}</code>.", parse_mode="html")
+            await message.reply_text(f"⚠️ No filter found for <code>{keyword}</code>.", parse_mode=enums.ParseMode.HTML)
 
 
     # ==========================================================
@@ -137,7 +137,7 @@ def register_filters_handler(app: Client):
         lines = "\n".join(f"• <code>{k}</code> → <i>{v['type']}</i>" for k, v in all_filters.items())
         await message.reply_text(
             f"📝 <b>Active Filters:</b>\n\n{lines}",
-            parse_mode="html"
+            parse_mode=enums.ParseMode.HTML
         )
 
 
