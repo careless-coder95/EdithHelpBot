@@ -142,16 +142,16 @@ def register_handlers(app: Client):
         # Nav row — Prev | Back | Next
         nav = []
         if page > 0:
-            nav.append(InlineKeyboardButton("◀ 𝐏𝐫𝐞𝐯", callback_data=f"helppage_{page - 1}"))
+            nav.append(InlineKeyboardButton("« 𝐏𝐫𝐞𝐯", callback_data=f"helppage_{page - 1}"))
         else:
-            nav.append(InlineKeyboardButton("◀", callback_data="noop"))
+            nav.append(InlineKeyboardButton("«", callback_data="noop"))
 
         nav.append(InlineKeyboardButton("🏠 𝐁𝐚𝐜𝐤", callback_data="back_to_start"))
 
         if page < TOTAL_PAGES - 1:
-            nav.append(InlineKeyboardButton("𝐍𝐞𝐱𝐭 ▶", callback_data=f"helppage_{page + 1}"))
+            nav.append(InlineKeyboardButton("𝐍𝐞𝐱𝐭 »", callback_data=f"helppage_{page + 1}"))
         else:
-            nav.append(InlineKeyboardButton("▶", callback_data="noop"))
+            nav.append(InlineKeyboardButton("»", callback_data="noop"))
 
         rows.append(nav)
 
