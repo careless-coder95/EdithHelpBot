@@ -302,3 +302,14 @@ async def set_acceptall_status(chat_id: int, status: bool):
 async def get_acceptall_status(chat_id: int) -> bool:
     data = await db.joinrequest.find_one({"chat_id": chat_id})
     return bool(data.get("enabled", False)) if data else False
+
+# ==========================================================
+# 👻 Ghost Mode
+# ==========================================================
+
+async def set_ghost_status(chat_id: int, status: bool):
+    await db.ghost.update_one({"chat_id": chat_id}, {"$set": {"enabled": status}}, upsert=True)
+
+async def get_ghost_status(chat_id: int) -> bool:
+    data = await db.ghost.find_one({"chat_id": chat_id})
+    return bool(data.get("enabled", False)) if data else False
