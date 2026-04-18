@@ -33,7 +33,7 @@ def register_handlers(app: Client):
             f"<b>✦ ꜰᴀsᴛ ✦ sᴇᴄᴜʀᴇ ✦ ʀᴇʟɪᴀʙʟᴇ ✦</b>"
             f"</blockquote>"
         )
-        )
+        
         buttons = InlineKeyboardMarkup([
             [InlineKeyboardButton("✙ 𝐀ᴅᴅ 𝐌є 𝐈η 𝐘συʀ 𝐆ʀσυᴘ ✙", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
             [
@@ -42,7 +42,7 @@ def register_handlers(app: Client):
             ],
             [
                 InlineKeyboardButton("⌯ 𝐌ʏ 𝐌ᴧsᴛᴇʀ ⌯", url=f"tg://user?id={OWNER_ID}"),
-                InlineKeyboardButton("🌍 Language", callback_data="lang_help"),
+                InlineKeyboardButton(" ", url=f""),
             ],
             [InlineKeyboardButton("⌯ 𝐇єʟᴘ 𝐀ηᴅ 𝐂ᴏᴍᴍᴧηᴅ𝐬 ⌯", callback_data="help")]
         ])
