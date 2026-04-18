@@ -100,28 +100,28 @@ def register_handlers(app: Client):
     # ==========================================================
 
     ALL_HELP_BUTTONS = [
-        ("⌂ Greetings", "greetings"),
-        ("🔒 Locks", "locks"),
-        ("👮 Moderation", "moderation"),
-        ("🔗 BioLink", "biolink"),
-        ("📝 Notes", "notes_help"),
-        ("📜 Rules", "rules_help"),
-        ("🤬 Abuse", "abuse_help"),
-        ("📢 F-Sub", "fsub_help"),
-        ("📢 Echo", "echo_help"),
-        ("📞 Phone", "phone_help"),
-        ("📄 Long Limit", "longmsg_help"),
-        ("# Hashtag", "hashtag_help"),
-        ("⚙️ Utility", "utility_help"),
-        ("🗑️ Cmd Deleter", "cmd_help"),
-        ("🎬 Media Delete", "mediadelete_help"),
-        ("🧹 Cleaner", "cleaner_help"),
-        ("🧟 Zombie", "zombie_help"),
-        ("📢 Tag All", "tagall_help"),
-        ("👑 Promote", "promote_help"),
-        ("🚫 Blacklist", "blacklist_help"),
-        ("📝 Filters", "filters_help"),
-        ("🤖 Join Request", "joinrequest_help"),
+        ("• 𝐆ʀᴇᴇᴛɪɴɢs •", "greetings"),
+        ("• 𝐋ᴏcᴋs •", "locks"),
+        ("• 𝐌ᴏᴅʀᴀᴛɪᴏɴ •", "moderation"),
+        ("• 𝐁ɪᴏ 𝐋ɪɴᴋ •", "biolink"),
+        ("• 𝐍ᴏᴛᴇs •", "notes_help"),
+        ("• 𝐑ᴜʟᴇs •", "rules_help"),
+        ("• 𝐀ʙᴜsᴇ •", "abuse_help"),
+        ("• 𝐅-𝐒ᴜʙ •", "fsub_help"),
+        ("• 𝐄cʜᴏ •", "echo_help"),
+        ("• 𝐏ʜᴏɴᴇ •", "phone_help"),
+        ("• 𝐋ᴏɴɢ 𝐋ɪᴍɪᴛ •", "longmsg_help"),
+        ("• # 𝐇ᴀsʜᴛᴀɢ •", "hashtag_help"),
+        ("• 𝐔ᴛɪʟɪᴛʏ •", "utility_help"),
+        ("• 𝐂ᴍᴅ 𝐃ᴇʟᴇᴛᴇʀ •", "cmd_help"),
+        ("• 𝐌ᴇᴅɪᴀ 𝐃ᴇʟᴇᴛᴇʀ •", "mediadelete_help"),
+        ("• 𝐂ʟᴇᴀɴᴇʀ •", "cleaner_help"),
+        ("• 𝐙ᴏᴍʙɪᴇs •", "zombie_help"),
+        ("• 𝐓ᴀɢ 𝐀ʟʟ •", "tagall_help"),
+        ("• 𝐏ʀᴏᴍᴏᴛᴇ •", "promote_help"),
+        ("• 𝐁ʟᴀcᴋʟɪsᴛ •", "blacklist_help"),
+        ("• 𝐅ɪʟᴛᴇʀs •", "filters_help"),
+        ("• 𝐉ᴏɪɴ 𝐑ᴇǫᴜᴇsᴛ •", "joinrequest_help"),
     ]
 
     BUTTONS_PER_PAGE = 8
@@ -142,14 +142,14 @@ def register_handlers(app: Client):
         # Nav row — Prev | Back | Next
         nav = []
         if page > 0:
-            nav.append(InlineKeyboardButton("◀ Prev", callback_data=f"helppage_{page - 1}"))
+            nav.append(InlineKeyboardButton("◀ 𝐏𝐫𝐞𝐯", callback_data=f"helppage_{page - 1}"))
         else:
             nav.append(InlineKeyboardButton("◀", callback_data="noop"))
 
-        nav.append(InlineKeyboardButton("🏠 Back", callback_data="back_to_start"))
+        nav.append(InlineKeyboardButton("🏠 𝐁𝐚𝐜𝐤", callback_data="back_to_start"))
 
         if page < TOTAL_PAGES - 1:
-            nav.append(InlineKeyboardButton("Next ▶", callback_data=f"helppage_{page + 1}"))
+            nav.append(InlineKeyboardButton("𝐍𝐞𝐱𝐭 ▶", callback_data=f"helppage_{page + 1}"))
         else:
             nav.append(InlineKeyboardButton("▶", callback_data="noop"))
 
@@ -237,7 +237,7 @@ def register_handlers(app: Client):
         )
 
         
-        buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
+        buttons = InlineKeyboardMarkup([[InlineKeyboardButton("", callback_data="help")]])
         media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
         await callback_query.message.edit_media(media=media, reply_markup=buttons)
         await callback_query.answer()
