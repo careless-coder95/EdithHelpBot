@@ -42,7 +42,7 @@ def register_handlers(app: Client):
             ],
             [
                 InlineKeyboardButton("⌯ 𝐌ʏ 𝐌ᴧsᴛᴇʀ ⌯", url=f"tg://user?id={OWNER_ID}"),
-                InlineKeyboardButton(" ", url=f""),
+                InlineKeyboardButton("⌯ 𝐌ᴏʀᴇ 𝐁ᴏᴛs ⌯", url=f"https://t.me/Anya_Bots"),
             ],
             [InlineKeyboardButton("⌯ 𝐇єʟᴘ 𝐀ηᴅ 𝐂ᴏᴍᴍᴧηᴅ𝐬 ⌯", callback_data="help")]
         ])
@@ -108,14 +108,14 @@ def register_handlers(app: Client):
         ("📑 𝐑ᴜʟᴇs ⌯", "rules_help"),
         ("🤬 𝐀ʙᴜsᴇ ⌯", "abuse_help"),
         ("🪠 𝐅-𝐒ᴜʙ ⌯", "fsub_help"),
-        ("🚧 𝐄cʜᴏ ⌯", "echo_help"),
-        ("📵 𝐏ʜᴏɴᴇ ⌯", "phone_help"),
+        ("⚙️ 𝐔ᴛɪʟɪᴛʏ ⌯", "utility_help"),
+        ("🧴 𝐂ʟᴇᴀɴᴇʀ ⌯", "cleaner_help"),
         ("⌛ 𝐋ᴏɴɢ 𝐋ɪᴍɪᴛ ⌯", "longmsg_help"),
         ("#️⃣ 𝐇ᴀsʜᴛᴀɢ ⌯", "hashtag_help"),
-        ("⚙️ 𝐔ᴛɪʟɪᴛʏ ⌯", "utility_help"),
+        ("🚧 𝐄cʜᴏ ⌯", "echo_help"),
         ("🗑️ 𝐂ᴍᴅ 𝐃ᴇʟᴇᴛᴇʀ ⌯", "cmd_help"),
         ("🚮 𝐌ᴇᴅɪᴀ 𝐃ᴇʟᴇᴛᴇʀ ⌯", "mediadelete_help"),
-        ("🧴 𝐂ʟᴇᴀɴᴇʀ ⌯", "cleaner_help"),
+        ("📵 𝐏ʜᴏɴᴇ ⌯", "phone_help"),
         ("🧟 𝐙ᴏᴍʙɪᴇs ⌯", "zombie_help"),
         ("🔖 𝐓ᴀɢ 𝐀ʟʟ ⌯", "tagall_help"),
         ("👮🏻 𝐏ʀᴏᴍᴏᴛᴇ ⌯", "promote_help"),
