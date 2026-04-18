@@ -20,17 +20,19 @@ def register_handlers(app: Client):
     # ==========================================================
     async def send_start_menu(message, user):
         text = (
-            f"\n   ✨ Hello {user}! ✨\n\n"
-            f"👋 I am Edith 🤖\n\n"
-            f"Highlights:\n"
-            f"─────────────────────────────\n"
-            f"- Smart Anti-Spam &amp; Link Shield\n"
-            f"- Adaptive Lock System (URLs, Media, Text &amp; more)\n"
-            f"- BioLink Protection System\n"
-            f"- Notes &amp; Rules Management\n"
-            f"- Modular &amp; Scalable Protection\n"
-            f"- Sleek UI with Inline Controls\n\n"
-            f"» More New Features coming soon ..."
+            f"<blockquote>"
+            f"<b>✨ ʜᴇʏ {{user}} 🤍 ✨</b>\n"
+            f"<b>❍ ɪ’ᴍ ᴇᴅɪᴛʜ 🤖 — ʏᴏᴜʀ sᴍᴧʀᴛ ɢʀᴏᴜᴘ ɢᴜᴧɪᴧɴ.</b>"
+            f"</blockquote>\n"
+            f"<blockquote expandable>"
+            f"<b>❖ 𝐇𝐈𝐆𝐇𝐋𝐈𝐆𝐇𝐓𝐒 ❖</b>\n"
+            f"<b>➻ sᴍᴧʀᴛ ᴧɴᴛɪ-sᴘᴧᴍ & ʟɪɴᴋ sʜɪᴇʟᴅ</b>\n"
+            f"<b>➻ ᴧᴅᴧᴘᴛɪᴠᴇ ʟᴏᴄᴋ sʏsᴛᴇᴍ 🔒</b>\n"
+            f"<b>➻ ʙɪᴏʟɪɴᴋ ᴘʀᴏᴛᴇᴄᴛɪᴏɴ 🛡️</b>\n"
+            f"<b>➻ ɴᴏᴛᴇs & ʀᴜʟᴇs ᴍᴧɴᴧɢᴇᴍᴇɴᴛ 📌</b>\n"
+            f"<b>✦ ғᴧsᴛ ✦ sᴇᴄᴜʀᴇ ✦ ʀᴇʟɪᴧʙʟᴇ ✦</b>"
+            f"</blockquote>"
+        )
         )
         buttons = InlineKeyboardMarkup([
             [InlineKeyboardButton("⚒️ Add to Group ⚒️", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
@@ -216,21 +218,25 @@ def register_handlers(app: Client):
     @app.on_callback_query(filters.regex("^greetings$"))
     async def greetings_callback(client, callback_query):
         text = (
-            "╔══════════════════╗\n"
-            "    ⚙ Welcome System\n"
-            "╚══════════════════╝\n\n"
-            "<b>Commands:</b>\n\n"
-            "• /setwelcome &lt;text&gt; — Set custom welcome\n"
-            "• /welcome on — Enable welcome\n"
-            "• /welcome off — Disable welcome\n\n"
-            "<b>Placeholders:</b>\n"
-            "<code>{username}</code>   — Telegram username\n"
-            "<code>{first_name}</code> — User's first name\n"
-            "<code>{mention}</code>    — Mention user\n"
-            "<code>{title}</code>      — Group title\n\n"
-            "<b>Example:</b>\n"
-            "<code>/setwelcome Hello {first_name}! Welcome to {title}!</code>"
+            f"<b>╔══════════════════╗</b>\n"
+            f"<b>⚙ ᴡᴇʟᴄᴏᴍᴇ sʏsᴛᴇᴍ</b>\n"
+            f"<b>╚══════════════════╝</b>\n\n"
+    
+            f"<b>❖ ᴄᴏᴍᴍᴧɴᴅs ❖</b>\n\n"
+            f"<b>➻ /sᴇᴛᴡᴇʟᴄᴏᴍᴇ &lt;ᴛᴇxᴛ&gt; — sᴇᴛ ᴄᴜsᴛᴏᴍ ᴡᴇʟᴄᴏᴍᴇ</b>\n"
+            f"<b>➻ /ᴡᴇʟᴄᴏᴍᴇ ᴏɴ — ᴇɴᴧʙʟᴇ ᴡᴇʟᴄᴏᴍᴇ</b>\n"
+            f"<b>➻ /ᴡᴇʟᴄᴏᴍᴇ ᴏғғ — ᴅɪsᴧʙʟᴇ ᴡᴇʟᴄᴏᴍᴇ</b>\n\n"
+            f"<b>❖ ᴘʟᴧᴄᴇʜᴏʟᴅᴇʀs ❖</b>\n"
+            f"<b><code>{{username}}</code> — ᴛᴇʟᴇɢʀᴧᴍ ᴜsᴇʀɴᴧᴍᴇ</b>\n"
+            f"<b><code>{{first_name}}</code> — ᴜsᴇʀ's ғɪʀsᴛ ɴᴧᴍᴇ</b>\n"
+            f"<b><code>{{mention}}</code> — ᴍᴇɴᴛɪᴏɴ ᴜsᴇʀ</b>\n"
+            f"<b><code>{{title}}</code> — ɢʀᴏᴜᴘ ᴛɪᴛʟᴇ</b>\n\n"
+    
+            f"<b>❖ ᴇxᴧᴍᴘʟᴇ ❖</b>\n"
+            f"<b><code>/sᴇᴛᴡᴇʟᴄᴏᴍᴇ ʜᴇʟʟᴏ {{first_name}}! ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ {{title}}!</code></b>"
         )
+
+        
         buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back", callback_data="help")]])
         media = InputMediaPhoto(media=START_IMAGE, caption=text, parse_mode=enums.ParseMode.HTML)
         await callback_query.message.edit_media(media=media, reply_markup=buttons)
