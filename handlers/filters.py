@@ -20,7 +20,7 @@ async def is_power(client, chat_id: int, user_id: int) -> bool:
 FILTERS_HELP_TEXT = (
     f"<blockquote expandable>"
     f"<b>╔══════════════════╗</b>\n"
-    f"<b>📝 ғɪʟᴛᴇʀs</b>\n"
+    f"<b>   📝 ғɪʟᴛᴇʀs</b>\n"
     f"<b>╚══════════════════╝</b>\n\n"
     
     f"<b>❖ ᴄᴏᴍᴍᴧɴᴅs ❖</b>\n\n"
