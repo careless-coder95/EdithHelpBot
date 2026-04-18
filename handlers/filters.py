@@ -18,21 +18,27 @@ async def is_power(client, chat_id: int, user_id: int) -> bool:
 
 
 FILTERS_HELP_TEXT = (
-    "╔══════════════════╗\n"
-    "   📝 FILTERS\n"
-    "╚══════════════════╝\n\n"
-    "<b>Commands:</b>\n\n"
-    "• /filter &lt;keyword&gt;\n"
-    "  Reply to a message/sticker to set\n"
-    "  auto-reply for that keyword.\n\n"
-    "• /stopfilter &lt;keyword&gt;\n"
-    "  Remove a filter.\n\n"
-    "• /filters\n"
-    "  List all active filters.\n\n"
-    "🌟 Automate replies and make your\n"
-    "group more interactive."
+    f"<blockquote expandable>"
+    f"<b>╔══════════════════╗</b>\n"
+    f"<b>📝 ғɪʟᴛᴇʀs</b>\n"
+    f"<b>╚══════════════════╝</b>\n\n"
+    
+    f"<b>❖ ᴄᴏᴍᴍᴧɴᴅs ❖</b>\n\n"
+    
+    f"<b>➻ /filter &lt;keyword&gt;</b>\n"
+    f"<b>➻ ʀᴇᴘʟʏ ᴛᴏ ᴧ ᴍᴇssᴧɢᴇ / sᴛɪᴄᴋᴇʀ ᴛᴏ sᴇᴛ</b>\n"
+    f"<b>➻ ᴧᴜᴛᴏ-ʀᴇᴘʟʏ ғᴏʀ ᴛʜᴧᴛ ᴋᴇʏᴡᴏʀᴅ</b>\n\n"
+    
+    f"<b>➻ /stopfilter &lt;keyword&gt;</b>\n"
+    f"<b>➻ ʀᴇᴍᴏᴠᴇ ᴧ ғɪʟᴛᴇʀ</b>\n\n"
+    
+    f"<b>➻ /filters</b>\n"
+    f"<b>➻ ʟɪsᴛ ᴧʟʟ ᴧᴄᴛɪᴠᴇ ғɪʟᴛᴇʀs</b>\n\n"
+    
+    f"<b>➻ 🌟 ᴧᴜᴛᴏᴍᴧᴛᴇ ʀᴇᴘʟɪᴇs ᴧɴᴅ ᴍᴧᴋᴇ ʏᴏᴜʀ</b>\n"
+    f"<b>➻ ɢʀᴏᴜᴘ ᴍᴏʀᴇ ɪɴᴛᴇʀᴧᴄᴛɪᴠᴇ</b>"
+    f"</blockquote>"
 )
-
 
 def register_filters_handler(app: Client):
 
