@@ -257,3 +257,48 @@ async def get_cleandelay(chat_id: int) -> int:
     data = await db.cleaner.find_one({"chat_id": chat_id})
     return data.get("delay", 300) if data else 300
 
+
+# ==========================================================
+# 🚫 BLACKLIST 
+# ==========================================================
+
+async def add_blacklist_word(chat_id: int, word: str):
+    await db.blacklist.update_one({"chat_id": chat_id}, {"$addToSet": {"words": word}}, upsert=True)
+
+async def remove_blacklist_word(chat_id: int, word: str) -> bool:
+    result = await db.blacklist.update_one({"chat_id": chat_id}, {"$pull": {"words": word}})
+    return result.modified_count > 0
+
+async def get_blacklist(chat_id: int) -> list:
+    data = await db.blacklist.find_one({"chat_id": chat_id})
+    return data.get("words", []) if data else []
+
+# ==========================================================
+# 🔮 Filters
+# ==========================================================
+
+async def set_filter(chat_id: int, keyword: str, content_type: str, content: str, file_id: str):
+    await db.filters.update_one(
+        {"chat_id": chat_id},
+        {"$set": {f"filters.{keyword}": {"type": content_type, "content": content, "file_id": file_id}}},
+        upsert=True
+    )
+
+async def delete_filter(chat_id: int, keyword: str) -> bool:
+    result = await db.filters.update_one({"chat_id": chat_id}, {"$unset": {f"filters.{keyword}": ""}})
+    return result.modified_count > 0
+
+async def get_all_filters(chat_id: int) -> dict:
+    data = await db.filters.find_one({"chat_id": chat_id})
+    return data.get("filters", {}) if data else {}
+
+# ==========================================================
+# 👭 Join Request 
+# ==========================================================
+
+async def set_acceptall_status(chat_id: int, status: bool):
+    await db.joinrequest.update_one({"chat_id": chat_id}, {"$set": {"enabled": status}}, upsert=True)
+
+async def get_acceptall_status(chat_id: int) -> bool:
+    data = await db.joinrequest.find_one({"chat_id": chat_id})
+    return bool(data.get("enabled", False)) if data else False
