@@ -20,14 +20,18 @@ async def is_power(client, chat_id: int, user_id: int) -> bool:
 
 
 BLACKLIST_HELP_TEXT = (
-    "╔══════════════════╗\n"
-    "   🚫 BLACKLIST\n"
-    "╚══════════════════╝\n\n"
-    "<b>Commands:</b>\n\n"
-    "• /addblack &lt;word&gt; — Add word to blacklist\n"
-    "• /rmblack &lt;word&gt;  — Remove from blacklist\n"
-    "• /blacklist         — List all blacklisted words\n\n"
-    "🌟 Keep your group clean and safe."
+    f"<blockquote expandable>"
+    f"<b>╔══════════════════╗</b>\n"
+    f"<b>🚫 ʙʟᴧᴄᴋʟɪsᴛ</b>\n"
+    f"<b>╚══════════════════╝</b>\n\n"
+    
+    f"<b>❖ ᴄᴏᴍᴍᴧɴᴅs ❖</b>\n\n"
+    f"<b>➻ /addblack &lt;word&gt; — ᴧᴅᴅ ᴡᴏʀᴅ ᴛᴏ ʙʟᴧᴄᴋʟɪsᴛ</b>\n"
+    f"<b>➻ /rmblack &lt;word&gt; — ʀᴇᴍᴏᴠᴇ ғʀᴏᴍ ʙʟᴧᴄᴋʟɪsᴛ</b>\n"
+    f"<b>➻ /blacklist — ʟɪsᴛ ᴧʟʟ ʙʟᴧᴄᴋʟɪsᴛᴇᴅ ᴡᴏʀᴅs</b>\n\n"
+    
+    f"<b>➻ 🌟 ᴋᴇᴇᴘ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴄʟᴇᴧɴ ᴧɴᴅ sᴧғᴇ</b>"
+    f"</blockquote>"
 )
 
 
