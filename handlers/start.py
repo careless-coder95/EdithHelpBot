@@ -118,10 +118,11 @@ def register_handlers(app: Client):
         ("📵 𝐏ʜᴏɴᴇ ⌯", "phone_help"),
         ("🧟 𝐙ᴏᴍʙɪᴇs ⌯", "zombie_help"),
         ("🔖 𝐓ᴀɢ 𝐀ʟʟ ⌯", "tagall_help"),
-        ("👮🏻 𝐏ʀᴏᴍᴏᴛᴇ ⌯", "promote_help"),
+        ("👻 𝐆ʜᴏsᴛ ⌯", "ghost_help"),
         ("🚫 𝐁ʟᴀcᴋʟɪsᴛ ⌯", "blacklist_help"),
         ("🤿 𝐅ɪʟᴛᴇʀs ⌯", "filters_help"),
         ("⛩️ 𝐉ᴏɪɴ 𝐑ᴇǫᴜᴇsᴛ ⌯", "joinrequest_help"),
+        ("👮🏻 𝐏ʀᴏᴍᴏᴛɪᴏɴ ⌯", "promote_help"),
     ]
 
     BUTTONS_PER_PAGE = 8
@@ -908,3 +909,11 @@ def register_handlers(app: Client):
         await callback_query.message.edit_media(media=media, reply_markup=buttons)
         await callback_query.answer()
 
+
+    @app.on_callback_query(filters.regex("^ghost_help$"))
+    async def ghost_help_callback(client, callback_query):
+        from handlers.ghost import GHOST_HELP_TEXT
+        buttons = InlineKeyboardMarkup([[InlineKeyboardButton("⌯ 𝐁𝐚𝐜𝐤 ⌯", callback_data="help")]])
+        media = InputMediaPhoto(media=START_IMAGE, caption=GHOST_HELP_TEXT, parse_mode=enums.ParseMode.HTML)
+        await callback_query.message.edit_media(media=media, reply_markup=buttons)
+        await callback_query.answer()
